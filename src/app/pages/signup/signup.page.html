@@ -1,0 +1,86 @@
+<ion-content [fullscreen]="true" no-scroll padding>
+  <div id="container">
+    <ion-grid fixed class="ion-align-items-center">
+      <ion-row>
+        <ion-col size="12">
+          <ion-avatar>
+            <img src="/assets/logo/umot-logo.svg" />
+          </ion-avatar> 
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <br>
+          <ion-text color="light"><b>Enter your Email<br>&<br> Choose a Password</b></ion-text>
+          <div class="ion-padding"></div>
+        </ion-col>
+      </ion-row>
+      <ion-card-content>
+        <form [formGroup]="signupForm" (keyup.enter)="onSubmit()" (ngSubmit)="onSubmit()">
+
+          <ion-row>
+            <ion-col size="12">
+                <ion-item>
+                  <ion-label position="floating">Email</ion-label>
+                  <ion-input required formControlName="email" type="email"></ion-input>
+                </ion-item>     
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item class="traansparent" *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" lines="none">
+                <ion-text color="danger" class="form-error">
+                  Please enter a valid email address.
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item>
+                <ion-label position="floating">Password
+                </ion-label>
+                <ion-input required formControlName="password" type="password"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item class="traansparent" *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched" lines="none">
+                <ion-text color="danger" class="form-error">
+                  Please enter a valid password
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-button type="submit" expand="block" color="danger" [disabled]="signupForm.invalid" shape="round">
+                Continue
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-buttons>
+            <ion-back-button color="light" defaultHref="login"></ion-back-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+
+<ion-footer class="ion-no-border">
+  <ion-text  class="ion-text-center text" color="medium">
+    <p>by Registering at UMOT, you accept our <a href="https://google.com">Terms of Service and Privacy Policy</a></p>
+  </ion-text>
+</ion-footer>

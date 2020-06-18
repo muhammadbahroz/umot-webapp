@@ -1,0 +1,90 @@
+<ion-content>
+
+  <br>
+
+  <ion-item lines='none'>
+    <ion-avatar>
+      <img class="logo" src="/assets/logo/umot-logo.svg" />
+    </ion-avatar>
+    
+    <div class="top-home-button">
+      <ion-button expand="block" fill="clear" color="light">
+        Home
+      </ion-button>
+    </div>
+    
+    <div class="top-premium-button">
+      <ion-button expand="block" fill="clear" color="light">
+        Premium
+      </ion-button>
+    </div>
+
+
+    <div class="search">
+      <ion-input #moviesearch color="medium" type="text" placeholder="search"  (change)="search(moviesearch.value)">
+        <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
+      </ion-input>
+    </div>
+    
+    <div class="login-button">
+      <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="height: 38px; width: 150px;">
+        Login
+      </ion-button>
+    </div>
+  </ion-item>
+
+  <div class="searched-movies">
+    
+    <br>
+    <br>
+    <div class="ion-padding"></div>
+
+    <ion-label color="light"><b>All Resuts</b></ion-label>
+
+    <br>
+  </div>
+
+  <div class="searched-movies-list">
+    <ion-list>
+
+      <ion-item *ngFor="let movie of movies">
+        <ion-thumbnail class="thumbnail">
+            <img [src] = "movie.img"/>
+        </ion-thumbnail>
+        <ion-item lines = "none">
+            <ion-text color="light">
+                <h3 style="margin-top: 1px;">{{ movie.title }}</h3>
+                <p style="font-size: 15px;">{{ movie.release_date }}</p>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                          <ion-thumbnail class="platform">
+                            <img src="/assets/platforms/HBO.svg"/>
+                        </ion-thumbnail>
+                    </ion-col>
+                    <ion-col>
+                      <ion-thumbnail class="platform">
+                        <img src="/assets/platforms/Netflix.svg"/>
+                      </ion-thumbnail>
+                    </ion-col>
+                    <ion-col>
+                      <ion-thumbnail class="platform">
+                        <img src="/assets/platforms/Prime video.svg"/>
+                    </ion-thumbnail>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-text>
+        </ion-item>
+      </ion-item>
+      <br>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-text  class="ion-text-center text" color="medium">
+    <p>by Registering at UMOT, you accept our <a href="https://google.com">Terms of Service and Privacy Policy</a></p>
+  </ion-text>
+</ion-footer>

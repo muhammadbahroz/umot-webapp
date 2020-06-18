@@ -1,0 +1,63 @@
+ion-content {
+    --ion-background-color: #1C1A3B;
+  }
+
+.logo{
+    margin-left: 100px;
+    border-radius: 0px;
+    height: auto;
+}
+
+.top-home-button{
+    margin-left: 150px;
+}
+
+.top-premium-button{
+    margin-left: 50px;
+}
+
+.search{
+    background-color:  #ffffff;
+    margin-left: 700px; 
+    width: 250px;
+}
+
+ion-input{
+    
+    width: 250px;
+    --border-radius: 3px;
+    //text-transform: inherit;
+}
+
+.login-button{
+    margin-left: 20px;
+    width: 150px;
+}
+
+.searched-movies{
+    margin-left: 120px;
+}
+
+.searched-movies-list{
+    margin-left: 100px;
+}
+
+.thumbnail{
+    --border-radius: 0%;
+    //--size: 50%;
+    height: 100px;
+    width: 70px;
+}
+
+.platform{
+    --border-radius: 0%;
+    height: fit-content;
+    //width: fit-content;
+    min-width: max-content;
+}
+
+ion-item{
+    --border-color: #ffff;
+    margin-right: 130px;
+}
+

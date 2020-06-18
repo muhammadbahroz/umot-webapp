@@ -1,0 +1,7 @@
+{
+  "name": "umot-webapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

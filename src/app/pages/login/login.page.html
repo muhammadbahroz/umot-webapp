@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true" no-scroll padding>
+  <div id="container">  
+      <ion-grid fixed class="ion-align-items-center">
+        <ion-row>
+          <ion-col size="12">
+            <ion-avatar>
+              <img src="/assets/logo/umot-logo.svg" />
+            </ion-avatar> 
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <br>
+            <ion-text color="light"><b>Let us Begin</b></ion-text>
+            <div class="ion-padding"></div>
+            <br>
+            <br>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button color="light">
+              <ion-icon color="primary" slot="start" name="logo-facebook"></ion-icon>
+              <b>Sign up with Facebook</b>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button color="light">
+              <ion-icon class="google" name="logo-google"></ion-icon>
+              <b>Sign up with Google</b>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button color="danger" [routerLink]="['/signup']" routerLinkActive="router-link-active" >
+              <b>Sign up with Email</b>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-text color="light">
+              <p>
+                <ion-text class="text">I already have an account,</ion-text><a [routerLink]="['signin']"> <ion-text class="text" color="danger"> SignIn</ion-text></a>
+              </p>
+            </ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-grid>  
+    
+
+    <!-- <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
+  </div>
+  
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-text  class="ion-text-center text" color="medium">
+    <p>by Registering at UMOT, you accept our <a href="https://google.com">Terms of Service and Privacy Policy</a></p>
+  </ion-text>
+</ion-footer>
