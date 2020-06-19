@@ -11,7 +11,7 @@ export class SearchService {
   sendGETRequestWithParameters(query: string){
     let params = new HttpParams();
     params = params.append('query', query);
-    return this.httpClient.get('http://18.222.13.116:5000/movie/search', {params: params});
+    return this.httpClient.get('http://18.222.13.116:5000/movie/search/all', {params});
   }
 
 }
