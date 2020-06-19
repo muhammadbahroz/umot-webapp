@@ -11,7 +11,7 @@ export class MenuSearchComponent implements OnInit {
   constructor(private searchService: SearchService) { }
   movies: any;
   ngOnInit() {
-    this.search('hello');
+    //this.search('hello');
   }
 
   search(input: string){
