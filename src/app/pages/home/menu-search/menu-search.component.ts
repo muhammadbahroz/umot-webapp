@@ -23,4 +23,5 @@ export class MenuSearchComponent implements OnInit {
       console.log(this.movies);
     });
   }
+
 }
