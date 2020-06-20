@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-menu-search',
@@ -7,15 +8,21 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./menu-search.component.scss'],
 })
 export class MenuSearchComponent implements OnInit {
+  searchValue: string;
 
-  constructor(private searchService: SearchService) { }
+  constructor(
+    private searchService: SearchService,
+    private route: ActivatedRoute) {
+      this.searchValue = this.route.snapshot.paramMap.get('search');
+    }
+
   movies: any;
   ngOnInit() {
-    this.search('hello');
+    this.search();
   }
 
-  search(input: string){
-    this.searchService.sendGETRequestWithParameters(input).subscribe((result: any) => {
+  search(){
+    this.searchService.sendGETRequestWithParameters(this.searchValue).subscribe((result: any) => {
       this.movies = JSON.parse(result.data);
       this.movies = this.movies.slice(0, 10);
       this.movies.forEach(movie => {
