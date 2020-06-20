@@ -14,26 +14,9 @@
   "private": true,
   "dependencies": {
     "@angular-devkit/build-angular": "~0.901.5",
-    "@angular/language-service": "~9.1.6",
     "@capacitor/cli": "2.1.1",
-    "@ionic/angular-toolkit": "^2.1.1",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^5.1.2",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~5.0.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~3.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "protractor": "^7.0.0",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
     "@angular/cli": "~9.1.5",
     "@angular/common": "~9.1.6",
-    "@ionic/cli": "~6.9.2",
     "@angular/compiler": "~9.1.6",
     "@angular/compiler-cli": "~9.1.6",
     "@angular/core": "~9.1.6",
@@ -53,14 +36,30 @@
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "typescript": "~3.8.3",
-    "node": "~12.16.1",
-    "body-parser": "^1.19.0",
-    "zone.js": "~0.10.2"
-    
-    
+    "node": "~12.16.1"
+     
   },
 
   "devDependencies": {
+    "@types/jasmine": "~3.5.0",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^5.1.2",
+    "jasmine-core": "~3.5.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~5.0.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~2.1.0",
+    "karma-jasmine": "~3.0.1",
+    "karma-jasmine-html-reporter": "^1.4.2",
+    "protractor": "^7.0.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "body-parser": "^1.19.0",
+    "zone.js": "~0.10.2",
+    "@ionic/cli": "~6.9.2",
+    "@ionic/angular-toolkit": "^2.1.1",
+    "@angular/language-service": "~9.1.6"
   },
   "description": "An Ionic project"
 }
