@@ -64,24 +64,24 @@
                   <p style="font-size: 15px;">{{ movie.release_date }}</p>
                   <ion-grid>
                     <ion-row>
-                      <ion-col  *ngIf = "movie.providers[0]">
+                      <ion-col *ngIf = "movie.providers[0]">
                             <ion-thumbnail class="platform">
-                              <img src="/assets/platforms/HBO.svg"/>
+                              <img class="provider-icon" src="/assets/platforms/HBO.svg"/>
                           </ion-thumbnail>
                       </ion-col>
                       <ion-col *ngIf = "movie.providers[1]">
                         <ion-thumbnail class="platform">
-                          <img src="/assets/platforms/Netflix.svg"/>
+                          <img class="provider-icon" src="/assets/platforms/Netflix.svg"/>
                         </ion-thumbnail>
                       </ion-col>
                       <ion-col *ngIf = "movie.providers[2]">
                         <ion-thumbnail class="platform">
-                          <img src="/assets/platforms/Prime video.svg"/>
+                          <img class="provider-icon" src="/assets/platforms/Prime video.svg"/>
                       </ion-thumbnail>
                       </ion-col>
                       <ion-col *ngIf = "movie.providers[3]">
                         <ion-thumbnail class="platform">
-                          <img src="/assets/platforms/Apple TV.svg"/>
+                          <img class="provider-icon" src="/assets/platforms/Apple TV.svg"/>
                         </ion-thumbnail>
                       </ion-col>
                     </ion-row>
