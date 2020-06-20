@@ -22,7 +22,7 @@ ion-footer {
 
 .search{
     background-color:  #ffffff;
-    margin-left: 350px; 
+    margin-left: 390px; 
     width: 250px;
     margin-top: 5px;
 }
@@ -50,15 +50,17 @@ ion-input{
 .thumbnail{
     --border-radius: 0%;
     //--size: 50%;
-    height: 155px;
-    width: 100px;
+    height: 170px;
+    width: 120px;
 }
 
 .platform{
     --border-radius: 5%;
-    height: fit-content;
-    //width: fit-content;
-    min-width: max-content;
+    height: 3em;
+    width: fit-content;
+    display: block;
+    //position: relative;
+    //min-width: max-content;
 }
 
 ion-item{

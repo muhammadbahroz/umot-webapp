@@ -1,3 +1,95 @@
-<p>
-  privacy-policy works!
-</p>
+<ion-header>
+  <!-- Header  -->
+  <ion-item lines='none'>
+    <ion-avatar>
+      <img class="logo" src="/assets/logo/umot-logo.svg" />
+    </ion-avatar>
+    <!-- HOME BUTTON -->
+    <div class="top-home-button">
+      <ion-button expand="block" fill="clear" color="light">
+        Home
+      </ion-button>
+    </div>
+    <!-- PREMIUM BUTTON -->
+    <div class="top-premium-button">
+      <ion-button expand="block" fill="clear" color="light">
+        Premium
+      </ion-button>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <ion-grid style="min-width: -webkit-fill-available;">
+      <ion-row>
+        <ion-col size="6">
+          <div class="search">
+          <ion-input #moviesearch color="medium" type="text" placeholder="search" (change)="search(moviesearch.value)">
+            <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
+          </ion-input>
+        </div>
+      </ion-col>
+      
+      <!-- LOGIN BUTTON -->
+      <ion-col size="6">      
+      <ion-item class="login-button" lines="none">
+        <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 38px;" >
+          Login
+        </ion-button>
+      </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-header>
+
+<ion-content>
+  
+  <p>PRIVACY POLICY WILL BE ADDED SOON</p>
+    
+
+</ion-content>
+
+<!-- FOOTER -->
+<ion-footer class="ion-no-border">
+  <!-- <br> -->
+  <!-- <br> -->
+  
+  <ion-grid fixed>
+      <!-- FAQ -->
+      <ion-row class="row-space">
+          <ion-col size="9">
+          <p><a class="footer" [routerLink]="['/login']">How can i use UMOT?</a></p>
+          </ion-col>
+      </ion-row>
+      
+      <!-- PRIVACY POLICY  -->
+      <ion-row class="row-space">
+          <ion-col size="10">
+          <p><a [routerLink]="['/login']" class="footer">Privacy and cookies Policy</a></p>
+          </ion-col>
+          
+          <!-- FEEDBACK BUTTON -->
+          <ion-col size="2">
+          <ion-button expand="block" fill="outline" style="color: #979797; --border-color: #979797;">
+              <ion-icon class="feedback-icon" name="chatbubbles-outline"></ion-icon>
+              Feedback
+          </ion-button>
+          </ion-col>
+      </ion-row>
+
+      <ion-row class="row-space">
+          <!-- COPYRIGHT -->
+          <ion-col size="10">
+              <p class="footer">© UMOT movies</p>
+          </ion-col>
+          <!-- SOCIAL MEDIA LOGOS -->
+          <ion-col size="2">
+              <ion-icon style="margin-left: 6px;" class="social-icons" name="logo-facebook"></ion-icon>
+              <ion-icon class="social-icons" name="logo-instagram"></ion-icon>
+              <ion-icon class="social-icons" name="logo-twitter"></ion-icon>
+              <ion-icon class="social-icons" name="logo-linkedin"></ion-icon>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+
+  <br>
+</ion-footer>
