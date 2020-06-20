@@ -12,6 +12,10 @@ const routes: Routes = [
     component: HomePage
   },
   {
+    path: 'menu-search/:id',
+    component: MenuSearchComponent
+  },
+  {
     path: 'menu-search',
     component: MenuSearchComponent
   },

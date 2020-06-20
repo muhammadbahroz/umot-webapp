@@ -8,7 +8,7 @@
     </ion-avatar>
     <!-- HOME BUTTON -->
     <div class="top-home-button">
-      <ion-button expand="block" fill="clear" color="light">
+      <ion-button [routerLink]="['/home']" expand="block" fill="clear" color="light">
         Home
       </ion-button>
     </div>
@@ -162,13 +162,13 @@
   <ion-grid fixed>
     <ion-row class="row-space">
       <ion-col size="9">
-        <p><a class="footer" [routerLink]="['/login']">How can i use UMOT?</a></p>
+        <p><a class="footer" [routerLink]="['home/faq']">How can i use UMOT?</a></p>
       </ion-col>
     </ion-row>
     <!-- PRIVACY POLICY  -->
     <ion-row class="row-space">
       <ion-col size="10">
-        <p><a [routerLink]="['/login']" class="footer">Privacy and cookies Policy</a></p>
+        <p><a [routerLink]="['home/privacy-policy']" class="footer">Privacy and cookies Policy</a></p>
       </ion-col>
       <!-- FEEDBACK BUTTON -->
       <ion-col size="2">

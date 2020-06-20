@@ -13,7 +13,7 @@ export class MenuSearchComponent implements OnInit {
   constructor(
     private searchService: SearchService,
     private route: ActivatedRoute) {
-      this.searchValue = this.route.snapshot.paramMap.get('search');
+      this.searchValue = this.route.snapshot.paramMap.get('id');
     }
 
   movies: any;

@@ -11,6 +11,12 @@ export class HomePage {
   constructor(private router: Router) {}
 
   goToSearch(search: string){
-    this.router.navigate(['/menu-search', search]);
+    this.router.navigate(['home/menu-search', search]);
   }
+
+  // onClick()
+  // {
+  //   console.log("hello there");
+  //   this.router.navigate(['home']);
+  // }
 }
