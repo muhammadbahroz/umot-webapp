@@ -4,7 +4,7 @@
   "author": "Ionic Framework",
   "scripts": {
     "ng": "ng",
-    "start": "ionic serve",
+    "start": "npm start",
     "build": "ng build",
     "postinstall": "ng build --aot --prod",
     "test": "ng test",
