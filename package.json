@@ -4,8 +4,8 @@
   "author": "Ionic Framework",
   "scripts": {
     "ng": "ng",
-    "start": "node --max_old_space_size=2560 npm start",
-    "build": "node --max_old_space_size=2560 ng build",
+    "start": "npm --max_old_space_size=2560 npm start",
+    "build": "ng --max_old_space_size=2560 ng build",
     "postinstall": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
