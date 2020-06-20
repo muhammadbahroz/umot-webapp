@@ -30,9 +30,7 @@
     "tslib": "^1.10.0",
     "typescript": "~3.8.3",
     "node": "~12.16.1"
-     
   },
-
   "devDependencies": {
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
@@ -60,7 +58,6 @@
     "@angular/platform-browser": "~9.1.6",
     "@angular/platform-browser-dynamic": "~9.1.6",
     "@ionic/app-scripts": "^3.2.4"
-
   },
   "description": "An Ionic project"
 }
