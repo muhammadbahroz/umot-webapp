@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faq.component.scss'],
 })
 export class FaqComponent implements OnInit {
+  searchValue: string;
 
   constructor(private router: Router) {}
 
-  search(search: string){
-    this.router.navigate(['home/menu-search', search]);
+  goToSearch(){
+    this.router.navigate(['home/menu-search', this.searchValue]);
   }
+
 
   ngOnInit() {}
 

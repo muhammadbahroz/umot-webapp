@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./privacy-policy.component.scss'],
 })
 export class PrivacyPolicyComponent implements OnInit {
+  searchValue: string;
 
   constructor(private router: Router) {}
 
-  search(search: string){
-    this.router.navigate(['home/menu-search', search]);
+  goToSearch(){
+    this.router.navigate(['home/menu-search', this.searchValue]);
   }
+
   ngOnInit() {}
 
 }

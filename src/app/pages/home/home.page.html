@@ -23,8 +23,8 @@
         <ion-row>
           <ion-col size="6">
             <div class="search">
-            <ion-input #moviesearch color="medium" type="text" placeholder="search" (change)="goToSearch(moviesearch.value)">
-              <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
+            <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
+                <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
             </ion-input>
           </div>
         </ion-col>

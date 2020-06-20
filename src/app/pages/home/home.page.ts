@@ -7,11 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  searchValue: string;
 
   constructor(private router: Router) {}
 
-  goToSearch(search: string){
-    this.router.navigate(['home/menu-search', search]);
+  goToSearch(){
+    this.router.navigate(['home/menu-search', this.searchValue]);
   }
 
   // onClick()
