@@ -17,7 +17,7 @@
           Premium
         </ion-button>
       </div>
-  
+
       <!-- SEARCH BAR -->
       <ion-grid style="min-width: -webkit-fill-available;">
         <ion-row>
@@ -28,9 +28,9 @@
             </ion-input>
           </div>
         </ion-col>
-        
+
         <!-- LOGIN BUTTON -->
-        <ion-col size="6">      
+        <ion-col size="6">
         <ion-item class="login-button" lines="none">
           <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 38px;" >
             Login
@@ -72,7 +72,7 @@
         <br><br><br><br>
         <br><br><br><br>
         <br><br><br><br>
-        
+
 
         <!-- SECOND ROW -->
         <ion-row>
@@ -83,14 +83,14 @@
                     </div>
                 </ion-avatar>
             </ion-col>
-            
+
             <ion-col size="6" style="left: 2em;">
                 <ion-text color="light" class="ion-text-justify" style="position: absolute; left: 100px;">
                     <h1><b><span style="color: #979797;font-size: 50px;">01</span><br>MOVIES RECOMMENDER<br></b>
                     </h1>
-                        <p>Tell us how you feel or how long you have <br>to spare and we will recommend you the <br> option 
+                        <p>Tell us how you feel or how long you have <br>to spare and we will recommend you the <br> option
                             <span class="text-danger">that better suits you right now.</span><br><br>
-                            It will only take 1 min! 
+                            It will only take 1 min!
                         </p>
                 </ion-text>
             </ion-col>
@@ -102,7 +102,7 @@
         <br><br><br><br>
         <br><br><br><br>
         <br><br><br><br>
-        
+
         <!-- THIRD ROW -->
         <ion-row>
             <ion-col size="6" style="left: -6em;">
@@ -110,7 +110,7 @@
                     <h1><b><span style="color: #979797;font-size: 50px;">02</span><br>AN APP THAT LEARNS<br></b>
                     </h1>
                         <p>The more info you share with us, the<br>more UMOT will learn. We will improve the<br>
-                            recommendations we offer to you and you will be able <br> to reject those ones that don´t suit 
+                            recommendations we offer to you and you will be able <br> to reject those ones that don´t suit
                             your interests <br> and to remove from them future recommendations.
                         </p>
                 </ion-text>
@@ -130,7 +130,7 @@
         <br><br><br><br>
         <br><br><br><br>
         <br><br><br><br>
-        
+
 
         <!-- FOURTH  ROW -->
         <ion-row>
@@ -141,13 +141,13 @@
                     </div>
                 </ion-avatar>
             </ion-col>
-            
+
             <ion-col size="6" style="left: 2em;">
                 <ion-text color="light" class="ion-text-justify" style="position: absolute; left: 100px;">
                     <h1><b><span style="color: #979797;font-size: 50px;">03</span><br>ONE SEARCH ENGINE ONLY<br></b>
                     </h1>
-                        <p>We will show you all the available platforms<br>where you can find the series or movie<br> 
-                            you are looking for. Everything in one App. 
+                        <p>We will show you all the available platforms<br>where you can find the series or movie<br>
+                            you are looking for. Everything in one App.
                         </p>
                 </ion-text>
             </ion-col>
@@ -176,14 +176,13 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-</ion-content>
+
+     <!-- <br> -->
+    <!-- <br> -->
 
 
-<!-- FOOTER -->
-<ion-footer class="ion-no-border">
-    <!-- <br> -->
-    <!-- <br> -->
-    
+
+    <!-- FOOTER -->
     <ion-grid fixed>
         <!-- FAQ -->
         <ion-row class="row-space">
@@ -191,13 +190,13 @@
             <p><a class="footer" [routerLink]="['/home/faq']">How can i use UMOT?</a></p>
             </ion-col>
         </ion-row>
-        
+
         <!-- PRIVACY POLICY  -->
         <ion-row class="row-space">
             <ion-col size="10">
             <p><a [routerLink]="['/home/privacy-policy']" class="footer">Privacy and cookies Policy</a></p>
             </ion-col>
-            
+
             <!-- FEEDBACK BUTTON -->
             <ion-col size="2">
             <ion-button expand="block" fill="outline" style="color: #979797; --border-color: #979797;">
@@ -206,7 +205,7 @@
             </ion-button>
             </ion-col>
         </ion-row>
-  
+
         <ion-row class="row-space">
             <!-- COPYRIGHT -->
             <ion-col size="10">
@@ -214,6 +213,7 @@
             </ion-col>
             <!-- SOCIAL MEDIA LOGOS -->
             <ion-col size="2">
+                <br>
                 <ion-icon style="margin-left: 6px;" class="social-icons" name="logo-facebook"></ion-icon>
                 <ion-icon class="social-icons" name="logo-instagram"></ion-icon>
                 <ion-icon class="social-icons" name="logo-twitter"></ion-icon>
@@ -221,6 +221,6 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-  
+
     <br>
-  </ion-footer>
+</ion-content>

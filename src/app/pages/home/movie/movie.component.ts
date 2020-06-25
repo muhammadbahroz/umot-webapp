@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
-  constructor() { }
+  searchValue: string;
+
+  constructor(private router: Router) {}
+
+  goToSearch(){
+    this.router.navigate(['home/menu-search', this.searchValue]);
+  }
 
   ngOnInit() {}
 
