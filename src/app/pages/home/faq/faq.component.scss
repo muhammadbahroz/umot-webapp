@@ -4,6 +4,7 @@ ion-content {
 
 ion-header {
     --ion-background-color: #1C1A3B;
+    --border: none;
 }
 
 ion-footer {
@@ -25,22 +26,23 @@ ion-footer {
 }
 
 .search{
-    background-color:  #ffffff;
-    margin-left: 410px; 
-    width: 250px;
+    // background-color:  #ffffff;
+    margin-left: 400px; 
+    width: 280px;
     margin-top: 5px;
 }
 
-ion-input{
-    width: 250px;
-    --border-radius: 3px;
-    //text-transform: inherit;
-}
+// ion-input{
+//     width: 250px;
+//     --border-radius: 3px;
+//     //text-transform: inherit;
+// }
 
 .login-button{
     // margin-left: 20px;
     width: 250px;
-    position: inherit;
+    // position: inherit;
+    top: 10px;
 }
 
 .searched-movies{
@@ -88,5 +90,73 @@ ion-item{
 .faq-questions{
     margin-right: 130px;
     margin-left: 100px;
-    color: white;
+    color: #fff;
+}
+
+//////////////////////////////////DISCLOSURE-FAQ////////////////////////////////////
+dl.faq button {
+    margin: 0;
+    padding: 0;
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 110%;
+    border: thin solid transparent;
+    background-color: transparent;
+    padding-left: 0.125em;
+  }
+  
+  dl dd {
+    margin: 0;
+    padding: 0;
+    margin-left: 1.5em;
+  }
+  
+  dl.faq .desc {
+    margin: 0;
+    padding: 0.5em;
+    font-size: 110%;
+    display: none;
+    background-color: #fffedb;
+  }
+  
+  dl.faq button:hover,
+  dl.faq button:focus {
+    background-color: #eee;
+  }
+  
+  dl.faq button:focus {
+    border-color: #630;
+  }
+  
+  dl.faq button:hover {
+    text-decoration: underline;
+  }
+  
+  dl.faq button:active {
+    background-color: #bbb;
+  }
+  
+  dl.faq button[aria-expanded="false"]::before {
+    content: url('/assets/icon/add-outline.svg');
+    padding-right: 0.35em;
+  }
+  
+  dl.faq button[aria-expanded="true"]::before {
+    content: url('/assets/icon/remove-outline.svg');
+    padding-right: 0.35em;
+  }
+
+  ////////////////////////////////////SEARCH DROPDOWN////////////////////////////////////
+
+.search-dropdown-box{
+  width: 232px;
+  height: 225px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative !important;
+  margin-left: 51.95em;       
+  background:#fff; 
+  --ion-background-color: #fff;
+  border: 5px solid #fff;
+
 }

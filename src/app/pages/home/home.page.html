@@ -7,32 +7,34 @@
       </ion-avatar>
       <!-- HOME BUTTON -->
       <div class="top-home-button">
-        <ion-button [routerLink]="['/home']" fill="clear" color="light">
+        <ion-button [routerLink]="['/home']" fill="clear" style="color: #fff;">
           Home
         </ion-button>
       </div>
       <!-- PREMIUM BUTTON -->
       <div class="top-premium-button">
-        <ion-button expand="block" fill="clear" color="light">
+        <ion-button expand="block" fill="clear" style="color: #fff;">
           Premium
         </ion-button>
       </div>
 
       <!-- SEARCH BAR -->
-      <ion-grid style="min-width: -webkit-fill-available;">
+      <ion-grid style="min-width: -webkit-fill-available; margin-bottom: -19px;">
         <ion-row>
           <ion-col size="6">
             <div class="search">
-            <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
+                <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="search()" [debounce]="250">    
+                </ion-searchbar>
+            <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
                 <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
-            </ion-input>
+            </ion-input> -->
           </div>
         </ion-col>
 
         <!-- LOGIN BUTTON -->
         <ion-col size="6">
         <ion-item class="login-button" lines="none">
-          <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 38px;" >
+          <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 40px;" >
             Login
           </ion-button>
         </ion-item>
@@ -40,6 +42,28 @@
         </ion-row>
       </ion-grid>
     </ion-item>
+
+    <!-- SEARCH DROPDOWN -->
+    <div class="search-dropdown-box" *ngIf="check === true">
+        <ion-list *ngFor="let movie of movies">
+            <ion-item (click)="movieClick(movie.tmdb_id)">
+                <ion-thumbnail>
+                    <!-- <img src="/assets/film-posters/film_1.png" /> -->
+                    <img [src] = "movie.img"/>
+                </ion-thumbnail>
+                <ion-label style="margin-left: 10px;">{{movie.title}}</ion-label>
+            </ion-item>
+            <!-- <ion-item>
+                <ion-thumbnail>
+                    <img src="/assets/film-posters/film_1.png" />
+                </ion-thumbnail>
+                <ion-label style="margin-left: 10px;">Justice League</ion-label>
+            </ion-item> -->
+        </ion-list>
+        <ion-item lines="none" style="height: 40px;">
+            <p style="margin-left: 50px;"><a (click)="goToSearch()" style="color: #EE3468; font-size: 15px;">See All Results</a></p>
+        </ion-item>
+    </div>
 
     <br>
     <br>
@@ -51,7 +75,7 @@
         <!-- FIRST ROW -->
         <ion-row>
             <ion-col size="6" style="left: -6em;">
-                <ion-text color="light" class="ion-text-justify" style="position: absolute; left: 100px;">
+                <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff;">
                     <h1 style="font-size: 50px;"><b>Find out <span class="text-danger">UMOT</span>, the first <br> App where you are the <br> main actor.</b></h1>
                         <p>UMOT has developed a recommender system <br> 100% based on you and how you feel.<br><br>
                             Do you want to know more?</p>
@@ -85,7 +109,7 @@
             </ion-col>
 
             <ion-col size="6" style="left: 2em;">
-                <ion-text color="light" class="ion-text-justify" style="position: absolute; left: 100px;">
+                <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff;">
                     <h1><b><span style="color: #979797;font-size: 50px;">01</span><br>MOVIES RECOMMENDER<br></b>
                     </h1>
                         <p>Tell us how you feel or how long you have <br>to spare and we will recommend you the <br> option
@@ -106,7 +130,7 @@
         <!-- THIRD ROW -->
         <ion-row>
             <ion-col size="6" style="left: -6em;">
-                <ion-text color="light" class="ion-text-justify" style="position: absolute; left: 100px;">
+                <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff;" >
                     <h1><b><span style="color: #979797;font-size: 50px;">02</span><br>AN APP THAT LEARNS<br></b>
                     </h1>
                         <p>The more info you share with us, the<br>more UMOT will learn. We will improve the<br>
@@ -143,7 +167,7 @@
             </ion-col>
 
             <ion-col size="6" style="left: 2em;">
-                <ion-text color="light" class="ion-text-justify" style="position: absolute; left: 100px;">
+                <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff">
                     <h1><b><span style="color: #979797;font-size: 50px;">03</span><br>ONE SEARCH ENGINE ONLY<br></b>
                     </h1>
                         <p>We will show you all the available platforms<br>where you can find the series or movie<br>

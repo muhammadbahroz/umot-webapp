@@ -20,6 +20,10 @@ const routes: Routes = [
     component: MenuSearchComponent
   },
   {
+    path: 'movie/:id',
+    component: MovieComponent
+  },
+  {
     path: 'movie',
     component: MovieComponent
   },

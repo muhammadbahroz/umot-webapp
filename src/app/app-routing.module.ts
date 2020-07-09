@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { MenuSearchComponent } from '../app/pages/home/menu-search/menu-search.component'
+// import { MenuSearchComponent } from '../app/pages/home/menu-search/menu-search.component'
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  { path: 'menu-search/:search', component: MenuSearchComponent },
+  // { path: 'menu-search/:search', component: MenuSearchComponent },
   {
     path: 'landing',
     loadChildren: () => import('./pages/landing/landing.module').then( m => m.LandingPageModule)

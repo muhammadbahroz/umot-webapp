@@ -21,7 +21,7 @@ ion-footer {
 }
 
 .search{
-    background-color:  #ffffff;
+    // background-color:  #ffffff;
     margin-left: 390px; 
     width: 250px;
     margin-top: 5px;
@@ -36,7 +36,9 @@ ion-input{
 .login-button{
     // margin-left: 20px;
     width: 250px;
-    position: inherit;
+    // position: inherit;
+    top: 10px;
+    left: 40px;
 }
 
 .searched-movies{
@@ -89,4 +91,43 @@ ion-item{
     font-size: 28px;
     color: #979797;
     margin-right: 15px;
+}
+
+////////////////////////////////////SEARCH DROPDOWN////////////////////////////////////
+.search-dropdown-box{
+    width: 234px;
+    height: 210px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative !important;
+    margin-left: 50.34em;       
+    background:#fff; 
+    --ion-background-color: #fff;
+    border: 5px solid #fff;
+
+}
+
+////////////////////////////////////EMPTY PAGE CONTAINER////////////////////////////////////
+.empty{
+
+    //////Monitor Display///////
+    @media ( min-width: 1366px) {
+        width: 700px; 
+        height: 350px; 
+      }
+
+    @media ( min-width: 1600px) {
+        width: 800px; 
+        height: 450px; 
+    }
+
+    @media ( min-width: 1920px) {
+        width: 900px; 
+        height: 550px; 
+    }
+
+    @media ( min-width: 2560px) {
+        width: 1000px; 
+        height: 750px; 
+    }
 }

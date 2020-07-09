@@ -4,11 +4,11 @@
 - [x] Menu-Search Page Template
 - [x] FAQ Page Template
 - [x] Privacy Policy Page Template
-- [ ] Movie Screen Page Template
+- [x] Movie Screen Page Template
 - [ ] FAQ Questions Drop Down Animation
 
 **MODULE**
-- [ ] SEARCH Dropdown
+- [x] SEARCH Dropdown
 
 **WEB PAGES RESPONSIVENESS**
 - **Home Page Responsiveness**
@@ -67,7 +67,7 @@
 - [ ] Movie Page Cookie
 
 **INTEGRATION**
-- [ ] Movie Page **BACK END** Integration
+- [x] Movie Page **BACK END** Integration
 - [ ] Trailer Video Player on Movie Page
 
 **MOBILE SCREENS**
@@ -81,5 +81,5 @@
 - [ ] ROUTING
 
 **POST DEPLOYMENT ISSUES**
-- [ ] WINDOWS DARK MODE ISSUE WITH WEBSITE COLOR SCHEME
+- [x] WINDOWS DARK MODE ISSUE WITH WEBSITE COLOR SCHEME
 
