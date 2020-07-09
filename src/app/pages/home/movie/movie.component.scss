@@ -293,3 +293,18 @@ ion-input{
     --border-radius: 5%;
     border: 1px solid #020024;
 }
+
+////////////////////////////////////SEARCH DROPDOWN////////////////////////////////////
+
+.search-dropdown-box{
+    width: 234.2px;
+    height: 225px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative !important;
+    margin-left: 51.55em;       
+    background:#fff; 
+    --ion-background-color: #fff;
+    border: 5px solid #fff;
+
+}

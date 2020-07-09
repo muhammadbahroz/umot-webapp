@@ -19,11 +19,11 @@
     </div>
 
     <!-- SEARCH BAR -->
-    <ion-grid style="min-width: -webkit-fill-available;">
+    <ion-grid style="min-width: -webkit-fill-available; margin-bottom: -19px;">
         <ion-row>
         <ion-col size="6">
             <div class="search">
-                <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="goToSearch()" [debounce]="250">    
+                <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="search()" [debounce]="250">    
                 </ion-searchbar>
             <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
                 <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
@@ -42,6 +42,28 @@
         </ion-row>
     </ion-grid>
 </ion-item>
+
+<!-- SEARCH DROPDOWN -->
+<div class="search-dropdown-box" *ngIf="check === true">
+    <ion-list *ngFor="let movie of movies">
+        <ion-item (click)="openMovieClicked(movie.tmdb_id)">
+            <ion-thumbnail>
+                <!-- <img src="/assets/film-posters/film_1.png" /> -->
+                <img [src] = "movie.img"/>
+            </ion-thumbnail>
+            <ion-label style="margin-left: 10px;">{{movie.title}}</ion-label>
+        </ion-item>
+        <!-- <ion-item>
+            <ion-thumbnail>
+                <img src="/assets/film-posters/film_1.png" />
+            </ion-thumbnail>
+            <ion-label style="margin-left: 10px;">Justice League</ion-label>
+        </ion-item> -->
+    </ion-list>
+    <ion-item lines="none" style="height: 40px;">
+        <p style="margin-left: 50px;"><a (click)="goToSearch()" style="color: #EE3468; font-size: 15px;">See All Results</a></p>
+    </ion-item>
+</div>
 
 <!-- BODY -->
 <ion-grid fixed>
