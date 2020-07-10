@@ -14,4 +14,15 @@ export class SearchService {
     return this.httpClient.get('http://18.222.13.116:5000/movie/search/all', {params});
   }
 
+  search(query: string){
+    let params = new HttpParams();
+    params = params.append('query', query);
+    return this.httpClient.get('http://18.222.13.116:5000/movie/search', {params});
+  }
+
+  movie(query: string){
+    let val = 'http://18.222.13.116:5000/movie/';
+    val = val + query;
+    return this.httpClient.get(val);
+  }
 }

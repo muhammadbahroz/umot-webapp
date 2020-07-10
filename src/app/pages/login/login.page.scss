@@ -29,11 +29,52 @@
   ion-content {
     @media (max-width: 500px) {
       --background: url(/assets/background/m-b-1.jpg) 0 0/100% 100% no-repeat;
+      object-fit: cover;
   }
   
-  @media (min-width: 501px) {
-    --background: url(/assets/background/d-b-1.jpg) no-repeat 0 0/100% 100%;
-    background-size: cover;
+  @media ( min-width: 501px) {
+    --background: url(/assets/background/d-b-1-1024x768px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 1280px) {
+    --background: url(/assets/background/d-b-1-1280x800px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 1360px) {
+    --background: url(/assets/background/d-b-1-1360x768px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 1366px) {
+    --background: url(/assets/background/d-b-1-1366x768px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 1440px) {
+    --background: url(/assets/background/d-b-1-1440x900px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 1600px) {
+    --background: url(/assets/background/d-b-1-1600x900px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 1680px) {
+    --background: url(/assets/background/d-b-1-1680x1050px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 1920px) {
+    --background: url(/assets/background/d-b-1-1920x1080px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
+  }
+
+  @media ( min-width: 2560px) {
+    --background: url(/assets/background/d-b-1-2560x1440px.jpg) 0 0/100% 100% no-repeat;
+    object-fit: cover;
   }
   
   }

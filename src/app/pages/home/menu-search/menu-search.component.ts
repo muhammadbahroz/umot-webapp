@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-search',
@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MenuSearchComponent implements OnInit {
   searchValue: string;
-
+  check:boolean = true;
   constructor(
     private searchService: SearchService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router: Router ,) {
       this.searchValue = this.route.snapshot.paramMap.get('id');
     }
 
@@ -25,6 +26,15 @@ export class MenuSearchComponent implements OnInit {
     this.searchService.sendGETRequestWithParameters(this.searchValue).subscribe((result: any) => {
       this.movies = JSON.parse(result.data);
       this.movies = this.movies.slice(0, 10);
+
+      if(this.searchValue !=  "")
+      {
+        this.check=false;
+      }
+      else{
+        this.check=true;
+      }
+      
       this.movies.forEach(movie => {
         const PROVIDERS_CHECK = [false, false, false, false];
         movie.img = 'https://image.tmdb.org/t/p/w500' + movie.img;
@@ -47,6 +57,18 @@ export class MenuSearchComponent implements OnInit {
       console.log(this.movies);
 
     });
+  }
+
+  // movieDetail: any;
+  movieClick(movieID: string){
+
+    this.router.navigate(['home/movie', movieID]);
+
+    // this.searchService.movie(movieID).subscribe((result: any) => {
+    //   this.movieDetail = JSON.parse(result.data);
+    //   // this.movies = this.movies.slice(0, 10);
+    //   console.log(this.movieDetail);
+    // });
   }
 
 }
