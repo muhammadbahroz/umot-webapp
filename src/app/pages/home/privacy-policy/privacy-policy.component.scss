@@ -22,7 +22,21 @@ ion-footer {
 
 .search{
     // background-color:  #ffffff;
-    margin-left: 410px; 
+    @media (min-width: 1360px) {
+        margin-left: 400px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 500px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 900px;    
+    }
     width: 250px;
     margin-top: 5px;
 }
@@ -36,6 +50,22 @@ ion-footer {
 .login-button{
     // margin-left: 20px;
     width: 250px;
+
+    @media (min-width: 1360px) {
+        margin-left: 430px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 530px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 840px;    
+    }
     // position: inherit;
     top: 10px;
 }
@@ -86,7 +116,25 @@ ion-footer {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     position: relative !important;
-    margin-left: 51.95em;       
+    
+    // margin-left: 51.95em;
+
+    @media (min-width: 1360px) {
+        margin-left: 50.95em;    
+    }       
+
+    @media (min-width: 1440px) {
+        margin-left: 57.2em; 
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 69.7em; 
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 82.20em;    
+    }
+    
     background:#fff; 
     --ion-background-color: #fff;
     border: 5px solid #fff;

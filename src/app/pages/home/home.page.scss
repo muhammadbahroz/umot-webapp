@@ -22,37 +22,54 @@ ion-footer {
 
 .search{
     // background-color:  #ffffff;
-    margin-left: 400px; 
+    
+    @media (min-width: 1360px) {
+        margin-left: 400px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 500px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 900px;    
+    }
+
     width: 250px;
     margin-top: 5px;
 }
 
-ion-input{
-    width: 250px;
-    --border-radius: 3px;
-    //text-transform: inherit;
-}
+// ion-input{
+//     width: 250px;
+//     --border-radius: 3px;
+//     //text-transform: inherit;
+// }
 
 .login-button{
     // margin-left: 20px;
     width: 250px;
     // position: inherit;
     top: 10px;
-}
 
-.searched-movies{
-    margin-left: 120px;
-}
+    @media (min-width: 1360px) {
+        margin-left: 430px;    
+    }
 
-.searched-movies-list{
-    margin-left: 100px;
-}
+    @media (min-width: 1440px) {
+        margin-left: 530px;    
+    }
 
-.thumbnail{
-    --border-radius: 0%;
-    //--size: 50%;
-    height: 110px;
-    width: 70px;
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 840px;    
+    }
 }
 
 .footer{
@@ -104,13 +121,47 @@ img{
     
 }
 
+
 .box{
     width: 550px;        
     //border: 5px solid black;
 }
 
+.bottom-image-banner{
+    @media (min-width: 1360px) {
+        left: -7.6em;
+    }
+
+    @media (min-width: 1440px) {
+        left: -10.0em;
+    }
+
+    @media (min-width: 1600px) {
+        left: -17.5em;
+    }
+
+    @media (min-width: 1920px) {
+        left: -24.6em;
+    }
+}
+
 .large-box{
-    width: 1366px;
+    
+    @media (min-width: 1360px) {
+        width: 1366px;
+    }
+
+    @media (min-width: 1440px) {
+        width: 1440px;
+    }
+
+    @media (min-width: 1600px) {
+        width: 1680px;
+    }
+
+    @media (min-width: 1920px) {
+        width: 1920px;
+    }
     // --background: url(/assets/background/Banner_1366x768px.jpg);
     // border: 5px solid black;
 }
@@ -118,7 +169,22 @@ img{
 .large-box .btn{
     position: absolute;
     top: 70%;
-    left: 50%;
+
+    @media (min-width: 1360px) {
+        left: 50%;
+    }
+
+    @media (min-width: 1440px) {
+        left: 55%;
+    }
+
+    @media (min-width: 1600px) {
+        left: 60%;
+    }
+
+    @media (min-width: 1920px) {
+        left: 75%;
+    }
     // transform: translate(-50%, -50%);
     // -ms-transform: translate(-50%, -50%);
     --background-color: #EE3468;
@@ -137,10 +203,208 @@ img{
     text-align: center;
     font-size: 40px;
     top: 40%;
-    left: 45%;
+    @media (min-width: 1360px) {
+        left: 45%;
+    }
+
+    @media (min-width: 1440px) {
+        left: 50%;
+    }
+
+    @media (min-width: 1600px) {
+        left: 55%;
+    }
+
+    @media (min-width: 1920px) {
+        left: 70%;
+    }
     color: #fff;
 }
 
+///////////////////FIRST ROW TEXT///////////////////
+.firstrow-text{
+    @media (min-width: 1360px) {
+        left: -6em;
+    }
+
+    @media (min-width: 1440px) {
+        left: -9em;
+    }
+
+    @media (min-width: 1600px) {
+        left: -14em;
+    }
+
+    @media (min-width: 1680px) {
+        left: -16em;
+    }
+
+    @media (min-width: 1920px) {
+        left: -24em;
+    }
+}
+
+///////////////////FIRST ROW IMAGE///////////////////
+.firstrow-img{
+    @media (min-width: 1360px) {
+        right: -8em;
+    }
+
+    @media (min-width: 1440px) {
+        right: -11em;
+    }
+
+    @media (min-width: 1600px) {
+        right: -15.8em;
+    }
+
+    @media (min-width: 1680px) {
+        right: -17.8em;
+    }
+
+    @media (min-width: 1920px) {
+        right: -25em;
+    }
+}
+
+
+///////////////////SECOND ROW TEXT///////////////////
+.secondrow-text{
+    @media (min-width: 1360px) {
+        left: 2em;
+    }
+
+    @media (min-width: 1440px) {
+        left: 7em;
+    }
+
+    @media (min-width: 1600px) {
+        left: 12em;
+    }
+
+    @media (min-width: 1680px) {
+        left: 14em;
+    }
+
+    @media (min-width: 1920px) {
+        left: 20em;
+    }
+}
+
+///////////////////SECOND ROW IMAGE///////////////////
+.secondrow-img{
+    @media (min-width: 1360px) {
+        left: -2em;
+    }
+
+    @media (min-width: 1440px) {
+        left: -4em;
+    }
+
+    @media (min-width: 1600px) {
+        left: -9em;
+    }
+
+    @media (min-width: 1680px) {
+        left: -11em;
+    }
+
+    @media (min-width: 1920px) {
+        left: -19em;
+    }
+}
+
+///////////////////THIRD ROW TEXT///////////////////
+.thirdrow-text{
+    @media (min-width: 1360px) {
+        left: -6em;
+    }
+
+    @media (min-width: 1440px) {
+        left: -9em;
+    }
+
+    @media (min-width: 1600px) {
+        left: -14em;
+    }
+
+    @media (min-width: 1680px) {
+        left: -16em;
+    }
+
+    @media (min-width: 1920px) {
+        left: -24em;
+    }
+}
+
+///////////////////THIRD ROW IMAGE///////////////////
+.thirdrow-img{
+    @media (min-width: 1360px) {
+        right: -8em;
+    }
+
+    @media (min-width: 1440px) {
+        right: -11em;
+    }
+
+    @media (min-width: 1600px) {
+        right: -15.8em;
+    }
+
+    @media (min-width: 1680px) {
+        right: -17.8em;
+    }
+
+    @media (min-width: 1920px) {
+        right: -26em;
+    }
+}
+
+///////////////////FOURTH ROW TEXT///////////////////
+.fourthrow-text{
+    @media (min-width: 1360px) {
+        left: 2em;
+    }
+
+    @media (min-width: 1440px) {
+        left: 7em;
+    }
+
+    @media (min-width: 1600px) {
+        left: 12em;
+    }
+
+    @media (min-width: 1680px) {
+        left: 14em;
+    }
+
+    @media (min-width: 1920px) {
+        left: 20em;
+    }
+}
+
+///////////////////FOURTH ROW IMAGE///////////////////
+.fourthrow-img{
+    @media (min-width: 1360px) {
+        left: -2em;
+    }
+
+    @media (min-width: 1440px) {
+        left: -4em;
+    }
+
+    @media (min-width: 1600px) {
+        left: -9em;
+    }
+
+    @media (min-width: 1680px) {
+        left: -11em;
+    }
+
+    @media (min-width: 1920px) {
+        left: -19em;
+    }
+}
 ////////////////////////////////////SEARCH DROPDOWN////////////////////////////////////
 
 .search-dropdown-box{
@@ -149,7 +413,24 @@ img{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     position: relative !important;
-    margin-left: 50.95em;       
+    
+    
+    @media (min-width: 1360px) {
+        margin-left: 50.95em;    
+    }       
+
+    @media (min-width: 1440px) {
+        margin-left: 57.2em; 
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 69.7em; 
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 82.20em;    
+    }
+
     background:#fff; 
     --ion-background-color: #fff;
     border: 5px solid #fff;

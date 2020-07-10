@@ -21,23 +21,23 @@
       <!-- SEARCH BAR -->
       <ion-grid style="min-width: -webkit-fill-available; margin-bottom: -19px;">
         <ion-row>
-          <ion-col size="6">
-            <div class="search">
-                <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="search()" [debounce]="250">    
-                </ion-searchbar>
-            <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
-                <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
-            </ion-input> -->
-          </div>
-        </ion-col>
+            <ion-col size="2">
+                <div class="search">
+                    <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="search()" [debounce]="250">    
+                    </ion-searchbar>
+                    <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
+                    <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
+                    </ion-input> -->
+                </div>
+            </ion-col>
 
-        <!-- LOGIN BUTTON -->
-        <ion-col size="6">
-        <ion-item class="login-button" lines="none">
-          <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 40px;" >
-            Login
-          </ion-button>
-        </ion-item>
+            <!-- LOGIN BUTTON -->
+            <ion-col size="2">
+                <ion-item class="login-button" lines="none">
+                    <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 40px;" >
+                        Login
+                    </ion-button>
+                </ion-item>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -74,7 +74,7 @@
     <ion-grid fixed>
         <!-- FIRST ROW -->
         <ion-row>
-            <ion-col size="6" style="left: -6em;">
+            <ion-col size="6" class="firstrow-text">
                 <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff;">
                     <h1 style="font-size: 50px;"><b>Find out <span class="text-danger">UMOT</span>, the first <br> App where you are the <br> main actor.</b></h1>
                         <p>UMOT has developed a recommender system <br> 100% based on you and how you feel.<br><br>
@@ -82,7 +82,7 @@
                 </ion-text>
             </ion-col>
 
-            <ion-col size="6" style="right: -8em;">
+            <ion-col size="6" class="firstrow-img">
                 <ion-avatar>
                     <div class="box">
                         <img src="/assets/home/Macbook.png"/>
@@ -100,7 +100,7 @@
 
         <!-- SECOND ROW -->
         <ion-row>
-            <ion-col size="6" style="left: -2em;">
+            <ion-col size="6" class="secondrow-img">
                 <ion-avatar>
                     <div class="box">
                         <img src="/assets/home/Opción 1 mockups.png"/>
@@ -108,7 +108,7 @@
                 </ion-avatar>
             </ion-col>
 
-            <ion-col size="6" style="left: 2em;">
+            <ion-col size="6" class="secondrow-text">
                 <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff;">
                     <h1><b><span style="color: #979797;font-size: 50px;">01</span><br>MOVIES RECOMMENDER<br></b>
                     </h1>
@@ -129,7 +129,7 @@
 
         <!-- THIRD ROW -->
         <ion-row>
-            <ion-col size="6" style="left: -6em;">
+            <ion-col size="6" class="thirdrow-text">
                 <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff;" >
                     <h1><b><span style="color: #979797;font-size: 50px;">02</span><br>AN APP THAT LEARNS<br></b>
                     </h1>
@@ -140,7 +140,7 @@
                 </ion-text>
             </ion-col>
 
-            <ion-col size="6" style="right: -8em;">
+            <ion-col size="6" class="thirdrow-img">
                 <ion-avatar>
                     <div class="box">
                         <img src="/assets/home/Opción 2 mockups.png"/>
@@ -158,7 +158,7 @@
 
         <!-- FOURTH  ROW -->
         <ion-row>
-            <ion-col size="6" style="left: -2em;">
+            <ion-col size="6" class="fourthrow-img">
                 <ion-avatar>
                     <div class="box">
                         <img src="/assets/home/Opción 3 mockups.png"/>
@@ -166,7 +166,7 @@
                 </ion-avatar>
             </ion-col>
 
-            <ion-col size="6" style="left: 2em;">
+            <ion-col size="6" class="fourthrow-text">
                 <ion-text class="ion-text-justify" style="position: absolute; left: 100px; color: #fff">
                     <h1><b><span style="color: #979797;font-size: 50px;">03</span><br>ONE SEARCH ENGINE ONLY<br></b>
                     </h1>
@@ -185,9 +185,9 @@
 
         <!-- FIFTH ROW HAVING BANNER-->
         <ion-row>
-            <ion-col size="12" style="left: -7.6em;">
+            <ion-col size="12" class="bottom-image-banner">
                 <div class="large-box">
-                    <img src="/assets/background/Banner_1366x768px.jpg"/>
+                    <img src="/assets/background/Banner_2560x1440px.jpg"/>
                     <p class="text">
                         <b>Do you want more?</b>
                         <br>

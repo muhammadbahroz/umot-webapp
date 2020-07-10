@@ -29,23 +29,58 @@ ion-footer {
 
 .search{
     // background-color:  #ffffff;
-    margin-left: 410px; 
+     
+    @media (min-width: 1360px) {
+        margin-left: 400px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 500px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 950px;    
+    }
+
     width: 250px;
     margin-top: 5px;
 }
 
 ////////////////SEARCH INPUT////////////////
 
-ion-input{
-    width: 250px;
-    --border-radius: 3px;
-    //text-transform: inherit;
-}
+// ion-input{
+//     width: 250px;
+//     --border-radius: 3px;
+//     //text-transform: inherit;
+// }
 
 .login-button{
     // margin-left: 20px;
     width: 250px;
-    // position: inherit;
+    @media (min-width: 1360px) {
+        margin-left: 440px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 530px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1680px) {
+        margin-left: 690px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 910px;    
+    }
+    position: relative;
     top: 10px;
 }
 
@@ -80,9 +115,32 @@ ion-input{
 
 ////////////////MOVIE BANNER////////////////////////
 .large-box{
-    width: 1366px;
+    @media (min-width: 1360px) {
+        width: 1366px;    
+    }
+
+    @media (min-width: 1440px) {
+        width: 1440px;    
+        margin-left: -2.4em;
+    }
+
+    @media (min-width: 1600px) {
+        width: 1600px;    
+        margin-left: -7.4em;
+    }
+
+    @media (min-width: 1680px) {
+        width: 1680px;    
+        margin-left: -9.9em;
+    }
+
+    @media (min-width: 1920px) {
+        width: 1920px;
+        margin-left: -17.4em;
+    }
+    
     height: 600px;
-    // margin-left: -10em;
+    
     // --background: url(/assets/background/Banner_1366x768px.jpg);
     // border: 5px solid black;
 }
@@ -131,7 +189,27 @@ ion-input{
 .large-box .back-btn{
     position: absolute;
     top: 5%;
-    left: 9%;
+    
+    @media (min-width: 1360px) {
+        left: 9%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 6%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: -1%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: -5%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: -15%;    
+    }
+    
     // transform: translate(-50%, -50%);
     // -ms-transform: translate(-50%, -50%);
     // --background-color: #EE3468;
@@ -145,7 +223,27 @@ ion-input{
     text-align: center;
     font-size: 45px;
     top: 30%;
-    left: 10%;
+
+    @media (min-width: 1360px) {
+        left: 10%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 8%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 1%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: -3%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: -13%;    
+    }
+
     color: #ffffff;
 }
 
@@ -154,7 +252,27 @@ ion-input{
     text-align: center;
     font-size: 70px;
     top: 35%;
-    left: 10%;
+    
+    @media (min-width: 1360px) {
+        left: 10%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 8%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 1%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: -3%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: -13%;    
+    }
+    
     color: #ffffff;
 }
 
@@ -162,7 +280,25 @@ ion-input{
 .large-box .info{
     position: absolute;
     top: 65%;
-    left: 9%;
+    @media (min-width: 1360px) {
+        left: 9%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 7%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 1%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: -4%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: -15%;    
+    }
 
     // transform: translate(-50%, -50%);
     // -ms-transform: translate(-50%, -50%);
@@ -193,7 +329,27 @@ ion-input{
     text-align: center;
     font-size: 20px;
     top: 55%;
-    left: 36%;
+
+    @media (min-width: 1360px) {
+        left: 36%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 36%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 30%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: 27%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: 17%;    
+    }
+
     background-color: #EE3468;
 }
 
@@ -201,14 +357,57 @@ ion-input{
     position: absolute;
     font-size: 14px;
     top: 66%;
-    left: 37%;
+    @media (min-width: 1360px) {
+        left: 37%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 37%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 31%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: 28%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: 18%;    
+    }
+
     color: #ffffff;
 }
 
 ////////////////////////FILM DETAILS////////////////////////
 .film-detail-container{
-    height: 600px;
-    width: 1366px;
+    
+    @media (min-width: 1360px) {
+        width: 1366px;
+        height: 600px;
+    }
+
+    @media (min-width: 1440px) {
+        width: 1440px;
+        height: 600px;
+    }
+
+    @media (min-width: 1600px) {
+        width: 1600px;
+        height: 600px;
+    }
+
+    @media (min-width: 1680px) {
+        width: 1680px;
+        height: 600px;
+    }
+
+
+    @media (min-width: 1920px) {
+        width: 1920px;
+        height: 700px;
+    }
 }
 
 ////////////////////////FILM POSTER////////////////////////
@@ -217,6 +416,23 @@ ion-input{
     position: absolute;
     height: 300px;
     width: 200px;
+
+    @media (min-width: 1440px) {
+        left: -17%;
+    }
+
+    @media (min-width: 1600px) {
+        left: -35%;
+    }
+
+    @media (min-width: 1680px) {
+        left: -55%;
+    }
+
+    @media (min-width: 1920px) {
+        left: -83%;    
+    }
+    
     //min-width: fit-content;
 }
 
@@ -225,7 +441,26 @@ ion-input{
     position: relative;
     font-weight: bold;
     top: 170px;
-    left: 20px;
+    
+    @media (min-width: 1360px) {
+        left: 20px;    
+    }
+
+    @media (min-width: 1440px) {
+        left: -11%;
+    }
+
+    @media (min-width: 1600px) {
+        left: -30%;
+    }
+
+    @media (min-width: 1680px) {
+        left: -50%;
+    }
+
+    @media (min-width: 1920px) {
+        left: -80%;    
+    }
 }
 
 ////////////////////////SHARE BUTTON////////////////////////
@@ -235,21 +470,82 @@ ion-input{
     position: relative;
     font-weight: bold;
     top: 220px;
-    left: 15px;
+
+    @media (min-width: 1360px) {
+        left: 15px;    
+    }
+
+    @media (min-width: 1440px) {
+        left: -12%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: -33%;
+    }
+
+    @media (min-width: 1680px) {
+        left: -53%;
+    }
+
+    @media (min-width: 1920px) {
+        left: -83%;    
+    }
+
     color: #fff;
     --border-color: #fff;
 }
 
 ////////////////////////SYNOPSIS AND CAST////////////////////////
 .synopsis{
-    left: 40px;
+
+    @media (min-width: 1360px) {
+        left: 40px;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 40px;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 10px;    
+    }
+
+    @media (min-width: 1680px) {
+        left: -10px;    
+    }
+
+    @media (min-width: 1920px) {
+        left: -25%;    
+    }
+
     position: relative;
 }
 
 .cast{
     --border-radius: 5%;
     top: 80px;
-    left: -40px;
+
+    @media (min-width: 1360px) {
+        left: -40px;   
+    }
+
+    @media (min-width: 1440px) {
+        left: -40px;    
+    }
+
+    @media (min-width: 1600px) {
+        left: -70px;    
+    }
+
+    @media (min-width: 1680px) {
+        left: -90px;    
+    }
+
+    @media (min-width: 1920px) {
+        left: -38%;    
+    }
+
+    
     position: relative;
     margin-left: 10px;
     height: 130px;
@@ -258,7 +554,24 @@ ion-input{
 
 ////////////////////////PROVIDERS////////////////////////
 .providers{
-    left: 150px;
+
+    @media (min-width: 1360px) {
+        left: 150px;   
+    }
+
+    @media (min-width: 1440px) {
+        left: 150px;   
+    }
+
+    @media (min-width: 1680px) {
+        left: 140px;    
+    }
+
+    @media (min-width: 1920px) {
+        left: 2%;    
+    }
+
+    
     position: relative;
 }
 
@@ -302,7 +615,24 @@ ion-input{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     position: relative !important;
-    margin-left: 51.55em;       
+    // margin-left: 51.55em;       
+
+    @media (min-width: 1360px) {
+        margin-left: 50.95em;    
+    }       
+
+    @media (min-width: 1440px) {
+        margin-left: 57.2em; 
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 69.7em; 
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 85.30em;    
+    }
+
     background:#fff; 
     --ion-background-color: #fff;
     border: 5px solid #fff;

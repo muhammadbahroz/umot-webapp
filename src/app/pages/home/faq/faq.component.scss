@@ -26,8 +26,23 @@ ion-footer {
 }
 
 .search{
-    // background-color:  #ffffff;
-    margin-left: 400px; 
+    // background-color:  #ffffff; 
+    @media (min-width: 1360px) {
+      margin-left: 400px;    
+    }
+
+    @media (min-width: 1440px) {
+      margin-left: 480px;    
+    }
+
+    @media (min-width: 1600px) {
+      margin-left: 620px; 
+    }
+
+    @media (min-width: 1920px) {
+      margin-left: 920px;     
+    }
+    
     width: 280px;
     margin-top: 5px;
 }
@@ -41,6 +56,19 @@ ion-footer {
 .login-button{
     // margin-left: 20px;
     width: 250px;
+
+    @media (min-width: 1440px) {
+      left: 50px;    
+    }
+
+    @media (min-width: 1600px) {
+      left: 100px;    
+    }
+
+    @media (min-width: 1920px) {
+      left: 250px;    
+    }
+
     // position: inherit;
     top: 10px;
 }
@@ -154,9 +182,58 @@ dl.faq button {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   position: relative !important;
-  margin-left: 51.95em;       
+  // margin-left: 51.95em;       
+
+
+  @media (min-width: 1360px) {
+    margin-left: 51.95em;    
+  }       
+
+  @media (min-width: 1440px) {
+    margin-left: 56.95em; 
+  }
+
+  @media (min-width: 1600px) {
+      margin-left: 65.7em; 
+  }
+
+  @media (min-width: 1920px) {
+      margin-left: 84.45em;    
+  }
+
   background:#fff; 
   --ion-background-color: #fff;
   border: 5px solid #fff;
 
+}
+
+
+////////////////////////////////////EMPTY PAGE CONTAINER////////////////////////////////////
+.empty{
+
+
+  @media ( min-width: 1440px) {
+    width: 700px; 
+    height: 170px; 
+  }
+
+  @media ( min-width: 1600px) {
+      width: 800px; 
+      height: 200px; 
+  }
+
+  @media ( min-width: 1680px) {
+      width: 1000px; 
+      height: 300px; 
+  }
+
+  @media ( min-width: 1920px) {
+      width: 1000px; 
+      height: 350px; 
+  }
+
+  @media ( min-width: 2560px) {
+      width: 1200px; 
+      height: 850px; 
+  }
 }

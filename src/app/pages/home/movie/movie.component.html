@@ -21,24 +21,24 @@
     <!-- SEARCH BAR -->
     <ion-grid style="min-width: -webkit-fill-available; margin-bottom: -19px;">
         <ion-row>
-        <ion-col size="6">
-            <div class="search">
-                <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="search()" [debounce]="250">    
-                </ion-searchbar>
-            <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
-                <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
-            </ion-input> -->
-          </div>
-        </ion-col>
+            <ion-col size="2">
+                <div class="search">
+                    <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="search()" [debounce]="250">    
+                    </ion-searchbar>
+                <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
+                    <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
+                </ion-input> -->
+                </div>
+            </ion-col>
         
         <!-- LOGIN BUTTON -->
-        <ion-col size="6">      
-        <ion-item class="login-button" lines="none">
-        <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 40px;" >
-            Login
-        </ion-button>
-        </ion-item>
-        </ion-col>
+            <ion-col size="2">      
+                <div class="login-button" lines="none">
+                    <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 40px;" >
+                        Login
+                    </ion-button>
+                </div>
+            </ion-col>
         </ion-row>
     </ion-grid>
 </ion-item>
