@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { SearchService } from './../../../services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators, FormControl } from '@angular/forms';
@@ -9,6 +10,8 @@ import { FormGroup,Validators, FormControl } from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
 
+  loginFailure: boolean = false;
+  tryAgain: boolean = false;
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -24,13 +27,29 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {}
 
+  check(){
+    console.log("test");
+    this.loginFailure = false;
+    this.tryAgain = false;
+  }
   async onSubmit() {
     console.log(this.SearchService.login(this.loginForm.value).subscribe((result: any) => {
       console.log( "result from upload: ",result)
-      ;}
+      ;},(error: HttpErrorResponse) => {
+        if (error.error instanceof ErrorEvent) {
+          // A client-side or network error occurred. Handle it accordingly.
+          this.tryAgain = true;
+          console.error('An error occurred:', error.error.message);
+        } else {
+          // The backend returned an unsuccessful response code.
+          // The response body may contain clues as to what went wrong,
+          this.loginFailure = true;
+          console.error(
+            `Backend returned code ${error.status}, ` +
+            `body was: ${error.error}`);
+        }}
       ));
 
-      console.log(this.loginForm.value);
+      // console.log(this.loginForm.value);
   }
-
 }

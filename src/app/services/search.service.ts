@@ -84,8 +84,6 @@ export class SearchService {
     return this.httpClient
       .post<Login>('http://18.222.13.116:5000/auth/login', JSON.stringify(item), this.httpOptions)
       .pipe(
-        retry(2),
-        catchError(this.handleError)
-      )
+        retry(2))
   }
 }
