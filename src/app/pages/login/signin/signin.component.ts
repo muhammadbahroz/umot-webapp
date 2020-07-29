@@ -1,3 +1,4 @@
+import { SearchService } from './../../../services/search.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators, FormControl } from '@angular/forms';
 
@@ -19,12 +20,17 @@ export class SigninComponent implements OnInit {
     ])
   });
 
-  constructor() { }
+  constructor(private SearchService: SearchService) { }
 
   ngOnInit() {}
 
   async onSubmit() {
-    
+    console.log(this.SearchService.login(this.loginForm.value).subscribe((result: any) => {
+      console.log( "result from upload: ",result)
+      ;}
+      ));
+
+      console.log(this.loginForm.value);
   }
 
 }

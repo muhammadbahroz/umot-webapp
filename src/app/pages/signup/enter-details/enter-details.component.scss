@@ -1,0 +1,631 @@
+ion-content {
+    --ion-background-color: #1C1A3B;
+  }
+
+ion-footer {
+    background-color: #1C1A3B;
+  }
+
+.logo{
+    margin-left: 100px;
+    border-radius: 0px;
+    height: auto;
+}
+
+.top-home-button{
+    margin-left: 150px;
+}
+
+.top-premium-button{
+    margin-left: 50px;
+}
+
+.search{
+    // background-color:  #ffffff;
+    
+    @media (min-width: 1360px) {
+        margin-left: 400px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 500px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 900px;    
+    }
+
+    width: 250px;
+    margin-top: 5px;
+}
+
+// ion-input{
+//     width: 250px;
+//     --border-radius: 3px;
+//     //text-transform: inherit;
+// }
+
+.login-button{
+    // margin-left: 20px;
+    width: 250px;
+    // position: inherit;
+    top: 10px;
+
+    @media (min-width: 1360px) {
+        margin-left: 430px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 530px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 840px;    
+    }
+}
+
+.footer{
+    margin-left: 5px;
+    font-size: 10px;
+    color: #979797;
+}
+
+.row-space{
+    margin-top: -20px;
+}
+
+.feedback-icon{
+    margin-left: -25px;
+    margin-right: 25px;
+    font-size: 15px;
+    color: #979797;
+}
+
+.social-icons{
+    font-size: 28px;
+    color: #979797;
+    margin-right: 15px;
+}
+
+.text-danger{
+    color: #EE3468;
+}
+
+///////////////////////////BACK BUTTON///////////////////////////
+.back-btn{
+    position: relative;
+    top: 5%;
+    
+    @media (min-width: 1360px) {
+        left: 7%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 7%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 6%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: 6%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: 5%;    
+    }
+    
+    // transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // --background-color: #EE3468;
+    color: #ffffff;
+    width: 100px;
+}
+///////////////////////////OUTER CONTAINER///////////////////////////
+.outer-container{
+    @media only screen and (min-width: 1360px) {
+        width: 1160px;
+        height: 700px;
+        left: 100px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 1366px) {
+        width: 1166px;
+        height: 700px;
+        left: 100px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 1440px) {
+        width: 1240px;
+        height: 700px;
+        left: 100px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        width: 1400px;
+        height: 700px;
+        left: 100px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 1680px) {
+        width: 1480px;
+        height: 700px;
+        left: 100px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+    @media only screen and (min-width: 1920px) {
+        width: 1720px;
+        height: 700px;
+        left: 100px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+}
+
+
+.outer-container .identifier{
+    position: absolute;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    top: 5%; 
+    max-width: 10px;
+    max-height: 10px;
+    background-color: #EE3468;
+    
+    @media only screen and (min-width: 1360px) {
+        left: 15%;
+    }
+
+    @media only screen and (min-width: 1366px) {
+        left: 15%;
+    }
+
+    @media only screen and (min-width: 1440px) {
+        left: 15%;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        left: 13%;
+    }
+
+    @media only screen and (min-width: 1680px) {
+        left: 13%;
+    }
+
+    @media only screen and (min-width: 1920px) {
+        left: 11.5%;
+    }
+}
+
+.outer-container .header{
+    font-size: 20px;
+    font-weight: bold;
+    top: 5%;
+    left: 3%;
+    position: absolute;
+}
+
+///////////////////////////IDENTIFIER MESSAGE BOX///////////////////////////
+/* Message box starts here */
+.container {
+    clear: both;
+    position: relative;
+    
+    @media only screen and (min-width: 1360px) {
+        left: 16%;
+        top: 3.5%;
+    }
+
+    @media only screen and (min-width: 1366px) {
+        left: 16%;
+        top: 3.5%;
+    }
+
+    @media only screen and (min-width: 1440px) {
+        left: 16%;
+        top: 3.5%;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        left: 14%;
+        top: 3.5%;
+    }
+
+    @media only screen and (min-width: 1680px) {
+        left: 14%;
+        top: 3.5%;
+    }
+
+    @media only screen and (min-width: 1920px) {
+        left: 12.2%;
+        top: 3.5%;
+    }
+  }
+  
+  .container .arrow {
+    width: 12px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    top: 6px;
+    right: -1px;
+  }
+  
+  .container .arrow .outer {
+    width: 0;
+    height: 0;
+    // border-right: 20px solid #000000;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .container .arrow .inner {
+    width: 0;
+    height: 0;
+    border-right: 20px solid #EE3468;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 2px;
+  }
+  
+  .container .message-body {
+    float: left;
+    width: 230px;
+    height: auto;
+    border: 1px solid #CCC;
+    background-color: #EE3468;
+    // border: 1px solid #000000;
+    padding: 6px 8px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .container .message-body p {
+    margin: 0;
+    color: #ffffff;
+  }
+  ///////////////////////////AVATAR///////////////////////////
+  .outer-container .avatar{
+        position: relative;
+        border: 1px solid #8782A5;
+
+        @media only screen and (min-width: 1360px) {
+            left: 3%;
+            width: 17%;
+            height: 27%;
+            top: 13%;
+        }
+
+        @media only screen and (min-width: 1366px) {
+            left: 3%;
+            width: 17%;
+            height: 27%;
+            top: 13%;
+        }
+
+        @media only screen and (min-width: 1440px) {
+            left: 3%;
+            width: 17%;
+            height: 27%;
+            top: 13%;
+        }
+
+        @media only screen and (min-width: 1600px) {
+            left: 3%;
+            width: 15%;
+            height: 27%;
+            top: 13%;
+        }
+
+        @media only screen and (min-width: 1680px) {
+            left: 3%;
+            width: 13%;
+            height: 25%;
+            top: 13%;
+        }
+
+        @media only screen and (min-width: 1920px) {
+            left: 3%;
+            width: 13%;
+            height: 28%;
+            top: 13%;
+        }
+        
+  }
+
+  .avatar .text{
+      
+        left: 25%;
+        position: absolute;
+        top: 45%;
+        color: #8782A5;
+  }
+  ///////////////////////////INPUT AREA///////////////////////////
+  .outer-container .input{
+    border: 1px solid #8782A5;
+    --ion-background-color: #fff;
+    border-radius: 5px;
+  }
+  .outer-container .input-row{
+      position: relative;
+      @media only screen and (min-width: 1360px) {
+        top: -80px;
+        left: 250px;
+        }
+    
+      @media only screen and (min-width: 1366px) {
+        top: -80px;
+        left: 250px;
+        }
+
+        @media only screen and (min-width: 1440px) {
+            top: -80px;
+            left: 250px;
+        }
+
+        @media only screen and (min-width: 1600px) {
+            top: -80px;
+            left: 180px;
+        }
+
+        @media only screen and (min-width: 1680px) {
+            top: -80px;
+            left: 120px;
+        }
+
+        @media only screen and (min-width: 1920px) {
+            top: -80px;
+            left: 80px;
+        }
+    }
+  ///////////////////////////PLATFORMS AND DEVICES///////////////////////////
+  .outer-container .platfrom-devices-header{
+    position: relative;
+
+    @media only screen and (min-width: 1360px) {
+        left: -3.5%;    
+    }
+
+    @media only screen and (min-width: 1366px) {
+        left: -3.5%;    
+    }
+
+    @media only screen and (min-width: 1440px) {
+        left: -11%;    
+    }
+
+    @media only screen and (min-width: 1600px) {
+        left: -28%;    
+    }
+
+    @media only screen and (min-width: 1680px) {
+        left: -37%;    
+    }
+
+    @media only screen and (min-width: 1920px) {
+        left: -63%;    
+    }
+}
+
+.outer-container .devices-header{
+    position: relative;
+
+    @media only screen and (min-width: 1360px) {
+        top: 10px;    
+    }
+
+    @media only screen and (min-width: 1366px) {
+        top: 10px;    
+    }
+
+    @media only screen and (min-width: 1440px) {
+        top: 10px;    
+    }
+
+    @media only screen and (min-width: 1600px) {
+        top: 10px;
+        left: 100px; 
+    }
+
+    @media only screen and (min-width: 1680px) {
+        top: 10px;
+        left: 150px;
+    }
+
+    @media only screen and (min-width: 1920px) {
+        top: 10px;
+        left: 250px;
+    }
+
+}
+
+.platforms{
+    position: relative;
+    @media only screen and (min-width: 1360px) {
+        left: -15px;    
+    }
+
+    @media only screen and (min-width: 1366px) {
+        left: -15px;    
+    }
+
+    @media only screen and (min-width: 1440px) {
+        left: -50px;    
+    }
+
+    @media only screen and (min-width: 1600px) {
+        left: -125px;    
+    }
+
+    @media only screen and (min-width: 1680px) {
+        left: -165px;    
+    }
+
+    @media only screen and (min-width: 1920px) {
+        left: -280px;    
+    }
+}
+
+.devices{
+    position: relative;
+    @media only screen and (min-width: 1360px) {
+        // left: -15px;    
+    }
+    
+    @media only screen and (min-width: 1366px) {
+        // left: -15px;    
+    }
+
+    @media only screen and (min-width: 1440px) {
+        // left: -15px;    
+    }
+
+    @media only screen and (min-width: 1600px) {
+        left: 100px;    
+    }
+
+    @media only screen and (min-width: 1680px) {
+        left: 150px;    
+    }
+
+    @media only screen and (min-width: 1920px) {
+        left: 250px;    
+    }
+}
+
+.im{
+    margin-left: 10px;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+}
+
+.first-im{
+    position: relative;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+}
+///////////////////////////SECOND ROW OF PROVIDERS///////////////////////////
+.im2{
+    // top: 10px;
+    margin-left: 10px;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
+}
+
+.first-im2{
+    // top: 10px;
+    
+    position: relative;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
+}
+///////////////////////////DEVICES///////////////////////////
+.devices-im{
+    margin-left: 10px;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+}
+
+.devices-first-im{
+    position: relative;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+}
+///////////////////////////SECOND ROW OF DEVICES///////////////////////////
+.devices-im2{
+    // top: 10px;
+    margin-left: 10px;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
+}
+
+.devices-first-im2{
+    // top: 10px;
+    
+    position: relative;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
+}
+
+.continue-button{
+    position: relative;
+    border-radius: 5px;
+    @media only screen and (min-width: 1360px) {
+        top: 30px;
+        left: 250%;    
+    }
+    
+    @media only screen and (min-width: 1366px) {
+        top: 30px;
+        left: 250%;    
+    }
+
+    @media only screen and (min-width: 1440px) {
+        top: 30px;
+        left: 250%;    
+    }
+
+    @media only screen and (min-width: 1600px) {
+        top: 30px;
+        left: 285%;    
+    }
+
+    @media only screen and (min-width: 1680px) {
+        top: 30px;
+        margin-left: 45px;
+        width: 250px;    
+    }
+
+    @media only screen and (min-width: 1920px) {
+        top: 30px;
+        margin-left: 150px;
+        width: 250px;    
+    }
+}
