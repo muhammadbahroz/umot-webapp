@@ -22,7 +22,7 @@
             <ion-col size="12">
                 <ion-item>
                   <!-- <ion-label position="floating">Email</ion-label> -->
-                  <ion-input placeholder="Email" required formControlName="email" type="email"></ion-input>
+                  <ion-input placeholder="Email" required formControlName="email" type="email" (ionChange)="check()"></ion-input>
                 </ion-item>     
             </ion-col>
           </ion-row>
@@ -42,7 +42,7 @@
               <ion-item>
                 <!-- <ion-label position="floating">Password
                 </ion-label> -->
-                <ion-input placeholder="Password" required formControlName="password" type="password"></ion-input>
+                <ion-input placeholder="Password" required formControlName="password" type="password" (ionChange)="check()"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -52,6 +52,26 @@
               <ion-item class="traansparent" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" lines="none">
                 <ion-text color="danger" class="form-error">
                   Please enter a valid password
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item class="traansparent" *ngIf="loginFailure" lines="none">
+                <ion-text color="danger" class="form-error">
+                  Email or Password didn't match!!!
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item class="traansparent" *ngIf="tryAgain" lines="none">
+                <ion-text color="danger" class="form-error">
+                  ERROR Occcured Please Try Again!
                 </ion-text>
               </ion-item>
             </ion-col>
