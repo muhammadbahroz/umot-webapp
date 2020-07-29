@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { pipe } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -19,13 +22,14 @@ export class SignupPage implements OnInit {
     ])
   });
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   async onSubmit() {
-    
+    console.log("passed json",this.signupForm.value);
+    this.router.navigate(['signup/enter-details', this.signupForm.value]);
   }
 
 }
