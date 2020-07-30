@@ -13,7 +13,7 @@ export class QuestionPageComponent implements OnInit {
 
   questionsResponse: QuestionResponse;
   buttonValue = 1;
-  questionNumber = 0;
+  questionNumber = 9;
   minutes = 0;
   searchValue: string = null;
 
