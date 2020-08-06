@@ -583,6 +583,7 @@ ion-footer {
 }
 
 .providers .first-im{
+    margin-left: -10px;
     width: 70px;
     height: 50px;
     --border-radius: 5%;
@@ -595,16 +596,80 @@ ion-footer {
     width: 70px;
     height: 50px;
     --border-radius: 5%;
-    border: 1px solid #020024;
+    // border: 1px solid #020024;
 }
 
 .providers .first-im2{
     top: 10px;
+    margin-left: -10px;
     position: relative;
     width: 70px;
     height: 50px;
     --border-radius: 5%;
-    border: 1px solid #020024;
+    // border: 1px solid #020024;
+}
+
+/////////////THIRD ROW OF PROVIDERS////////////////
+.providers .im3{
+    top: 20px;
+    position: relative;
+    margin-left: 10px;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
+}
+
+.providers .first-im3{
+    top: 20px;
+    position: relative;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    margin-left: -10px;
+    // border: 1px solid #020024;
+}
+
+/////////////FOURTH ROW OF PROVIDERS////////////////
+.providers .im4{
+    top: 30px;
+    position: relative;
+    margin-left: 10px;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
+}
+
+.providers .first-im4{
+    top: 30px;
+    position: relative;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    margin-left: -10px;
+    // border: 1px solid #020024;
+}
+
+/////////////FIFTH ROW OF PROVIDERS////////////////
+.providers .im5{
+    top: 40px;
+    position: relative;
+    margin-left: 10px;
+    width: 70px;
+    height: 50px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
+}
+
+.providers .first-im5{
+    top: 40px;
+    position: relative;
+    width: 70px;
+    height: 50px;
+    margin-left: -10px;
+    --border-radius: 5%;
+    // border: 1px solid #020024;
 }
 
 ////////////////////////////////////SEARCH DROPDOWN////////////////////////////////////
