@@ -28,22 +28,27 @@ export class MovieComponent implements OnInit {
   movies: any;
 
   search(){
-    this.searchService.search(this.searchValue).subscribe((result: any) => {
-      this.movies = JSON.parse(result.data);
-      this.movies = this.movies.slice(0, 2);
-      this.movies.forEach(movie => {
-        movie.img = 'https://image.tmdb.org/t/p/w500' + movie.img;
+    if (this.searchValue != "") {
+      this.searchService.search(this.searchValue).subscribe((result: any) => {
+        this.movies = JSON.parse(result.data);
+        this.movies = this.movies.slice(0, 2);
+        this.movies.forEach(movie => {
+          movie.img = 'https://image.tmdb.org/t/p/w500' + movie.img;
+        });
+        if(this.searchValue !=  "")
+        {
+          this.check=true;
+        }
+        else{
+          this.check=false;
+        }
+  
+        // console.log(this.movies);  
       });
-      if(this.searchValue !=  "")
-      {
-        this.check=true;
-      }
-      else{
-        this.check=false;
-      }
-
-      // console.log(this.movies);  
-    });
+    }else{
+      this.check = false;
+    }
+    
   }
 
   openMovieClicked(movieID: string){
@@ -58,6 +63,7 @@ export class MovieComponent implements OnInit {
   }
 
   movieDetail: any = null;
+  providersArray: string[] = [];
   movieClick(){
     this.searchService.movie(this.movieID).subscribe((result: any) => {
       this.movieDetail = JSON.parse(result.data);
@@ -75,22 +81,32 @@ export class MovieComponent implements OnInit {
         person.profile_path = 'https://image.tmdb.org/t/p/w500' + person.profile_path;
         console.log(person.profile_path);
       });
-      const PROVIDERS_CHECK = [false, false, false, false];
+      
+      const PROVIDERS_SET: Set<string> = new Set;
       this.movieDetail.providers.forEach(provider => {
-        if (provider.provider_name === 'HBO Now' || provider.provider_name === 'HBO Go'){
-          PROVIDERS_CHECK[0] = true;
-        }
-        if (provider.provider_name === 'Netflix' || provider.provider_name === 'Netflix Kids'){
-          PROVIDERS_CHECK[1] = true;
-        }
-        if (provider.provider_name === 'Amazon Video' || provider.provider_name === 'Amazon Prime Video'){
-          PROVIDERS_CHECK[2] = true;
-        }
-        if (provider.provider_name === 'Apple iTunes' || provider.provider_name === 'Apple TV Plus'){
-          PROVIDERS_CHECK[3] = true;
-        }
+        PROVIDERS_SET.add(provider.img);
       });
-      this.movieDetail.providers = PROVIDERS_CHECK;
+      PROVIDERS_SET.forEach( img => {
+        this.providersArray.push(img);
+      })
+      this.movieDetail.providers = this.providersArray;
+      // console.log("first provider image",this.movieDetail.providers[0]);
+      // const PROVIDERS_CHECK = [false, false, false, false];
+      // this.movieDetail.providers.forEach(provider => {
+      //   if (provider.provider_name === 'HBO Now' || provider.provider_name === 'HBO Go'){
+      //     PROVIDERS_CHECK[0] = true;
+      //   }
+      //   if (provider.provider_name === 'Netflix' || provider.provider_name === 'Netflix Kids'){
+      //     PROVIDERS_CHECK[1] = true;
+      //   }
+      //   if (provider.provider_name === 'Amazon Video' || provider.provider_name === 'Amazon Prime Video'){
+      //     PROVIDERS_CHECK[2] = true;
+      //   }
+      //   if (provider.provider_name === 'Apple iTunes' || provider.provider_name === 'Apple TV Plus'){
+      //     PROVIDERS_CHECK[3] = true;
+      //   }
+      // });
+      // this.movieDetail.providers = PROVIDERS_CHECK;
       console.log(this.movieDetail.providers);
       console.log("Synopsis: " + this.movieDetail.synopsis);
       this.movieDetail.videos = this.movieDetail.videos.slice(0,1);
