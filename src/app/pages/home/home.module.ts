@@ -18,7 +18,19 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     IonicModule,
     HomePageRoutingModule
   ],
-  entryComponents: [HomePage,MenuSearchComponent,MovieComponent,FaqComponent,PrivacyPolicyComponent],
-  declarations: [HomePage,MenuSearchComponent,MovieComponent,FaqComponent,PrivacyPolicyComponent]
+  entryComponents: [
+    HomePage,
+    MenuSearchComponent,
+    MovieComponent,
+    FaqComponent,
+    PrivacyPolicyComponent
+  ],
+  declarations: [
+    HomePage,
+    MenuSearchComponent,
+    MovieComponent,
+    FaqComponent,
+    PrivacyPolicyComponent
+  ]
 })
 export class HomePageModule {}
