@@ -37,6 +37,7 @@ export class QuestionPageComponent implements OnInit {
     }
 
     if (this.questionNumber == 9) {
+      console.log("question response: ",this.questionsResponse);
       console.log(this.SearchService.postResponseForRecommendation(this.questionsResponse).subscribe((result: any) => {
         console.log( "result from upload: ",result);}));
     }
@@ -63,7 +64,7 @@ export class QuestionPageComponent implements OnInit {
       this.questionsResponse.response[questionNumber].answer_id = 7;
     }
     // console.log("minutes: ",this.minutes);
-    console.log(this.questionsResponse);
+    // console.log(this.questionsResponse);
   }
 
   recordQuestionResponse(buttonValue: number, questionNumber: number, question_id: number, answer_id: number){
@@ -73,7 +74,7 @@ export class QuestionPageComponent implements OnInit {
     this.buttonValue = buttonValue;
     // console.log(this.questionsResponse.response[1]);
     // console.log("value", questionNumber);
-    console.log(this.questionsResponse);
+    // console.log(this.questionsResponse);
   }
 
   recordFreeText(buttonValue: number, questionNumber: number, question_id: number){
@@ -83,7 +84,7 @@ export class QuestionPageComponent implements OnInit {
       this.questionsResponse.response[questionNumber].answer_id = null;
       this.questionsResponse.response[questionNumber].extra = this.searchValue;
       this.searchValue = null;
-      console.log(this.questionsResponse); 
+      // console.log("question response: ",this.questionsResponse);
     }
   }
 
@@ -94,7 +95,7 @@ export class QuestionPageComponent implements OnInit {
       // console.log(this.questions[3].text);
       // console.log(this.questions[3].answers[0].answer_id);
       // console.log("length ",this.questions[3].answers.length);
-      console.log("questions: ",this.questions);
+      // console.log("questions: ",this.questions);
     });
   }
 }

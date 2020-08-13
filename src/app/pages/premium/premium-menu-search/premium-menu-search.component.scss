@@ -1,0 +1,187 @@
+ion-content {
+    --ion-background-color: #1C1A3B;
+  }
+
+ion-footer {
+    background-color: #1C1A3B;
+  }
+
+.logo{
+    margin-left: 100px;
+    border-radius: 0px;
+    height: auto;
+}
+
+.top-home-button{
+    margin-left: 150px;
+}
+
+.top-my-wish-list-button{
+    margin-left: 50px;
+}
+
+.top-my-ideal-platform-button{
+    margin-left: 50px;
+}
+
+.top-history-button{
+    margin-left: 50px;   
+}
+
+.search{
+    // background-color:  #ffffff;
+    @media (min-width: 1360px) {
+        margin-left: 390px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 460px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 630px;    
+    }
+
+    @media (min-width: 1680px) {
+        margin-left: 700px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 940px;    
+    } 
+    width: 250px;
+    margin-top: 5px;
+}
+
+// ion-input{
+//     width: 250px;
+//     --border-radius: 3px;
+//     //text-transform: inherit;
+// }
+
+.login-button{
+    // margin-left: 20px;
+    width: 250px;
+    // position: inherit;
+    top: 10px;
+    @media (min-width: 1360px) {
+        margin-left: 440px;    
+    }
+
+    @media (min-width: 1440px) {
+        margin-left: 500px;    
+    }
+
+    @media (min-width: 1600px) {
+        margin-left: 640px;    
+    }
+
+    @media (min-width: 1680px) {
+        margin-left: 690px;    
+    }
+
+    @media (min-width: 1920px) {
+        margin-left: 900px;    
+    }
+}
+
+.searched-movies{
+    margin-left: 120px;
+}
+
+.searched-movies-list{
+    margin-left: 100px;
+}
+
+.thumbnail{
+    --border-radius: 0%;
+    //--size: 50%;
+    height: 170px;
+    width: 120px;
+}
+
+.platform{
+    --border-radius: 5%;
+    height: 3em;
+    width: fit-content;
+    display: block;
+    //position: relative;
+    //min-width: max-content;
+}
+
+ion-item{
+    --border-color: #ffff;
+    margin-right: 130px;
+}
+
+.footer{
+    margin-left: 5px;
+    font-size: 10px;
+    color: #979797;
+}
+
+.row-space{
+    margin-top: -20px;
+}
+
+.feedback-icon{
+    margin-left: -25px;
+    margin-right: 25px;
+    font-size: 15px;
+    color: #979797;
+}
+
+.social-icons{
+    font-size: 28px;
+    color: #979797;
+    margin-right: 15px;
+}
+
+////////////////////////////////////SEARCH DROPDOWN////////////////////////////////////
+.search-dropdown-box{
+    width: 234px;
+    height: 210px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative !important;
+    margin-left: 50.34em;       
+    background:#fff; 
+    --ion-background-color: #fff;
+    border: 5px solid #fff;
+
+}
+
+////////////////////////////////////EMPTY PAGE CONTAINER////////////////////////////////////
+.empty{
+
+    //////Monitor Display///////
+    @media ( min-width: 1360px) {
+        width: 700px; 
+        height: 350px; 
+      }
+
+      @media ( min-width: 1440px) {
+        width: 700px; 
+        height: 450px; 
+      }
+
+    @media ( min-width: 1600px) {
+        width: 800px; 
+        height: 450px; 
+    }
+
+    @media ( min-width: 1680px) {
+        width: 1000px; 
+        height: 600px; 
+    }
+
+    @media ( min-width: 1920px) {
+        width: 1000px; 
+        height: 650px; 
+    }
+
+    @media ( min-width: 2560px) {
+        width: 1200px; 
+        height: 850px; 
+    }
+}
