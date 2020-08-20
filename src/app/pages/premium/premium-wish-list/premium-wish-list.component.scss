@@ -1,0 +1,276 @@
+ion-content {
+    --ion-background-color: #1C1A3B;
+  }
+
+ion-header {
+    --ion-background-color: #1C1A3B;
+    --border: none;
+}
+
+ion-footer {
+    background-color: #1C1A3B;
+  }
+
+.logo{
+    margin-left: 100px;
+    border-radius: 0px;
+    height: auto;
+}
+
+.top-home-button{
+    margin-left: 150px;
+}
+
+.top-my-wish-list-button{
+    margin-left: 50px;
+}
+
+.top-my-ideal-platform-button{
+    margin-left: 50px;
+}
+
+.top-history-button{
+    margin-left: 50px;   
+}
+
+.search{
+    // background-color:  #ffffff; 
+    @media (min-width: 1360px) {
+      margin-left: 200px;    
+    }
+
+    @media (min-width: 1440px) {
+      margin-left: 280px;    
+    }
+
+    @media (min-width: 1600px) {
+      margin-left: 420px; 
+    }
+
+    @media (min-width: 1920px) {
+      margin-left: 620px;     
+    }
+    
+    width: 280px;
+    margin-top: 5px;
+}
+
+// ion-input{
+//     width: 250px;
+//     --border-radius: 3px;
+//     //text-transform: inherit;
+// }
+
+.login-button{
+    // margin-left: 20px;
+    width: 250px;
+
+    @media (min-width: 1440px) {
+      left: 50px;    
+    }
+
+    @media (min-width: 1600px) {
+      left: 100px;    
+    }
+
+    @media (min-width: 1920px) {
+      left: 250px;    
+    }
+
+    // position: inherit;
+    top: 10px;
+}
+
+.searched-movies{
+    margin-left: 120px;
+}
+
+.searched-movies-list{
+    margin-left: 100px;
+}
+
+.thumbnail{
+    --border-radius: 0%;
+    //--size: 50%;
+    height: 110px;
+    width: 70px;
+}
+
+.footer{
+    margin-left: 5px;
+    font-size: 10px;
+    color: #979797;
+}
+
+.row-space{
+    margin-top: -20px;
+}
+
+.feedback-icon{
+    margin-left: -25px;
+    margin-right: 25px;
+    font-size: 15px;
+    color: #979797;
+}
+
+.social-icons{
+    font-size: 28px;
+    color: #979797;
+    margin-right: 15px;
+}
+
+
+////////////////////////////////////SEARCH DROPDOWN////////////////////////////////////
+.search-dropdown-box{
+  width: 232px;
+  height: 225px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: relative !important;
+  // margin-left: 51.95em;       
+
+
+  @media (min-width: 1360px) {
+    margin-left: 51.95em;    
+  }       
+
+  @media (min-width: 1440px) {
+    margin-left: 56.95em; 
+  }
+
+  @media (min-width: 1600px) {
+      margin-left: 65.7em; 
+  }
+
+  @media (min-width: 1920px) {
+      margin-left: 84.45em;    
+  }
+
+  background:#fff; 
+  --ion-background-color: #fff;
+  border: 5px solid #fff;
+
+}
+
+
+////////////////////////////////////EMPTY PAGE CONTAINER////////////////////////////////////
+.empty{
+    position: relative;
+  @media ( min-width: 1360px) {
+    width: 700px; 
+    height: 370px; 
+    }
+
+  @media ( min-width: 1440px) {
+    width: 700px; 
+    height: 470px; 
+  }
+
+  @media ( min-width: 1600px) {
+      width: 800px; 
+      height: 400px; 
+  }
+
+  @media ( min-width: 1680px) {
+      width: 1000px; 
+      height: 600px; 
+  }
+
+  @media ( min-width: 1920px) {
+      width: 1000px; 
+      height: 650px; 
+  }
+
+  @media ( min-width: 2560px) {
+      width: 1200px; 
+      height: 850px; 
+  }
+}
+
+////////////////////////////////////TITLE////////////////////////////////////
+.title{
+    position: relative;
+    left: 100px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+////////////////////////////////////FILTER BAR CONTAINER////////////////////////////////////
+.filter-container{
+    // border: 1px solid #fff;
+    // background-color: #8782A5;
+    @media only screen and (min-width: 1366px){
+        width: 1366px;
+        height: 70px;
+    }
+}
+
+.filter-icon{
+    left: 100px;
+    color: #fff;
+}
+
+.input{
+    // border: 1px solid #8782A5;
+    --ion-background-color: #fff;
+    border-radius: 5px;
+    width: 200px;
+    height: 45px;
+}
+////////////////////////////////////FILM CONTAINER////////////////////////////////////
+.history-movies-container{
+    // border: 1px solid #979797;
+    top: 20px;
+    position: relative;
+    @media only screen and (min-width: 1366px){
+        width: 1366px;
+        height: 500px;
+    }
+
+    @media only screen and (min-width: 1440px){
+        width: 1440px;
+        height: 500px;
+        left: -3em;
+    }
+
+    @media only screen and (min-width: 1600px){
+        width: 1600px;
+        height: 500px;
+        left: -8em;
+    }
+}
+
+.film-container{
+    // left: 100px;
+    position: relative;
+    width: 180px;
+    height: 200px;
+    // border: 1px solid #979797;
+}
+
+////////////////////////FILM POSTER////////////////////////
+.film-poster{
+    --border-radius: 5%;
+    position: absolute;
+    height: 200px;
+    width: 140px;
+
+    // @media (min-width: 1440px) {
+    //     left: -17%;
+    // }
+
+    // @media (min-width: 1600px) {
+    //     left: -35%;
+    // }
+
+    // @media (min-width: 1680px) {
+    //     left: -55%;
+    // }
+
+    // @media (min-width: 1920px) {
+    //     left: -83%;    
+    // }
+    
+    //min-width: fit-content;
+}
