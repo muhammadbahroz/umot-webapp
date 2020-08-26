@@ -35,8 +35,10 @@ export class SigninComponent implements OnInit {
   }
   async onSubmit() {
     console.log(this.SearchService.login(this.loginForm.value).subscribe((result: any) => {
-      console.log( "result from upload: ",result)
-      ;},(error: HttpErrorResponse) => {
+      console.log( "result from upload: ",result )
+      ;if(this.loginFailure === false && this.tryAgain=== false){
+        this.router.navigate(['registereduser']);
+      };},(error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
           // A client-side or network error occurred. Handle it accordingly.
           this.tryAgain = true;
@@ -50,10 +52,6 @@ export class SigninComponent implements OnInit {
             `body was: ${error.error}`);
         }}
       ));
-
-      if(this.loginFailure === false && this.tryAgain=== false){
-        this.router.navigate(['registereduser']);
-      }
       // console.log(this.loginForm.value);
   }
 }
