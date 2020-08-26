@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SearchService } from './../../../services/search.service';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +24,7 @@ export class SigninComponent implements OnInit {
     ])
   });
 
-  constructor(private SearchService: SearchService) { }
+  constructor(private SearchService: SearchService,private router: Router) { }
 
   ngOnInit() {}
 
@@ -50,6 +51,9 @@ export class SigninComponent implements OnInit {
         }}
       ));
 
+      if(this.loginFailure === false && this.tryAgain=== false){
+        this.router.navigate(['registereduser']);
+      }
       // console.log(this.loginForm.value);
   }
 }

@@ -62,6 +62,10 @@ export class SearchService {
     return this.httpClient.get('http://18.222.13.116:5000/movie/get_question');
   }
 
+  getRecommendation(){
+    return this.httpClient.get('http://18.222.13.116:5000/movie/get_recommendation');
+  }
+
   postResponseForRecommendation(item): Observable<QuestionResponse> {
     return this.httpClient
       .post<QuestionResponse>('http://18.222.13.116:5000/movie/recommendation/submit_response', JSON.stringify(item), this.httpOptions)

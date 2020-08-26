@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'premium',
     loadChildren: () => import('./pages/premium/premium.module').then( m => m.PremiumPageModule)
   },
+  {
+    path: 'registereduser',
+    loadChildren: () => import('./pages/registereduser/registereduser.module').then( m => m.RegistereduserPageModule)
+  },
 ];
 
 @NgModule({
