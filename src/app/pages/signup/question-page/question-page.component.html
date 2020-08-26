@@ -25,16 +25,14 @@
 
   <div *ngIf= "questions" class="container">
 
-    <div *ngIf="questionNumber < 9" class="progress-bar-container">
+    <div *ngIf="questionNumber < 7" class="progress-bar-container">
       <div *ngIf="questionNumber === 0">
-        <ion-label style="color: #ffff;">Question 1/9</ion-label>
+        <ion-label style="color: #ffff;">Question 1/7</ion-label>
         <ol class="progress-bar">
           <li class="is-active"><span></span></li>  
           <li><span></span></li>  
           <li><span></span></li>
           <li><span></span></li>  
-          <li><span></span></li>
-          <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
@@ -42,14 +40,12 @@
       </div>
 
       <div *ngIf="questionNumber === 1">
-        <ion-label style="color: #ffff;">Question 2/9</ion-label>
+        <ion-label style="color: #ffff;">Question 2/7</ion-label>
         <ol class="progress-bar">
           <li class="is-complete"><span></span></li>  
           <li class="is-active"><span></span></li>  
           <li><span></span></li>
           <li><span></span></li>  
-          <li><span></span></li>
-          <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
@@ -57,7 +53,7 @@
       </div>
 
       <div *ngIf="questionNumber === 2">
-        <ion-label style="color: #ffff;">Question 3/9</ion-label>
+        <ion-label style="color: #ffff;">Question 3/7</ion-label>
         <ol class="progress-bar">
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>  
@@ -66,13 +62,11 @@
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
         </ol>
       </div>
 
       <div *ngIf="questionNumber === 3">
-        <ion-label style="color: #ffff;">Question 4/9</ion-label>
+        <ion-label style="color: #ffff;">Question 4/7</ion-label>
         <ol class="progress-bar">
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>  
@@ -81,80 +75,42 @@
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
         </ol>
       </div>
 
       <div *ngIf="questionNumber === 4">
-        <ion-label style="color: #ffff;">Question 5/9</ion-label>
+        <ion-label style="color: #ffff;">Question 5/7</ion-label>
         <ol class="progress-bar">
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>  
           <li class="is-active"><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
         </ol>
       </div>
 
       <div *ngIf="questionNumber === 5">
-        <ion-label style="color: #ffff;">Question 6/9</ion-label>
+        <ion-label style="color: #ffff;">Question 6/7</ion-label>
         <ol class="progress-bar">
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>
-          <li class="is-active"><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
-        </ol>
-      </div>
-
-      <div *ngIf="questionNumber === 6">
-        <ion-label style="color: #ffff;">Question 7/9</ion-label>
-        <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>
-          <li class="is-active"><span></span></li>
-          <li><span></span></li>
-          <li><span></span></li>
-        </ol>
-      </div>
-
-      <div *ngIf="questionNumber === 7">
-        <ion-label style="color: #ffff;">Question 8/9</ion-label>
-        <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>
           <li class="is-active"><span></span></li>
           <li><span></span></li>
         </ol>
       </div>
 
-      <div *ngIf="questionNumber === 8">
-        <ion-label style="color: #ffff;">Question 9/9</ion-label>
+      <div *ngIf="questionNumber === 6">
+        <ion-label style="color: #ffff;">Question 7/7</ion-label>
         <ol class="progress-bar">
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>
           <li class="is-active"><span></span></li>
@@ -171,19 +127,19 @@
 
       <div *ngIf="questions[questionNumber].question_id != 2; else slider">
         <ion-buttons *ngIf="questions[questionNumber].answers" style="top: 10px; position: relative;" slot="start">
-            <ion-button *ngIf="questions[questionNumber].answers.length >= 1" expand="block" fill="solid"  [color]="buttonValue === 0 ? 'danger' : 'light'" (click)="recordQuestionResponse(0,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[0].answer_id)">          
+            <ion-button *ngIf="questions[questionNumber].answers.length >= 1" expand="block" fill="solid"  [color]="buttonValue === 0 ? 'danger' : 'light'" (click)="recordQuestionResponse(0,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[0].answer_id,questions[questionNumber].text,questions[questionNumber].answers[0].text)">          
               <!-- Alone -->
               {{questions[questionNumber].answers[0].text}}
             </ion-button>
-            <ion-button *ngIf="questions[questionNumber].answers.length >= 2" style="left: 10px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -1 ? 'danger' : 'light'" (click)="recordQuestionResponse(-1,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[1].answer_id)">
+            <ion-button *ngIf="questions[questionNumber].answers.length >= 2" style="left: 10px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -1 ? 'danger' : 'light'" (click)="recordQuestionResponse(-1,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[1].answer_id,questions[questionNumber].text,questions[questionNumber].answers[1].text)">
               <!-- Sweet love/partner -->
               {{questions[questionNumber].answers[1].text}}
             </ion-button>
-            <ion-button *ngIf="questions[questionNumber].answers.length >= 3" style="left: 20px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -2 ? 'danger' : 'light'" (click)="recordQuestionResponse(-2,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[2].answer_id)">
+            <ion-button *ngIf="questions[questionNumber].answers.length >= 3" style="left: 20px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -2 ? 'danger' : 'light'" (click)="recordQuestionResponse(-2,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[2].answer_id,questions[questionNumber].text,questions[questionNumber].answers[2].text)">
               <!-- Family -->
               {{questions[questionNumber].answers[2].text}}
             </ion-button>
-            <ion-button *ngIf="questions[questionNumber].answers.length === 4" style="left: 30px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -3 ? 'danger' : 'light'" (click)="recordQuestionResponse(-3,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[3].answer_id)">
+            <ion-button *ngIf="questions[questionNumber].answers.length === 4" style="left: 30px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -3 ? 'danger' : 'light'" (click)="recordQuestionResponse(-3,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[3].answer_id,questions[questionNumber].text,questions[questionNumber].answers[3].text)">
               <!-- Friends -->
               {{questions[questionNumber].answers[3].text}}
             </ion-button>
@@ -212,7 +168,7 @@
 
     <!-- RECOMMENDATION AREA-->
 
-    <div class="recommendation-container" *ngIf="questionNumber >= 9">
+    <div class="recommendation-container" *ngIf="questionNumber >= 7">
       <!-- BACK BUTTON -->
       <ion-button [routerLink]="['/signup']" class="back-btn" fill="clear">
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
@@ -220,17 +176,17 @@
       </ion-button>
       
       <!-- MCQ QUESTIONS -->
-      <div *ngFor="let item of [1,2,3,4,5,6,7]">
+      <div *ngFor="let item of numberOfQuestionsAnswered">
         <!-- QUESTION -->
         <ion-text class="question-text">
-          <h1 style="color: #ffff; font-size: 16px; font-weight: 900;" >Who are you with?</h1>
+          <h1 style="color: #ffff; font-size: 16px; font-weight: 900;" >{{questionsOfnumberOfQuestionsAnswered[item]}}</h1>
           <!-- <h1 style="color: #ffff; font-size: 24px; font-weight: 900;" >{{questions[questionNumber].text}}</h1> -->
         </ion-text>
 
         <!-- FIRST BUTTON -->
         <ion-buttons slot="start">
           <ion-button class="question-button" expand="block" fill="solid"  color="danger">          
-            Alone
+            {{answersOfnumberOfQuestionsAnswered[item]}}
             <!-- {{questions[questionNumber].answers[0].text}} -->
           </ion-button>
         </ion-buttons>
@@ -242,13 +198,19 @@
       <ion-text style="top: -20px; position: relative; color: #979797;">
         <p>0 minutes<span style="position: relative; left: 340px;">Infinite</span></p>
       </ion-text>
-
     </div>
 
-
-    <ion-spinner class="loading" color="danger" name="crescent"></ion-spinner>
-    <ion-text class="loading-text">
+    <!-- LOADING -->
+    <ion-spinner *ngIf="!recommendationCheck" class="loading" color="danger" name="crescent"></ion-spinner>
+    <ion-text *ngIf="!recommendationCheck" class="loading-text">
       <h1>Loading...</h1>
+    </ion-text>
+
+    <!-- <ion-avatar *ngIf="recommendationCheck">
+      <img class="loading" src="/assets/logo/umot-logo.svg" />
+    </ion-avatar> -->
+    <ion-text *ngIf="recommendationCheck" class="loading-text">
+      <h1>We Have <b><ion-text color="danger">30</ion-text></b> Recommendations</h1>
     </ion-text>
   </div>
 

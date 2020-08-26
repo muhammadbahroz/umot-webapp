@@ -15,12 +15,17 @@ export class QuestionPageComponent implements OnInit {
   buttonValue = 1;
   questionNumber = 0;
   minutes = 0;
+  numberOfQuestionsAnswered = [];
+  numberOfQuestionsAnsweredCount = 0;
+  questionsOfnumberOfQuestionsAnswered = [];
+  answersOfnumberOfQuestionsAnswered = [];
   searchValue: string = null;
+  recommendationCheck = false;
 
   constructor(private SearchService: SearchService) {
     this.questionsResponse = {} as QuestionResponse;
     this.questionsResponse.response = [];
-    for (let index = 0; index < 9; index++) {
+    for (let index = 0; index < 7; index++) {
       this.questionsResponse.response.push(new ResponseJson);
    }
   //  console.log(this.questionsResponse);
@@ -31,16 +36,26 @@ export class QuestionPageComponent implements OnInit {
   }
 
   nextQuestionNumber(question: Datum){
-    if (this.questionNumber <= 8) {
+    if (this.questionNumber <= 6) {
       this.questionNumber+=1;
       this.buttonValue = 1;
     }
 
-    if (this.questionNumber == 9) {
-      console.log("question response: ",this.questionsResponse);
+    // THIS PART SENDS THE QUESTIONS RESPONSE TO SERVER
+    if (this.questionNumber == 7) {
+      // console.log("question response: ",this.questionsResponse);
       console.log(this.SearchService.postResponseForRecommendation(this.questionsResponse).subscribe((result: any) => {
         console.log( "result from upload: ",result);}));
+      this.recommendationCheck = true;
+
+      this.SearchService.getRecommendation().subscribe((result: any) => {
+        console.log("Recommendation RETURNED: ",JSON.parse(result.data));
+      });
+
     }
+
+    // console.log("questions of number of question answered: ", this.questionsOfnumberOfQuestionsAnswered);
+    // console.log("answers of number of question answered: ", this.answersOfnumberOfQuestionsAnswered);
     // console.log("question number: ",this.questionNumber);
     // console.log("current question: ",question);
     // console.log("response: ", this.questionsResponse);
@@ -67,11 +82,16 @@ export class QuestionPageComponent implements OnInit {
     // console.log(this.questionsResponse);
   }
 
-  recordQuestionResponse(buttonValue: number, questionNumber: number, question_id: number, answer_id: number){
+  recordQuestionResponse(buttonValue: number, questionNumber: number, question_id: number, answer_id: number, question: string, answer: string){
     this.questionsResponse.response[questionNumber].answer_id = answer_id;
     this.questionsResponse.response[questionNumber].question_id = question_id;
     this.questionsResponse.response[questionNumber].extra = null;
     this.buttonValue = buttonValue;
+    
+    this.questionsOfnumberOfQuestionsAnswered.push(question);
+    this.answersOfnumberOfQuestionsAnswered.push(answer);
+    this.numberOfQuestionsAnswered.push(this.numberOfQuestionsAnsweredCount);
+    this.numberOfQuestionsAnsweredCount++;
     // console.log(this.questionsResponse.response[1]);
     // console.log("value", questionNumber);
     // console.log(this.questionsResponse);

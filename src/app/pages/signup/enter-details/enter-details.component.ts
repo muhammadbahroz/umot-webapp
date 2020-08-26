@@ -1,3 +1,7 @@
+import { MediumConfig } from './../../../classes/medium-config';
+import { MediumConfigInterface } from './../../../interface/medium-config-interface';
+import { PlatformConfig } from './../../../classes/platform-config';
+import { PlatformConfigInterface } from './../../../interface/platform-config-interface';
 import { SearchService } from './../../../services/search.service';
 import { UserInfo } from './../../../classes/user-info';
 import { User } from './../../../interface/user';
@@ -17,6 +21,9 @@ export class EnterDetailsComponent {
   check:boolean = false;
   emailPassword: any;
   user: User = new UserInfo();
+  platform_config: PlatformConfigInterface = new PlatformConfig();
+  medium_config: MediumConfigInterface = new MediumConfig();
+
   constructor(private router: Router,
     private route: ActivatedRoute,
     private SearchService: SearchService,
@@ -74,6 +81,58 @@ export class EnterDetailsComponent {
     this.router.navigate(['home']);
   }
 
+  platformSelection(key: number){
+    if (key === 1) {
+      this.platform_config.hbo = true;
+      console.log(JSON.stringify(this.platform_config));
+    }else if (key === 2) {
+      this.platform_config.netflix = true;
+      console.log(JSON.stringify(this.platform_config));
+    }else if (key === 3) {
+      this.platform_config.amazonPrimeVideo = true;
+      console.log(JSON.stringify(this.platform_config));
+    }else if (key === 4) {
+      this.platform_config.appleTV = true;
+      console.log(JSON.stringify(this.platform_config));
+    }else if (key === 5) {
+      this.platform_config.movieStarPlus = true;
+      console.log(JSON.stringify(this.platform_config));
+    }else if (key === 6) {
+      this.platform_config.disneyPlus = true;
+      console.log(JSON.stringify(this.platform_config));
+    }else if (key === 7) {
+      this.platform_config.filmIn = true;
+      console.log(JSON.stringify(this.platform_config));
+    }else if (key === 8) {
+      this.platform_config.googlePlay = true;
+      console.log(JSON.stringify(this.platform_config));
+    }
+  }
+
+  mediumSelection(key: number){
+    if (key === 1) {
+      this.medium_config.desktop = true;
+      console.log(JSON.stringify(this.medium_config));
+    }else if (key === 2) {
+      this.medium_config.tablet = true;
+      console.log(JSON.stringify(this.medium_config));
+    }else if (key === 3) {
+      this.medium_config.mobile = true;
+      console.log(JSON.stringify(this.medium_config));
+    }else if (key === 4) {
+      this.medium_config.chromecast = true;
+      console.log(JSON.stringify(this.medium_config));
+    }else if (key === 5) {
+      this.medium_config.projector = true;
+      console.log(JSON.stringify(this.medium_config));
+    }else if (key === 6) {
+      this.medium_config.smartTV = true;
+      console.log(JSON.stringify(this.medium_config));
+    }else if (key === 7) {
+      this.medium_config.firetv = true;
+      console.log(JSON.stringify(this.medium_config));
+    }
+  }
 
   async onSubmit() {
     this.user.email = this.emailPassword.email;
@@ -85,8 +144,8 @@ export class EnterDetailsComponent {
     this.user.postcode = this.signupForm.get("postcode").value;
     this.user.num_of_children = parseInt( this.signupForm.get("numberOfChildren").value);
     this.user.country = this.signupForm.get("country").value;
-    this.user.platform_config = "Netflix";
-    this.user.medium_config = "mobile";
+    this.user.platform_config = JSON.stringify(this.platform_config);
+    this.user.medium_config = JSON.stringify(this.medium_config);
 
     // console.log("gender",this.signupForm.get("gender").value);
     // console.log("fullname",this.signupForm.get("fullname").value);
@@ -99,6 +158,7 @@ export class EnterDetailsComponent {
     // console.log("emailPassword",this.emailPassword);
     console.log("complete user json: ", this.user);
 
+    // THIS IS THE PART THAT CALLS SIGNUP API
     console.log(this.SearchService.createNewUser(this.user).subscribe((result: any) => {
       console.log( "result from upload: ",result)
       ;}
