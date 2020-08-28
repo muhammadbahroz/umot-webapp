@@ -206,12 +206,16 @@
       <h1>Loading...</h1>
     </ion-text>
 
-    <!-- <ion-avatar *ngIf="recommendationCheck">
-      <img class="loading" src="/assets/logo/umot-logo.svg" />
-    </ion-avatar> -->
-    <ion-text *ngIf="recommendationCheck" class="loading-text">
-      <h1>We Have <b><ion-text color="danger">30</ion-text></b> Recommendations</h1>
+
+    <ion-avatar  class="loading-img" *ngIf="recommendationCheck">
+      <img style="border-radius: 0%; height: auto;" src="/assets/logo/umot-logo.svg" />
+    </ion-avatar>
+    <ion-text *ngIf="recommendationCheck" class="recommendation-text">
+      <h1>We Have <b><ion-text color="danger">{{listOfRecommendations.length}}</ion-text></b> Recommendations</h1>
     </ion-text>
+    <ion-button *ngIf="recommendationCheck" class="view-recommendation-button" (click)="viewRecommendations()" expand="block" fill="solid" color="danger">
+      View Recommenadtions
+    </ion-button>
   </div>
 
   

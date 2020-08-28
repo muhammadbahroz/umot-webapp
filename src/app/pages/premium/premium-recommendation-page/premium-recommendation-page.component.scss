@@ -23,8 +23,16 @@ ion-footer {
     margin-left: 150px;
 }
 
-.top-premium-button{
+.top-my-wish-list-button{
     margin-left: 50px;
+}
+
+.top-my-ideal-platform-button{
+    margin-left: 50px;
+}
+
+.top-history-button{
+    margin-left: 50px;   
 }
 
 .search{
@@ -379,10 +387,105 @@ ion-footer {
 
     color: #ffffff;
 }
+////////////////DETAILS AND WISHLIST BUTTONS////////////////////////
+.large-box .detailAndWishlist{
+    position: absolute;
+    top: 75%;
+    @media (min-width: 1360px) {
+        left: 9%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 7%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 1%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: -4%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: -15%;    
+    }
+
+    // transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // --background-color: #EE3468;
+    // color: #fff;
+    // width: 100px;
+    // --border-color: #fff;
+}
+////////////////ALREADY WATCHED ICON ON TOP////////////////////////
+.large-box .alreadywatched-icon{
+    position: absolute;
+    top: 88%;
+    @media (min-width: 1360px) {
+        left: 109%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 109%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 119%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: 123%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: 132%;    
+    }
+
+    font-size: 25px;
+    width: 115px;
+    // transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // --background-color: #EE3468;
+    // color: #fff;
+    // width: 100px;
+    // --border-color: #fff;
+}
+
+.large-box .alreadywatched-text{
+    position: absolute;
+    top: 89%;
+    @media (min-width: 1360px) {
+        left: 112%;    
+    }
+
+    @media (min-width: 1440px) {
+        left: 112%;    
+    }
+
+    @media (min-width: 1600px) {
+        left: 122%;    
+    }
+
+    @media (min-width: 1680px) {
+        left: 126%;    
+    }
+
+    @media (min-width: 1920px) {
+        left: 135%;    
+    }
+    // transform: translate(-50%, -50%);
+    // -ms-transform: translate(-50%, -50%);
+    // --background-color: #EE3468;
+    // color: #fff;
+    // width: 100px;
+    // --border-color: #fff;
+}
 
 ////////////////////////FILM DETAILS////////////////////////
 .film-detail-container{
-    
+    // border: 1px solid black;
+    padding-top: 5%;
     @media (min-width: 1360px) {
         width: 1366px;
         height: 600px;
@@ -412,11 +515,12 @@ ion-footer {
 
 ////////////////////////FILM POSTER////////////////////////
 .film-poster{
-    --border-radius: 0%;
+    --border-radius: 5%;
+    top: 20%;
     position: absolute;
-    height: 300px;
-    width: 200px;
-
+    height: 335px;
+    width: 210px;
+    
     @media (min-width: 1440px) {
         left: -17%;
     }
@@ -426,24 +530,26 @@ ion-footer {
     }
 
     @media (min-width: 1680px) {
-        left: -55%;
+        left: -50%;
     }
 
     @media (min-width: 1920px) {
-        left: -83%;    
+        left: -75%;    
     }
+    
+    // border: 5px solid black;
     
     //min-width: fit-content;
 }
 
-.trailer-button{
+.view-details-button{
     width: 150px;
     position: relative;
     font-weight: bold;
-    top: 170px;
+    top: 105%;
     
     @media (min-width: 1360px) {
-        left: 20px;    
+        left: 25px;    
     }
 
     @media (min-width: 1440px) {
@@ -464,15 +570,13 @@ ion-footer {
 }
 
 ////////////////////////SHARE BUTTON////////////////////////
-.share{
-    width: 170px;
-    --border-radius: 5px;
-    position: relative;
+.recommended-movie-title{
+    position: absolute;
     font-weight: bold;
-    top: 220px;
+    top: 112%;
 
     @media (min-width: 1360px) {
-        left: 15px;    
+        left: 65px;    
     }
 
     @media (min-width: 1440px) {
@@ -495,80 +599,27 @@ ion-footer {
     --border-color: #fff;
 }
 
-////////////////////////SYNOPSIS AND CAST////////////////////////
-.synopsis{
-
-    @media (min-width: 1360px) {
-        left: 40px;    
-    }
-
-    @media (min-width: 1440px) {
-        left: 40px;    
-    }
-
-    @media (min-width: 1600px) {
-        left: 10px;    
-    }
-
-    @media (min-width: 1680px) {
-        left: -10px;    
-    }
-
-    @media (min-width: 1920px) {
-        left: -25%;    
-    }
-
-    position: relative;
-}
-
-.cast{
-    --border-radius: 5%;
-    top: 80px;
-
-    @media (min-width: 1360px) {
-        left: -40px;   
-    }
-
-    @media (min-width: 1440px) {
-        left: -40px;    
-    }
-
-    @media (min-width: 1600px) {
-        left: -70px;    
-    }
-
-    @media (min-width: 1680px) {
-        left: -90px;    
-    }
-
-    @media (min-width: 1920px) {
-        left: -38%;    
-    }
-
-    
-    position: relative;
-    margin-left: 10px;
-    height: 130px;
-    width: 80px;
-}
-
 ////////////////////////PROVIDERS////////////////////////
 .providers{
-
+    padding-top: 4%;
     @media (min-width: 1360px) {
-        left: 150px;   
+        left: -5px;   
     }
 
     @media (min-width: 1440px) {
-        left: 150px;   
+        left: -60px;   
+    }
+
+    @media (min-width: 1600px) {
+        left: -140px;    
     }
 
     @media (min-width: 1680px) {
-        left: 140px;    
+        left: -200px;    
     }
 
     @media (min-width: 1920px) {
-        left: 2%;    
+        left: -17.5%;    
     }
 
     
@@ -576,7 +627,7 @@ ion-footer {
 }
 
 .providers .im{
-    margin-left: 10px;
+    margin-left: -5px;
     width: 70px;
     height: 50px;
     --border-radius: 5%;
@@ -592,7 +643,7 @@ ion-footer {
 .providers .im2{
     top: 10px;
     position: relative;
-    margin-left: 10px;
+    margin-left: -5px;
     width: 70px;
     height: 50px;
     --border-radius: 5%;
@@ -613,7 +664,7 @@ ion-footer {
 .providers .im3{
     top: 20px;
     position: relative;
-    margin-left: 10px;
+    margin-left: -5px;
     width: 70px;
     height: 50px;
     --border-radius: 5%;
@@ -634,7 +685,7 @@ ion-footer {
 .providers .im4{
     top: 30px;
     position: relative;
-    margin-left: 10px;
+    margin-left: -5px;
     width: 70px;
     height: 50px;
     --border-radius: 5%;
@@ -655,7 +706,7 @@ ion-footer {
 .providers .im5{
     top: 40px;
     position: relative;
-    margin-left: 10px;
+    margin-left: -5px;
     width: 70px;
     height: 50px;
     --border-radius: 5%;

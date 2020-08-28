@@ -1,3 +1,4 @@
+import { PremiumRecommendationPageComponent } from './premium-recommendation-page/premium-recommendation-page.component';
 import { PremiumWishListComponent } from './premium-wish-list/premium-wish-list.component';
 import { PremiumIdealPlatformComponent } from './premium-ideal-platform/premium-ideal-platform.component';
 import { PremiumHistoryComponent } from './premium-history/premium-history.component';
@@ -42,7 +43,11 @@ const routes: Routes = [
   {
     path: 'premium-wish-list',
     component: PremiumWishListComponent
-  }
+  },
+  {
+    path: 'premium-recommendation-page/:id',
+    component: PremiumRecommendationPageComponent
+  },
 ];
 
 @NgModule({

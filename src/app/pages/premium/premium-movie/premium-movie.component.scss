@@ -687,7 +687,8 @@ ion-footer {
     height: 225px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    position: relative !important;
+    position: absolute;
+    z-index: 1;
     // margin-left: 51.55em;       
 
     @media (min-width: 1360px) {
