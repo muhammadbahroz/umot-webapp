@@ -1,3 +1,4 @@
+import { PremiumRecommendationPageComponent } from './premium-recommendation-page/premium-recommendation-page.component';
 import { PremiumWishListComponent } from './premium-wish-list/premium-wish-list.component';
 import { PremiumPrivacyPolicyComponent } from './premium-privacy-policy/premium-privacy-policy.component';
 import { PremiumMovieComponent } from './premium-movie/premium-movie.component';
@@ -30,7 +31,8 @@ import { PremiumPage } from './premium.page';
     PremiumMenuSearchComponent,
     PremiumMovieComponent,
     PremiumPrivacyPolicyComponent,
-    PremiumWishListComponent
+    PremiumWishListComponent,
+    PremiumRecommendationPageComponent
   ],
   declarations: [
     PremiumPage,
@@ -40,7 +42,8 @@ import { PremiumPage } from './premium.page';
     PremiumMenuSearchComponent,
     PremiumMovieComponent,
     PremiumPrivacyPolicyComponent,
-    PremiumWishListComponent
+    PremiumWishListComponent,
+    PremiumRecommendationPageComponent
   ]
 })
 export class PremiumPageModule {}
