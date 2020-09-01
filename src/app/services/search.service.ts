@@ -23,6 +23,13 @@ export class SearchService {
     })
   }
 
+  httpOptionsWithAuthorization = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('key')).Authorization}`
+    })
+  }
+
   // Handle API errors
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -32,11 +39,13 @@ export class SearchService {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
       console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+        `${error.error.message}, \n`+
+        `Backend returned code ${error.status}, \n` +
+        `body was: ${error.error}, \n` +
+        `status text: ${error.statusText}`);
     }
     // return an observable with a user-facing error message
-    return throwError('Something bad happened; please try again later.');
+    return throwError('Something bad happened;');
   };
 
 
@@ -89,5 +98,23 @@ export class SearchService {
       .post<Login>('http://18.222.13.116:5000/auth/login', JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2))
+  }
+
+  addToWishList(item) {
+    return this.httpClient
+      .post('http://18.222.13.116:5000/wish_list/', JSON.stringify(item), this.httpOptionsWithAuthorization)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  markWatched(item) {
+    return this.httpClient
+      .post('http://18.222.13.116:5000/user_rating/mark_watched', JSON.stringify(item), this.httpOptionsWithAuthorization)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
   }
 }

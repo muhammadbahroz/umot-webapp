@@ -160,10 +160,10 @@ export class EnterDetailsComponent {
 
     // THIS IS THE PART THAT CALLS SIGNUP API
     console.log(this.SearchService.createNewUser(this.user).subscribe((result: any) => {
-      console.log( "result from upload: ",result)
-      ;}
+      console.log( "result from upload: ",result);
+      localStorage.setItem("key",JSON.stringify(result)); // this saves the bearer token into local storage
+      this.router.navigate(['signup/question-page']);
+    }
       ));
-
-    this.router.navigate(['signup/question-page']);
   }
 }

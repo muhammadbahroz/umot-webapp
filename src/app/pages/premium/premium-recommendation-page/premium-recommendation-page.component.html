@@ -120,13 +120,13 @@
                     <ion-button (click)="openMovieClicked(movieID)" style="width: 150px;" expand="block" color="danger" fill="solid" shape="round">
                       View Details
                     </ion-button>
-                    <ion-button style="width: 150px;" expand="block" color="danger" fill="outline" shape="round">
+                    <ion-button (click)="addToWishList(movieID)" style="width: 150px;" expand="block" color="danger" fill="outline" shape="round">
                       <ion-icon style="left: 5px; position: absolute;" name="add-outline"></ion-icon>
                       Wish List
                     </ion-button>
                   </ion-buttons>
-                  <ion-icon class="alreadywatched-icon" color="danger" name="eye-outline"></ion-icon>
-                  <ion-text class="alreadywatched-text" color="danger">
+                  <ion-icon (click)="markWatched(movieID)" class="alreadywatched-icon" color="danger" name="eye-outline"></ion-icon>
+                  <ion-text (click)="markWatched(movieID)" class="alreadywatched-text" color="danger">
                     <p style="text-align-last: center;">Already watched it?</p>
                   </ion-text>
                 </div>

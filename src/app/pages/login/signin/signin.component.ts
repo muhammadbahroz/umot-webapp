@@ -38,6 +38,7 @@ export class SigninComponent implements OnInit {
       console.log( "result from upload: ",result )
       ;if(this.loginFailure === false && this.tryAgain=== false){
         this.router.navigate(['registereduser']);
+        localStorage.setItem("key",JSON.stringify(result)); // this saves the bearer token into local storage
       };},(error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
           // A client-side or network error occurred. Handle it accordingly.

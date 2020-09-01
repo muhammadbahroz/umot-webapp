@@ -14,13 +14,15 @@ export class QuestionPageComponent implements OnInit {
 
   questionsResponse: QuestionResponse;
   buttonValue = 1;
-  questionNumber = 0;
   minutes = 0;
   numberOfQuestionsAnswered = [];
   numberOfQuestionsAnsweredCount = 0;
   questionsOfnumberOfQuestionsAnswered = [];
   answersOfnumberOfQuestionsAnswered = [];
   searchValue: string = null;
+  
+  // Values that can be altered to jump quesitons
+  questionNumber = 0;
   recommendationCheck = false;
 
   constructor(private SearchService: SearchService, private router: Router) {
@@ -81,8 +83,8 @@ export class QuestionPageComponent implements OnInit {
             this.recommendationIterationIndex += 1;
           }
         }
-        console.log("First Recommendation: ", this.firsRecommendation);
-        console.log("recommendation list: ", this.listOfRecommendations);
+        // console.log("First Recommendation: ", this.firsRecommendation);
+        // console.log("recommendation list: ", this.listOfRecommendations);
         localStorage.setItem("listOfRecommendation", JSON.stringify(this.listOfRecommendations));
       });
 
