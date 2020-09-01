@@ -120,4 +120,18 @@ export class PremiumRecommendationPageComponent implements OnInit {
       console.log(this.movieDetail);
     });
   }
+
+
+
+  addToWishList(movieID: string){
+    // console.log(JSON.stringify({"movie_id": 481992}));
+
+    console.log("returned ",this.searchService.addToWishList({"movie_id": parseInt(movieID)}).subscribe((result: any) => {console.log("wish list post return: ",result)}));
+  }
+
+  markWatched(movieID: string){
+    // console.log(JSON.stringify({"movie_id": 481992}));
+
+    console.log("returned ",this.searchService.markWatched({"movie_id": parseInt(movieID)}).subscribe((result: any) => {console.log("wish list post return: ",result)}));
+  }
 }
