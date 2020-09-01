@@ -22,13 +22,8 @@ export class SearchService {
       'Content-Type': 'application/json'
     })
   }
-
-  httpOptionsWithAuthorization = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('key')).Authorization}`
-    })
-  }
+  httpOptionsWithAuthorization: any;
+  
 
   // Handle API errors
   handleError(error: HttpErrorResponse) {
@@ -101,6 +96,13 @@ export class SearchService {
   }
 
   addToWishList(item) {
+    this.httpOptionsWithAuthorization = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('key')).Authorization}`
+      })
+    }
+
     return this.httpClient
       .post('http://18.222.13.116:5000/wish_list/', JSON.stringify(item), this.httpOptionsWithAuthorization)
       .pipe(
@@ -110,11 +112,30 @@ export class SearchService {
   }
 
   markWatched(item) {
+
+    this.httpOptionsWithAuthorization = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('key')).Authorization}`
+      })
+    }
+
     return this.httpClient
       .post('http://18.222.13.116:5000/user_rating/mark_watched', JSON.stringify(item), this.httpOptionsWithAuthorization)
       .pipe(
         retry(2),
         catchError(this.handleError)
       )
+  }
+
+  getWatchedHistory(){
+    this.httpOptionsWithAuthorization = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('key')).Authorization}`
+      })
+    }
+
+    return this.httpClient.get('http://18.222.13.116:5000/user_rating/watched_history',this.httpOptionsWithAuthorization);
   }
 }

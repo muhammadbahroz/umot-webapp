@@ -14,7 +14,14 @@ export class PremiumHistoryComponent implements OnInit {
   first: boolean = false;
   second: boolean = false;
   third: boolean = false;
-  constructor(private router: Router,private SearchService: SearchService) {}
+  watchedHistory: any = [];
+
+  constructor(private router: Router,private SearchService: SearchService) {
+    console.log(SearchService.getWatchedHistory().subscribe((result: any)=>{
+      this.watchedHistory = result.data;
+      console.log(this.watchedHistory[0]);
+    }));
+  }
 
   onDelete(number: number){
     if (number ===  1) {
