@@ -1,5 +1,6 @@
 export interface QuestionResponse {
     response: Array<Response>;
+    locale: string;
 }
 
 export interface Response {

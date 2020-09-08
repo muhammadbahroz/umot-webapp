@@ -23,7 +23,7 @@ export class SearchService {
     })
   }
   httpOptionsWithAuthorization: any;
-  
+
 
   // Handle API errors
   handleError(error: HttpErrorResponse) {
@@ -37,6 +37,12 @@ export class SearchService {
         `${error.error.message}, \n`+
         `Backend returned code ${error.status}, \n` +
         `body was: ${error.error}, \n` +
+        `url of resource retrieved: ${error.url}, \n` +
+        `response headers: ${error.headers}, \n`+
+        `error complete: ${error},\n`+
+        `error name: ${error.name},\n`+
+        `error type: ${error.type}\n`+
+        `error ok: ${error.ok}\n`+
         `status text: ${error.statusText}`);
     }
     // return an observable with a user-facing error message
@@ -62,17 +68,40 @@ export class SearchService {
     return this.httpClient.get(val);
   }
 
+  /**
+   * This will return the question for MOVIE RECOMMENDAION SYSTEM
+   * from server.
+   * @param locale to get questions in either ENGLISH 'en'
+   * or SPANISH 'es'
+   * the paramater locale will be appended at the end of the query with
+   * the keyword 'locale'
+   */
   getQuestion(){
     return this.httpClient.get('http://18.222.13.116:5000/movie/get_question');
   }
 
   getRecommendation(){
-    return this.httpClient.get('http://18.222.13.116:5000/movie/get_recommendation');
+    this.httpOptionsWithAuthorization = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('key')).Authorization}`
+      })
+    }
+
+    return this.httpClient.get('http://18.222.13.116:5000/movie/get_recommendation', this.httpOptionsWithAuthorization);
   }
 
-  postResponseForRecommendation(item): Observable<QuestionResponse> {
+  postResponseForRecommendation(item: QuestionResponse) {
+    this.httpOptionsWithAuthorization = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('key')).Authorization}`
+      })
+    }
+
+
     return this.httpClient
-      .post<QuestionResponse>('http://18.222.13.116:5000/movie/recommendation/submit_response', JSON.stringify(item), this.httpOptions)
+      .post('http://18.222.13.116:5000/movie/recommendation/submit_response', JSON.stringify(item), this.httpOptionsWithAuthorization)
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -137,5 +166,17 @@ export class SearchService {
     }
 
     return this.httpClient.get('http://18.222.13.116:5000/user_rating/watched_history',this.httpOptionsWithAuthorization);
+  }
+
+  getActorName(query: string){
+    let params = new HttpParams();
+    params = params.append('name', query);
+    return this.httpClient.get('http://18.222.13.116:5000/movie/actor_search', {params});
+  }
+
+  getTag(query: string){
+    let params = new HttpParams();
+    params = params.append('title', query);
+    return this.httpClient.get('http://18.222.13.116:5000/movie/tag_search', {params});
   }
 }
