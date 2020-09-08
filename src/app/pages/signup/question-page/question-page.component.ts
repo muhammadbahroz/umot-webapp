@@ -1,4 +1,3 @@
-import { QuestionAnswerdataInterface } from './../../../interface/question-answer-interface';
 import { QuestionAnswer } from './../../../classes/question-answer';
 import { ActorName } from './../../../classes/actor-name';
 import { Router } from '@angular/router';
@@ -30,7 +29,7 @@ export class QuestionPageComponent implements OnInit {
   constructor(private SearchService: SearchService, private router: Router) {
     this.questionsResponse = {} as QuestionResponse;
     this.questionsResponse.response = [];
-    this.questionsResponse.locale = "null";
+    this.questionsResponse.locale = "en";
     for (let index = 0; index < 7; index++) {
       this.questionsResponse.response.push(new ResponseJson);
     }
@@ -54,10 +53,14 @@ export class QuestionPageComponent implements OnInit {
      * Selected answers recording for re-display on result page 
      */
     if (this.questionNumber <= 6) {
-      this.questionAnswerResponses.questionAnswersData.push(new QuestionAnswerData(this.questions[this.questionNumber].text,
-        this.questions[this.questionNumber].question_id, this.answerRecorded, this.answerIdRecorded));
-      console.log("Response Recorded: ", JSON.stringify(this.questionAnswerResponses.questionAnswersData));
-      
+      if (this.questions[this.questionNumber].question_id != 2 && this.questions[this.questionNumber].question_id != 16 &&
+        this.questions[this.questionNumber].question_id != 18 && this.questions[this.questionNumber].question_id != 17 &&
+        this.questions[this.questionNumber].question_id != 19) {
+          this.questionAnswerResponses.questionAnswersData.push(new QuestionAnswerData(this.questions[this.questionNumber].text,
+            this.questions[this.questionNumber].question_id, this.answerRecorded, this.answerIdRecorded));
+          console.log("Response Recorded: ", JSON.stringify(this.questionAnswerResponses.questionAnswersData));
+      }
+
       this.questionNumber += 1;
       this.buttonValue = 1;
     }
@@ -67,8 +70,10 @@ export class QuestionPageComponent implements OnInit {
       console.log("question response: ", this.questionsResponse);
       console.log(this.SearchService.postResponseForRecommendation(this.questionsResponse).subscribe((result: any) => {
         console.log("result from upload: ", result);
-      }));
-      this.recommendationCheck = true;
+
+
+
+        this.recommendationCheck = true;
 
       this.SearchService.getRecommendation().subscribe((result: any) => {
         console.log("GOT RESULT: ", result);
@@ -101,6 +106,9 @@ export class QuestionPageComponent implements OnInit {
         // console.log("recommendation list: ", this.listOfRecommendations);
         localStorage.setItem("listOfRecommendation", JSON.stringify(this.listOfRecommendations));
       });
+
+      }));
+      
 
     }
 
