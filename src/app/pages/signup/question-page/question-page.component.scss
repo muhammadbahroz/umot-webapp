@@ -651,3 +651,30 @@ ion-spinner {
     left: 20px;
   }
 }
+
+///////////////////////////QUESTION-BUTTON///////////////////////////
+.question-search-dropdown-box{
+  --ion-background-color: #fff;
+  height: 200px;
+  width: 342px;
+  overflow: auto;
+  z-index: 1;
+  position: absolute;
+  
+  @media (min-width: 1360px) {
+
+  }       
+
+  @media (min-width: 1440px) {
+
+  }
+
+  @media (min-width: 1600px) {
+
+  }
+
+  @media (min-width: 1920px) {
+
+  }
+
+}

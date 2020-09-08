@@ -23,16 +23,16 @@
   <!-- <br>
   <br> -->
 
-  <div *ngIf= "questions" class="container">
+  <div *ngIf="questions" class="container">
 
     <div *ngIf="questionNumber < 7" class="progress-bar-container">
       <div *ngIf="questionNumber === 0">
         <ion-label style="color: #ffff;">Question 1/7</ion-label>
         <ol class="progress-bar">
-          <li class="is-active"><span></span></li>  
-          <li><span></span></li>  
+          <li class="is-active"><span></span></li>
           <li><span></span></li>
-          <li><span></span></li>  
+          <li><span></span></li>
+          <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
@@ -42,10 +42,10 @@
       <div *ngIf="questionNumber === 1">
         <ion-label style="color: #ffff;">Question 2/7</ion-label>
         <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-active"><span></span></li>  
+          <li class="is-complete"><span></span></li>
+          <li class="is-active"><span></span></li>
           <li><span></span></li>
-          <li><span></span></li>  
+          <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
@@ -55,10 +55,10 @@
       <div *ngIf="questionNumber === 2">
         <ion-label style="color: #ffff;">Question 3/7</ion-label>
         <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>  
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
           <li class="is-active"><span></span></li>
-          <li><span></span></li>  
+          <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
@@ -68,10 +68,10 @@
       <div *ngIf="questionNumber === 3">
         <ion-label style="color: #ffff;">Question 4/7</ion-label>
         <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>
-          <li class="is-active"><span></span></li>  
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
+          <li class="is-active"><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
@@ -81,10 +81,10 @@
       <div *ngIf="questionNumber === 4">
         <ion-label style="color: #ffff;">Question 5/7</ion-label>
         <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>  
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
           <li class="is-active"><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
@@ -94,10 +94,10 @@
       <div *ngIf="questionNumber === 5">
         <ion-label style="color: #ffff;">Question 6/7</ion-label>
         <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>  
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>
           <li class="is-active"><span></span></li>
           <li><span></span></li>
@@ -107,10 +107,10 @@
       <div *ngIf="questionNumber === 6">
         <ion-label style="color: #ffff;">Question 7/7</ion-label>
         <ol class="progress-bar">
-          <li class="is-complete"><span></span></li>  
-          <li class="is-complete"><span></span></li>  
           <li class="is-complete"><span></span></li>
-          <li class="is-complete"><span></span></li>  
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
+          <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>
           <li class="is-complete"><span></span></li>
           <li class="is-active"><span></span></li>
@@ -121,39 +121,64 @@
       <!-- QUESTION -->
       <ion-text>
         <!-- <h1 style="color: #ffff; font-size: 24px; font-weight: 900;" >Who are you with?</h1> -->
-        <h1 style="color: #ffff; font-size: 24px; font-weight: 900;" >{{questions[questionNumber].text}}</h1>
+        <h1 style="color: #ffff; font-size: 24px; font-weight: 900;">{{questions[questionNumber].text}}</h1>
       </ion-text>
       <!-- OPTIONS -->
 
+
       <div *ngIf="questions[questionNumber].question_id != 2; else slider">
         <ion-buttons *ngIf="questions[questionNumber].answers" style="top: 10px; position: relative;" slot="start">
-            <ion-button *ngIf="questions[questionNumber].answers.length >= 1" expand="block" fill="solid"  [color]="buttonValue === 0 ? 'danger' : 'light'" (click)="recordQuestionResponse(0,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[0].answer_id,questions[questionNumber].text,questions[questionNumber].answers[0].text)">          
-              <!-- Alone -->
-              {{questions[questionNumber].answers[0].text}}
-            </ion-button>
-            <ion-button *ngIf="questions[questionNumber].answers.length >= 2" style="left: 10px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -1 ? 'danger' : 'light'" (click)="recordQuestionResponse(-1,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[1].answer_id,questions[questionNumber].text,questions[questionNumber].answers[1].text)">
-              <!-- Sweet love/partner -->
-              {{questions[questionNumber].answers[1].text}}
-            </ion-button>
-            <ion-button *ngIf="questions[questionNumber].answers.length >= 3" style="left: 20px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -2 ? 'danger' : 'light'" (click)="recordQuestionResponse(-2,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[2].answer_id,questions[questionNumber].text,questions[questionNumber].answers[2].text)">
-              <!-- Family -->
-              {{questions[questionNumber].answers[2].text}}
-            </ion-button>
-            <ion-button *ngIf="questions[questionNumber].answers.length === 4" style="left: 30px; position: relative;" expand="block" fill="solid" [color]="buttonValue === -3 ? 'danger' : 'light'" (click)="recordQuestionResponse(-3,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[3].answer_id,questions[questionNumber].text,questions[questionNumber].answers[3].text)">
-              <!-- Friends -->
-              {{questions[questionNumber].answers[3].text}}
-            </ion-button>
+          <ion-button *ngIf="questions[questionNumber].answers.length >= 1" expand="block" fill="solid"
+            [color]="buttonValue === 0 ? 'danger' : 'light'"
+            (click)="recordQuestionResponse(0,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[0].answer_id,questions[questionNumber].text,questions[questionNumber].answers[0].text)">
+            <!-- Alone -->
+            {{questions[questionNumber].answers[0].text}}
+          </ion-button>
+          <ion-button *ngIf="questions[questionNumber].answers.length >= 2" style="left: 10px; position: relative;"
+            expand="block" fill="solid" [color]="buttonValue === -1 ? 'danger' : 'light'"
+            (click)="recordQuestionResponse(-1,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[1].answer_id,questions[questionNumber].text,questions[questionNumber].answers[1].text)">
+            <!-- Sweet love/partner -->
+            {{questions[questionNumber].answers[1].text}}
+          </ion-button>
+          <ion-button *ngIf="questions[questionNumber].answers.length >= 3" style="left: 20px; position: relative;"
+            expand="block" fill="solid" [color]="buttonValue === -2 ? 'danger' : 'light'"
+            (click)="recordQuestionResponse(-2,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[2].answer_id,questions[questionNumber].text,questions[questionNumber].answers[2].text)">
+            <!-- Family -->
+            {{questions[questionNumber].answers[2].text}}
+          </ion-button>
+          <ion-button *ngIf="questions[questionNumber].answers.length === 4" style="left: 30px; position: relative;"
+            expand="block" fill="solid" [color]="buttonValue === -3 ? 'danger' : 'light'"
+            (click)="recordQuestionResponse(-3,questionNumber,questions[questionNumber].question_id,questions[questionNumber].answers[3].answer_id,questions[questionNumber].text,questions[questionNumber].answers[3].text)">
+            <!-- Friends -->
+            {{questions[questionNumber].answers[3].text}}
+          </ion-button>
         </ion-buttons>
       </div>
+
+
       <!-- SEARCH BAR / INPUT BAR -->
       <div *ngIf="questions[questionNumber].answers === null">
-        <ion-searchbar [(ngModel)]="searchValue" class="search-bar" placeholder="search" inputmode="text" type="text" (ionChange)="recordFreeText(-4,questionNumber,questions[questionNumber].question_id)" [debounce]="250">    
+        <ion-searchbar [(ngModel)]="searchValue" class="search-bar" placeholder="search" inputmode="text" type="text"
+          (ionChange)="searchFreeText(-4)" [debounce]="250">
         </ion-searchbar>
       </div>
 
+
+      <!-- SEARCH DROPDOWN -->
+      <!-- <div class="search-dropdown-box" *ngIf="searchValue != null"> -->
+      <div class="question-search-dropdown-box" *ngIf="dropDownClose != true">
+        <ion-list *ngFor="let actorName of actorNameList">
+          <ion-item (click)="recordFreeText(questionNumber,actorName.id,actorName.name)">
+            <ion-label style="margin-left: 10px;">{{actorName.name}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+
       <ng-template #slider>
-        <ion-item class="traansparent" >
-          <ion-range [(ngModel)]="minutes" style=" --height: 52px;--knob-size: 30px; font-size: 15px;"  min="0" max="182" pin color="danger" (ionChange)="sliderRangeUpdate(-5,questionNumber,questions[questionNumber].question_id)"></ion-range>
+        <ion-item class="traansparent">
+          <ion-range [(ngModel)]="minutes" style=" --height: 52px;--knob-size: 30px; font-size: 15px;" min="0" max="182"
+            pin color="danger" (ionChange)="sliderRangeUpdate(-5,questionNumber,questions[questionNumber].question_id)">
+          </ion-range>
         </ion-item>
         <ion-text style="color: #ffff;">
           <p>0 minutes<span style="position: relative; left: 340px;">Infinite minutes</span></p>
@@ -161,7 +186,8 @@
       </ng-template>
 
       <!-- CONTINUE, SUBMIT BUTTON -->
-      <ion-button *ngIf="buttonValue != 1" class="continue-button" color="danger" expand="block" fill="solid" (click)="nextQuestionNumber(questions[questionNumber])">
+      <ion-button *ngIf="buttonValue != 1" class="continue-button" color="danger" expand="block" fill="solid"
+        (click)="nextQuestionNumber(questions[questionNumber])">
         Continue
       </ion-button>
     </div>
@@ -174,26 +200,44 @@
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
         <ion-label style="margin-left: 10px;">Back</ion-label>
       </ion-button>
-      
-      <!-- MCQ QUESTIONS -->
-      <div *ngFor="let item of numberOfQuestionsAnswered">
+
+      <!-- MCQ QUESTIONS RE-DISPLAY -->
+      <!-- <div *ngFor="let item of numberOfQuestionsAnswered"> -->
+      <!-- QUESTION -->
+      <!-- <ion-text class="question-text">
+          <h1 style="color: #ffff; font-size: 16px; font-weight: 900;">{{questionsOfnumberOfQuestionsAnswered[item]}}
+          </h1> -->
+      <!-- <h1 style="color: #ffff; font-size: 24px; font-weight: 900;" >{{questions[questionNumber].text}}</h1> -->
+      <!-- </ion-text> -->
+
+      <!-- FIRST BUTTON -->
+      <!-- <ion-buttons slot="start">
+          <ion-button class="question-button" expand="block" fill="solid" color="danger">
+            {{answersOfnumberOfQuestionsAnswered[item]}} -->
+      <!-- {{questions[questionNumber].answers[0].text}} -->
+      <!-- </ion-button>
+        </ion-buttons>
+      </div> -->
+
+      <!-- MCQ QUESTIONS RE-DISPLAY -->
+      <div *ngFor="let item of questionAnswerResponses.questionAnswersData">
         <!-- QUESTION -->
         <ion-text class="question-text">
-          <h1 style="color: #ffff; font-size: 16px; font-weight: 900;" >{{questionsOfnumberOfQuestionsAnswered[item]}}</h1>
-          <!-- <h1 style="color: #ffff; font-size: 24px; font-weight: 900;" >{{questions[questionNumber].text}}</h1> -->
+          <h1 style="color: #ffff; font-size: 16px; font-weight: 900;">{{item.questions}}
+          </h1>
         </ion-text>
 
         <!-- FIRST BUTTON -->
         <ion-buttons slot="start">
-          <ion-button class="question-button" expand="block" fill="solid"  color="danger">          
-            {{answersOfnumberOfQuestionsAnswered[item]}}
-            <!-- {{questions[questionNumber].answers[0].text}} -->
+          <ion-button class="question-button" expand="block" fill="solid" color="danger">
+            {{item.answers}}
           </ion-button>
         </ion-buttons>
       </div>
 
-      <ion-item class="traansparent" >
-        <ion-range [value]="minutes" style=" --height: 52px;--knob-size: 30px; font-size: 15px;" min="0" max="182" pin color="danger"></ion-range>
+      <ion-item class="traansparent">
+        <ion-range [value]="minutes" style=" --height: 52px;--knob-size: 30px; font-size: 15px;" min="0" max="182" pin
+          color="danger"></ion-range>
       </ion-item>
       <ion-text style="top: -20px; position: relative; color: #979797;">
         <p>0 minutes<span style="position: relative; left: 340px;">Infinite</span></p>
@@ -207,19 +251,22 @@
     </ion-text>
 
 
-    <ion-avatar  class="loading-img" *ngIf="recommendationCheck">
+    <ion-avatar class="loading-img" *ngIf="recommendationCheck">
       <img style="border-radius: 0%; height: auto;" src="/assets/logo/umot-logo.svg" />
     </ion-avatar>
     <ion-text *ngIf="recommendationCheck" class="recommendation-text">
-      <h1>We Have <b><ion-text color="danger">{{listOfRecommendations.length}}</ion-text></b> Recommendations</h1>
+      <h1>We Have <b>
+          <ion-text color="danger">{{listOfRecommendations.length}}</ion-text>
+        </b> Recommendations</h1>
     </ion-text>
-    <ion-button *ngIf="recommendationCheck" class="view-recommendation-button" (click)="viewRecommendations()" expand="block" fill="solid" color="danger">
+    <ion-button *ngIf="recommendationCheck" class="view-recommendation-button" (click)="viewRecommendations()"
+      expand="block" fill="solid" color="danger">
       View Recommenadtions
     </ion-button>
   </div>
 
-  
-  
+
+
   <br>
   <!-- <br> -->
 
@@ -227,41 +274,41 @@
   <ion-grid fixed>
     <!-- FAQ -->
     <ion-row class="row-space">
-        <ion-col size="9">
+      <ion-col size="9">
         <p><a class="footer" [routerLink]="['/home/faq']">How can i use UMOT?</a></p>
-        </ion-col>
+      </ion-col>
     </ion-row>
 
     <!-- PRIVACY POLICY  -->
     <ion-row class="row-space">
-        <ion-col size="10">
+      <ion-col size="10">
         <p><a [routerLink]="['/home/privacy-policy']" class="footer">Privacy and cookies Policy</a></p>
-        </ion-col>
+      </ion-col>
 
-        <!-- FEEDBACK BUTTON -->
-        <ion-col size="2">
+      <!-- FEEDBACK BUTTON -->
+      <ion-col size="2">
         <ion-button expand="block" fill="outline" style="color: #979797; --border-color: #979797;">
-            <ion-icon class="feedback-icon" name="chatbubbles-outline"></ion-icon>
-            Feedback
+          <ion-icon class="feedback-icon" name="chatbubbles-outline"></ion-icon>
+          Feedback
         </ion-button>
-        </ion-col>
+      </ion-col>
     </ion-row>
 
     <ion-row class="row-space">
-        <!-- COPYRIGHT -->
-        <ion-col size="10">
-            <p class="footer">© UMOT movies</p>
-        </ion-col>
-        <!-- SOCIAL MEDIA LOGOS -->
-        <ion-col size="2">
-            <br>
-            <ion-icon style="margin-left: 6px;" class="social-icons" name="logo-facebook"></ion-icon>
-            <ion-icon class="social-icons" name="logo-instagram"></ion-icon>
-            <ion-icon class="social-icons" name="logo-twitter"></ion-icon>
-            <ion-icon class="social-icons" name="logo-linkedin"></ion-icon>
-        </ion-col>
+      <!-- COPYRIGHT -->
+      <ion-col size="10">
+        <p class="footer">© UMOT movies</p>
+      </ion-col>
+      <!-- SOCIAL MEDIA LOGOS -->
+      <ion-col size="2">
+        <br>
+        <ion-icon style="margin-left: 6px;" class="social-icons" name="logo-facebook"></ion-icon>
+        <ion-icon class="social-icons" name="logo-instagram"></ion-icon>
+        <ion-icon class="social-icons" name="logo-twitter"></ion-icon>
+        <ion-icon class="social-icons" name="logo-linkedin"></ion-icon>
+      </ion-col>
     </ion-row>
-</ion-grid>
+  </ion-grid>
 
-<br>
+  <br>
 </ion-content>
