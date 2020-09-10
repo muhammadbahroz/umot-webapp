@@ -19,7 +19,7 @@
         </ion-row>
         <ion-row>
           <ion-col size="12">
-            <ion-button color="light">
+            <ion-button [routerLink]="['/error']" color="light">
               <ion-icon color="primary" slot="start" name="logo-facebook"></ion-icon>
               <b>Sign up with Facebook</b>
             </ion-button>
@@ -27,7 +27,7 @@
         </ion-row>
         <ion-row>
           <ion-col size="12">
-            <ion-button color="light">
+            <ion-button [routerLink]="['/error']" color="light">
               <ion-icon class="google" name="logo-google"></ion-icon>
               <b>Sign up with Google</b>
             </ion-button>
@@ -35,7 +35,7 @@
         </ion-row>
         <ion-row>
           <ion-col size="12">
-            <ion-button color="danger" [routerLink]="['/signup']" routerLinkActive="router-link-active" >
+            <ion-button [routerLink]="['/error']" color="danger" routerLinkActive="router-link-active" >
               <b>Sign up with Email</b>
             </ion-button>
           </ion-col>

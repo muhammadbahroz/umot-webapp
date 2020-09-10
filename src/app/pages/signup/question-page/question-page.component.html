@@ -166,12 +166,14 @@
 
       <!-- SEARCH DROPDOWN -->
       <!-- <div class="search-dropdown-box" *ngIf="searchValue != null"> -->
-      <div class="question-search-dropdown-box" *ngIf="dropDownClose != true">
-        <ion-list *ngFor="let actorName of actorNameList">
-          <ion-item (click)="recordFreeText(questionNumber,actorName.id,actorName.name)">
-            <ion-label style="margin-left: 10px;">{{actorName.name}}</ion-label>
-          </ion-item>
-        </ion-list>
+      <div *ngIf="dropDownClose != true">
+        <div class="question-search-dropdown-box">
+          <ion-list *ngFor="let actorName of actorNameList">
+            <ion-item (click)="recordFreeText(questionNumber,actorName.id,actorName.name)">
+              <ion-label style="margin-left: 10px;">{{actorName.name}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
       </div>
 
       <ng-template #slider>
@@ -256,7 +258,7 @@
     </ion-avatar>
     <ion-text *ngIf="recommendationCheck" class="recommendation-text">
       <h1>We Have <b>
-          <ion-text color="danger">{{listOfRecommendations.length}}</ion-text>
+          <ion-text color="danger">{{recommendationReturned.length}}</ion-text>
         </b> Recommendations</h1>
     </ion-text>
     <ion-button *ngIf="recommendationCheck" class="view-recommendation-button" (click)="viewRecommendations()"

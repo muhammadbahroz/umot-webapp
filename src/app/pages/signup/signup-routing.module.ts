@@ -1,3 +1,4 @@
+import { ErrorPage } from './../error/error.page';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'question-page',
-    component: QuestionPageComponent
+    component: ErrorPage
   }
 ];
 
