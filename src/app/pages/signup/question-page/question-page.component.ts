@@ -71,45 +71,16 @@ export class QuestionPageComponent implements OnInit {
       console.log(this.SearchService.postResponseForRecommendation(this.questionsResponse).subscribe((result: any) => {
         console.log("result from upload: ", result);
 
-
-
-        this.recommendationCheck = true;
-
       this.SearchService.getRecommendation().subscribe((result: any) => {
         console.log("GOT RESULT: ", result);
         this.recommendationReturned = JSON.parse(result.data);
-        console.log("Recommendation RETURNED: ", this.recommendationReturned);
-
-        for (let index = 0; index < this.recommendationReturned.length; index++) {
-          // const element = this.recommendationReturned[index];
-          // console.log("element",element);
-          if (this.recommendationReturned[index] != ',') {
-            // this.temporaryNumber = this.temporaryNumber * 10;
-            const num: number = this.recommendationReturned[index];
-            if (this.temporaryNumber === null) {
-              this.temporaryNumber = num;
-            } else {
-              this.temporaryNumber = this.temporaryNumber + num;
-            }
-
-            // console.log("temporary number", this.temporaryNumber);
-          } else {
-            this.listOfRecommendations.push(this.temporaryNumber);
-            if (this.recommendationIterationIndex == 0) {
-              this.firsRecommendation = this.temporaryNumber;
-            }
-            this.temporaryNumber = null;
-            this.recommendationIterationIndex += 1;
-          }
-        }
-        // console.log("First Recommendation: ", this.firsRecommendation);
-        // console.log("recommendation list: ", this.listOfRecommendations);
-        localStorage.setItem("listOfRecommendation", JSON.stringify(this.listOfRecommendations));
+        this.recommendationCheck = true;
+        this.firsRecommendation = this.recommendationReturned[0];
+        console.log("First Recommendation: ", this.firsRecommendation);
+        console.log("recommendation list: ", this.recommendationReturned);
+        localStorage.setItem("listOfRecommendation", JSON.stringify(this.recommendationReturned));
       });
-
-      }));
-      
-
+    }));
     }
 
     // console.log("questions of number of question answered: ", this.questionsOfnumberOfQuestionsAnswered);
