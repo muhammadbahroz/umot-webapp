@@ -1,347 +1,432 @@
 <ion-content>
 
-  <!-- Header  -->
-  <ion-item lines='none'>
-      <ion-avatar>
-          <img class="logo" src="/assets/logo/umot-logo.svg" />
-      </ion-avatar>
-      <!-- HOME BUTTON -->
-    <div class="top-home-button">
-      <ion-button [routerLink]="['/premium']" fill="clear" style="color: #fff;">
-        Home
-      </ion-button>
-    </div>
-    <!-- WISH-LIST BUTTON -->
-    <div class="top-my-wish-list-button">
-      <ion-button [routerLink]="['/premium/premium-wish-list']" expand="block" fill="clear" style="color: #fff;">
-        My Wish List
-      </ion-button>
-    </div>
-    <!-- My IDEAL PLATFORM BUTTON -->
-    <div class="top-my-ideal-platform-button">
-      <ion-button [routerLink]="['/premium/premium-ideal-platform']" expand="block" fill="clear" style="color: #fff;">
-        My Ideal Platform
-      </ion-button>
-    </div>
-    <!-- HISTORY BUTTON -->
-    <div class="top-history-button">
-        <ion-button [routerLink]="['/premium/premium-history']" expand="block" fill="clear" style="color: #fff;">
-        History
-        </ion-button>
-    </div>
-  
-      <!-- SEARCH BAR -->
-      <ion-grid style="min-width: -webkit-fill-available; margin-bottom: -19px;">
-          <ion-row>
-              <ion-col size="2">
-                  <div class="search">
-                      <ion-searchbar [(ngModel)]="searchValue"  style="--background: #fff;" placeholder="search" inputmode="text" type="text" (ionChange)="search()" [debounce]="250">    
-                      </ion-searchbar>
-                  <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
+    <!-- Header  -->
+    <ion-item lines='none'>
+        <ion-avatar>
+            <img class="logo" src="/assets/logo/umot-logo.svg" />
+        </ion-avatar>
+        <!-- HOME BUTTON -->
+        <div class="top-home-button">
+            <ion-button [routerLink]="['/home']" fill="clear" style="color: #fff;">
+                Home
+            </ion-button>
+        </div>
+        <!-- WISH-LIST BUTTON -->
+
+        <!-- <div class="top-my-wish-list-button">
+            <ion-button [routerLink]="['/premium/premium-wish-list']" expand="block" fill="clear" style="color: #fff;">
+                My Wish List
+            </ion-button>
+        </div> -->
+
+        <!-- My IDEAL PLATFORM BUTTON -->
+
+        <!-- <div class="top-my-ideal-platform-button">
+            <ion-button [routerLink]="['/premium/premium-ideal-platform']" expand="block" fill="clear"
+                style="color: #fff;">
+                My Ideal Platform
+            </ion-button>
+        </div> -->
+
+        <!-- HISTORY BUTTON -->
+
+        <!-- <div class="top-history-button">
+            <ion-button [routerLink]="['/premium/premium-history']" expand="block" fill="clear" style="color: #fff;">
+                History
+            </ion-button>
+        </div> -->
+
+        <!-- PREMIUM BUTTON -->
+        <div class="top-premium-button">
+            <ion-button expand="block" fill="clear" style="color: #fff;">
+                Premium
+            </ion-button>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <ion-grid style="min-width: -webkit-fill-available; margin-bottom: -19px;">
+            <ion-row>
+                <ion-col size="2">
+                    <div class="search">
+                        <ion-searchbar [(ngModel)]="searchValue" style="--background: #fff;" placeholder="search"
+                            inputmode="text" type="text" (ionChange)="search()" [debounce]="250">
+                        </ion-searchbar>
+                        <!-- <ion-input  [(ngModel)]="searchValue" (ngModelChange)="goToSearch()" color="medium" type="text" placeholder="search">
                       <ion-icon name="search-outline" style="margin-left: 10px; margin-right: 5px;"></ion-icon>
                   </ion-input> -->
-                  </div>
-              </ion-col>
-          
-          <!-- LOGIN BUTTON -->
-              <ion-col size="2">      
-                  <div class="login-button" lines="none">
-                      <ion-button [routerLink]="['/login']" fill="solid" color="danger" style="width: 150px; height: 40px;" >
-                          Login
-                      </ion-button>
-                  </div>
-              </ion-col>
-          </ion-row>
-      </ion-grid>
-  </ion-item>
-  
-  <!-- SEARCH DROPDOWN -->
-  <div class="search-dropdown-box" *ngIf="check === true">
-      <ion-list *ngFor="let movie of movies">
-          <ion-item (click)="openMovieClicked(movie.tmdb_id)">
-              <ion-thumbnail>
-                  <!-- <img src="/assets/film-posters/film_1.png" /> -->
-                  <img [src] = "movie.img"/>
-              </ion-thumbnail>
-              <ion-label style="margin-left: 10px;">{{movie.title}}</ion-label>
-          </ion-item>
-          <!-- <ion-item>
+                    </div>
+                </ion-col>
+
+                <!-- LOGIN BUTTON -->
+                <ion-col size="2">
+                    <div class="login-button" lines="none">
+                        <ion-button [routerLink]="['/login']" fill="solid" color="danger"
+                            style="width: 150px; height: 40px;">
+                            Login
+                        </ion-button>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>
+
+    <!-- SEARCH DROPDOWN -->
+    <div class="search-dropdown-box" *ngIf="check === true">
+        <ion-list *ngFor="let movie of movies">
+            <ion-item (click)="openMovieClicked(movie.tmdb_id)">
+                <ion-thumbnail>
+                    <!-- <img src="/assets/film-posters/film_1.png" /> -->
+                    <img [src]="movie.img" />
+                </ion-thumbnail>
+                <ion-label style="margin-left: 10px;">{{movie.title}}</ion-label>
+            </ion-item>
+            <!-- <ion-item>
               <ion-thumbnail>
                   <img src="/assets/film-posters/film_1.png" />
               </ion-thumbnail>
               <ion-label style="margin-left: 10px;">Justice League</ion-label>
           </ion-item> -->
-      </ion-list>
-      <ion-item lines="none" style="height: 40px;">
-          <p style="margin-left: 50px;"><a (click)="goToSearch()" style="color: #EE3468; font-size: 15px;">See All Results</a></p>
-      </ion-item>
-  </div>
-  
-  <!-- BODY -->
-  <ion-grid fixed>
-      <!-- COVER IMAGE / MOVIE BANNER -->
-      <ion-row>
-          <ion-col size="12" style="left: -7.6em;">
-              <div *ngIf = "movieDetail" class="large-box">
-                  <!-- <ion-img class="img" src="/assets/background/Film-cover_1366x768px.jpg"></ion-img> -->
-                  <ion-img class="img" [src] = "movieDetail.background_img"></ion-img>
-                  <!-- BACK BUTTON -->
-                  <ion-button [routerLink]="['/home']"class="back-btn" fill="clear">
-                      <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
-                      <ion-label style="margin-left: 10px;">Back</ion-label>
-                  </ion-button>
-                  <ion-text class="text">
-                      <h1>We Recommend</h1>
-                  </ion-text>
-                  <!-- Movie Title -->
-                  <ion-text>
-                      <!-- <h2 class="movie-title">Joker</h2> -->
-                      <h2 class="movie-title">{{movieDetail.title}}</h2>
-                  </ion-text>
-                  <!-- Info Buttons -->
-                  <ion-buttons  class="info" >
-                      <ion-button class="info-first" expand="block" fill="outline">
-                          {{movieDetail.runtime}} minutes
-                      </ion-button>
-                      <ion-button class="info-second" expand="block" fill="outline">
-                          {{movieDetail.genres[0]}}
-                      </ion-button>
-                      <ion-button class="info-third" expand="block" fill="outline">
-                          {{movieDetail.genres[1]}}
-                      </ion-button>
-                  </ion-buttons>
-                  <!-- MATCH PERCENTAGE -->
-                  <!-- <ion-badge class="match" mode="ios">90%</ion-badge> -->
-                  <ion-fab-button class="match" color="#EE3468">
-                      <ion-label class="ion-align-items-center" style="color: #ffffff;">90%</ion-label>
-                  </ion-fab-button>
-                  <ion-label class="match-text">match</ion-label>
-                  <ion-buttons class="detailAndWishlist">
-                    <ion-button (click)="openMovieClicked(movieID)" style="width: 150px;" expand="block" color="danger" fill="solid" shape="round">
-                      View Details
-                    </ion-button>
-                    <ion-button (click)="addToWishList(movieID)" style="width: 150px;" expand="block" color="danger" fill="outline" shape="round">
-                      <ion-icon style="left: 5px; position: absolute;" name="add-outline"></ion-icon>
-                      Wish List
-                    </ion-button>
-                  </ion-buttons>
-                  <ion-icon (click)="markWatched(movieID)" class="alreadywatched-icon" color="danger" name="eye-outline"></ion-icon>
-                  <ion-text (click)="markWatched(movieID)" class="alreadywatched-text" color="danger">
-                    <p style="text-align-last: center;">Already watched it?</p>
-                  </ion-text>
-                </div>
-          </ion-col>
-      </ion-row>
-      <!-- FILM DETAILS -->
-      <div class="film-detail-container">
-          <ion-text style="position: absolute; left: 8%;">
-            <h1 style="color: #fff;">Our Recommendation</h1>
-          </ion-text>
-          <ion-row *ngIf = "movieDetail">
-                <!-- 1st FILM POSTER  -->  
-                <ion-col size="2">
-                  <ion-avatar>
-                      <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
-                      <img class="film-poster" [src] = "movieDetail.poster_img" />
-                  </ion-avatar>
-                <ion-text class="recommended-movie-title" color="light">
-                    <h6>{{movieDetail.title}}</h6>
-                </ion-text>
-                <ion-button (click)="openMovieClicked(movieID)" color="danger" class="view-details-button" expand="block" fill="solid" shape="round">
-                    <ion-icon slot="start" name="play"></ion-icon>
-                    VIEW DETAILS
-                </ion-button>
-                </ion-col>
-  
-              <!-- PROVIDERS / PLATFORMS -->
-  
-              <ion-col size="1.5" class="providers">
-                  <ion-text style="color: #fff;">
-                      <h6>Available on:</h6>
-                      <ion-row>
-                          <ion-img class="first-im" *ngIf="movieDetail.providers.length >= 1" [src]="movieDetail.providers[0]"></ion-img>
-                          <ion-img class="im" *ngIf="movieDetail.providers.length >= 2" [src]="movieDetail.providers[1]"></ion-img>
-  
-                          <!-- SECOND ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 3" class="first-im2" [src]="movieDetail.providers[2]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 4" class="im2" [src]="movieDetail.providers[3]"></ion-img>
-                          </ion-row>
-  
-                          <!-- THIRD ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 5" class="first-im3" [src]="movieDetail.providers[4]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 6" class="im3" [src]="movieDetail.providers[5]"></ion-img>
-                          </ion-row>
-  
-                          <!-- FOURTH ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 7" class="first-im4" [src]="movieDetail.providers[6]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 8" class="im4" [src]="movieDetail.providers[7]"></ion-img>
-                          </ion-row>
-  
-                          <!-- FIFTH ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 9" class="first-im5" [src]="movieDetail.providers[8]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 10" class="im5" [src]="movieDetail.providers[9]"></ion-img>
-                          </ion-row>
-  
-                      </ion-row>
-                  </ion-text>
-              </ion-col>
+        </ion-list>
+        <ion-item lines="none" style="height: 40px;">
+            <p style="margin-left: 50px;"><a (click)="goToSearch()" style="color: #EE3468; font-size: 15px;">See All
+                    Results</a></p>
+        </ion-item>
+    </div>
 
-                <!-- 2nd FILM POSTER  -->  
-                <ion-col size="2">
-                  <ion-avatar>
-                      <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
-                      <img class="film-poster" [src] = "movieDetail.poster_img" />
-                  </ion-avatar>
-                <ion-text class="recommended-movie-title" color="light">
-                    <h6>{{movieDetail.title}}</h6>
-                </ion-text>
-                <ion-button (click)="openMovieClicked(movieID)" color="danger" class="view-details-button" expand="block" fill="solid" shape="round">
-                    <ion-icon slot="start" name="play"></ion-icon>
-                    VIEW DETAILS
-                </ion-button>
-                </ion-col>
-  
-              <!-- PROVIDERS / PLATFORMS -->
-  
-              <ion-col size="1.5" class="providers">
-                  <ion-text style="color: #fff;">
-                      <h6>Available on:</h6>
-                      <ion-row>
-                          <ion-img class="first-im" *ngIf="movieDetail.providers.length >= 1" [src]="movieDetail.providers[0]"></ion-img>
-                          <ion-img class="im" *ngIf="movieDetail.providers.length >= 2" [src]="movieDetail.providers[1]"></ion-img>
-  
-                          <!-- SECOND ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 3" class="first-im2" [src]="movieDetail.providers[2]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 4" class="im2" [src]="movieDetail.providers[3]"></ion-img>
-                          </ion-row>
-  
-                          <!-- THIRD ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 5" class="first-im3" [src]="movieDetail.providers[4]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 6" class="im3" [src]="movieDetail.providers[5]"></ion-img>
-                          </ion-row>
-  
-                          <!-- FOURTH ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 7" class="first-im4" [src]="movieDetail.providers[6]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 8" class="im4" [src]="movieDetail.providers[7]"></ion-img>
-                          </ion-row>
-  
-                          <!-- FIFTH ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 9" class="first-im5" [src]="movieDetail.providers[8]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 10" class="im5" [src]="movieDetail.providers[9]"></ion-img>
-                          </ion-row>
-  
-                      </ion-row>
-                  </ion-text>
-              </ion-col>
-
-                <!-- 3rd FILM POSTER  -->  
-                <ion-col size="2">
-                     <ion-avatar>
-                      <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
-                      <img class="film-poster" [src] = "movieDetail.poster_img" />
-                    </ion-avatar>
-                    <ion-text class="recommended-movie-title" color="light">
-                        <h6>{{movieDetail.title}}</h6>
+    <!-- BODY -->
+    <ion-grid fixed>
+        <!-- COVER IMAGE / MOVIE BANNER -->
+        <ion-row>
+            <ion-col size="12" style="left: -7.6em;">
+                <div *ngIf="movieDetail" class="large-box">
+                    <!-- <ion-img class="img" src="/assets/background/Film-cover_1366x768px.jpg"></ion-img> -->
+                    <ion-img class="img" [src]="movieDetail.background_img"></ion-img>
+                    <!-- BACK BUTTON -->
+                    <ion-button [routerLink]="['/home']" class="back-btn" fill="clear">
+                        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+                        <ion-label style="margin-left: 10px;">Back</ion-label>
+                    </ion-button>
+                    <ion-text class="text">
+                        <h1>We Recommend</h1>
                     </ion-text>
-                    <ion-button (click)="openMovieClicked(movieID)" color="danger" class="view-details-button" expand="block" fill="solid" shape="round">
+                    <!-- Movie Title -->
+                    <ion-text>
+                        <!-- <h2 class="movie-title">Joker</h2> -->
+                        <h2 class="movie-title">{{movieDetail.title}}</h2>
+                    </ion-text>
+                    <!-- Info Buttons -->
+                    <ion-buttons class="info">
+                        <ion-button class="info-first" expand="block" fill="outline">
+                            {{movieDetail.runtime}} minutes
+                        </ion-button>
+                        <ion-button class="info-second" expand="block" fill="outline">
+                            {{movieDetail.genres[0]}}
+                        </ion-button>
+                        <ion-button class="info-third" expand="block" fill="outline">
+                            {{movieDetail.genres[1]}}
+                        </ion-button>
+                    </ion-buttons>
+                    <!-- MATCH PERCENTAGE -->
+                    <!-- <ion-badge class="match" mode="ios">90%</ion-badge> -->
+                    <ion-fab-button class="match" color="#EE3468">
+                        <ion-label class="ion-align-items-center" style="color: #ffffff;">90%</ion-label>
+                    </ion-fab-button>
+                    <ion-label class="match-text">match</ion-label>
+                    <ion-buttons class="detailAndWishlist">
+                        <ion-button (click)="openMovieClicked(movieID)" style="width: 150px;" expand="block"
+                            color="danger" fill="solid" shape="round">
+                            View Details
+                        </ion-button>
+                        <ion-button (click)="addToWishList(movieID)" style="width: 150px;" expand="block" color="danger"
+                            fill="outline" shape="round">
+                            <ion-icon style="left: 5px; position: absolute;" name="add-outline"></ion-icon>
+                            Wish List
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-icon (click)="markWatched(movieID)" class="alreadywatched-icon" color="danger"
+                        name="eye-outline"></ion-icon>
+                    <ion-text (click)="markWatched(movieID)" class="alreadywatched-text" color="danger">
+                        <p style="text-align-last: center;">Already watched it?</p>
+                    </ion-text>
+                </div>
+            </ion-col>
+        </ion-row>
+        <!-- FILM DETAILS -->
+        <div class="film-detail-container">
+            <ion-text style="position: absolute; left: 8%;">
+                <h1 style="color: #fff;">Our Recommendation</h1>
+            </ion-text>
+            <ion-row *ngIf="recommendedMovieDetail">
+                <!-- 1st FILM POSTER  -->
+                <ion-col size="2">
+                    <ion-avatar *ngIf="recommendedMovieDetail[1]">
+                        <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
+                        <img class="film-poster" [src]="recommendedMovieDetail[1].poster_img" />
+                    </ion-avatar>
+                    <ion-text *ngIf="recommendedMovieDetail[1]" class="recommended-movie-title" color="light">
+                        <h6>{{recommendedMovieDetail[1].title}}</h6>
+                    </ion-text>
+                    <ion-button (click)="openMovieClicked(listOfRecommendations[1])" color="danger"
+                        class="view-details-button" expand="block" fill="solid" shape="round">
                         <ion-icon slot="start" name="play"></ion-icon>
                         VIEW DETAILS
                     </ion-button>
                 </ion-col>
-  
-              <!-- PROVIDERS / PLATFORMS -->
-  
-              <ion-col size="1.5" class="providers">
-                  <ion-text style="color: #fff;">
-                      <h6>Available on:</h6>
-                      <ion-row>
-                          <ion-img class="first-im" *ngIf="movieDetail.providers.length >= 1" [src]="movieDetail.providers[0]"></ion-img>
-                          <ion-img class="im" *ngIf="movieDetail.providers.length >= 2" [src]="movieDetail.providers[1]"></ion-img>
-  
-                          <!-- SECOND ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 3" class="first-im2" [src]="movieDetail.providers[2]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 4" class="im2" [src]="movieDetail.providers[3]"></ion-img>
-                          </ion-row>
-  
-                          <!-- THIRD ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 5" class="first-im3" [src]="movieDetail.providers[4]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 6" class="im3" [src]="movieDetail.providers[5]"></ion-img>
-                          </ion-row>
-  
-                          <!-- FOURTH ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 7" class="first-im4" [src]="movieDetail.providers[6]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 8" class="im4" [src]="movieDetail.providers[7]"></ion-img>
-                          </ion-row>
-  
-                          <!-- FIFTH ROW OF PROVIDERS -->
-                          <ion-row>
-                              <ion-img *ngIf="movieDetail.providers.length >= 9" class="first-im5" [src]="movieDetail.providers[8]"></ion-img>
-                              <ion-img *ngIf="movieDetail.providers.length >= 10" class="im5" [src]="movieDetail.providers[9]"></ion-img>
-                          </ion-row>
-  
-                      </ion-row>
-                  </ion-text>
-              </ion-col>
-          </ion-row>
-          
-      </div>
-  </ion-grid>
-  
-  
-  <!-- FOOTER -->
-  <!-- <br> 
+
+                <!-- PROVIDERS / PLATFORMS -->
+
+                <ion-col size="1.5" class="providers">
+                    <ion-text style="color: #fff;">
+                        <h6>Available on:</h6>
+                        <ion-row *ngIf="recommendedMovieDetail[1]">
+                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[1].providers.length >= 1"
+                                [src]="recommendedMovieDetail[1].providers[0]">
+                            </ion-img>
+
+                            <ion-img class="im" *ngIf="recommendedMovieDetail[1].providers.length >= 2"
+                                [src]="recommendedMovieDetail[1].providers[1]">
+                            </ion-img>
+
+                            <!-- SECOND ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 3" class="first-im2"
+                                    [src]="recommendedMovieDetail[1].providers[2]">
+                                </ion-img>
+
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 4" class="im2"
+                                    [src]="recommendedMovieDetail[1].providers[3]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- THIRD ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 5" class="first-im3"
+                                    [src]="recommendedMovieDetail[1].providers[4]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 6" class="im3"
+                                    [src]="recommendedMovieDetail[1].providers[5]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FOURTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 7" class="first-im4"
+                                    [src]="recommendedMovieDetail[1].providers[6]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 8" class="im4"
+                                    [src]="recommendedMovieDetail[1].providers[7]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FIFTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 9" class="first-im5"
+                                    [src]="recommendedMovieDetail[1].providers[8]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 10" class="im5"
+                                    [src]="recommendedMovieDetail[1].providers[9]">
+                                </ion-img>
+                            </ion-row>
+
+                        </ion-row>
+                    </ion-text>
+                </ion-col>
+
+                <!-- 2nd FILM POSTER  -->
+                <ion-col size="2">
+                    <ion-avatar *ngIf="recommendedMovieDetail[2]">
+                        <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
+                        <img class="film-poster" [src]="recommendedMovieDetail[2].poster_img" />
+                    </ion-avatar>
+                    <ion-text *ngIf="recommendedMovieDetail[2]" class="recommended-movie-title" color="light">
+                        <h6>{{recommendedMovieDetail[2].title}}</h6>
+                    </ion-text>
+                    <ion-button (click)="openMovieClicked(listOfRecommendations[2])" color="danger"
+                        class="view-details-button" expand="block" fill="solid" shape="round">
+                        <ion-icon slot="start" name="play"></ion-icon>
+                        VIEW DETAILS
+                    </ion-button>
+                </ion-col>
+
+                <!-- PROVIDERS / PLATFORMS -->
+
+                <ion-col size="1.5" class="providers">
+                    <ion-text style="color: #fff;">
+                        <h6>Available on:</h6>
+                        <ion-row *ngIf="recommendedMovieDetail[2]">
+                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[2].providers.length >= 1"
+                                [src]="recommendedMovieDetail[2].providers[0]">
+                            </ion-img>
+                            <ion-img class="im" *ngIf="recommendedMovieDetail[2].providers.length >= 2"
+                                [src]="recommendedMovieDetail[2].providers[1]">
+                            </ion-img>
+
+                            <!-- SECOND ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 3" class="first-im2"
+                                    [src]="recommendedMovieDetail[2].providers[2]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 4" class="im2"
+                                    [src]="recommendedMovieDetail[2].providers[3]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- THIRD ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 5" class="first-im3"
+                                    [src]="recommendedMovieDetail[2].providers[4]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 6" class="im3"
+                                    [src]="recommendedMovieDetail[2].providers[5]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FOURTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 7" class="first-im4"
+                                    [src]="recommendedMovieDetail[2].providers[6]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 8" class="im4"
+                                    [src]="recommendedMovieDetail[2].providers[7]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FIFTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 9" class="first-im5"
+                                    [src]="recommendedMovieDetail[2].providers[8]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 10" class="im5"
+                                    [src]="recommendedMovieDetail[2].providers[9]">
+                                </ion-img>
+                            </ion-row>
+
+                        </ion-row>
+                    </ion-text>
+                </ion-col>
+
+                <!-- 3rd FILM POSTER  -->
+                <ion-col size="2">
+                    <ion-avatar *ngIf="recommendedMovieDetail[3]">
+                        <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
+                        <img class="film-poster" [src]="recommendedMovieDetail[3].poster_img" />
+                    </ion-avatar>
+                    <ion-text *ngIf="recommendedMovieDetail[3]" class="recommended-movie-title" color="light">
+                        <h6>{{recommendedMovieDetail[3].title}}</h6>
+                    </ion-text>
+                    <ion-button (click)="openMovieClicked(listOfRecommendations[3])" color="danger"
+                        class="view-details-button" expand="block" fill="solid" shape="round">
+                        <ion-icon slot="start" name="play"></ion-icon>
+                        VIEW DETAILS
+                    </ion-button>
+                </ion-col>
+
+                <!-- PROVIDERS / PLATFORMS -->
+
+                <ion-col size="1.5" class="providers">
+                    <ion-text style="color: #fff;">
+                        <h6>Available on:</h6>
+                        <ion-row *ngIf="recommendedMovieDetail[3]">
+                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[3].providers.length >= 1"
+                                [src]="recommendedMovieDetail[3].providers[0]">
+                            </ion-img>
+                            <ion-img class="im" *ngIf="recommendedMovieDetail[3].providers.length >= 2"
+                                [src]="recommendedMovieDetail[3].providers[1]">
+                            </ion-img>
+
+                            <!-- SECOND ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 3" class="first-im2"
+                                    [src]="recommendedMovieDetail[3].providers[2]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 4" class="im2"
+                                    [src]="recommendedMovieDetail[3].providers[3]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- THIRD ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 5" class="first-im3"
+                                    [src]="recommendedMovieDetail[3].providers[4]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 6" class="im3"
+                                    [src]="recommendedMovieDetail[3].providers[5]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FOURTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 7" class="first-im4"
+                                    [src]="recommendedMovieDetail[3].providers[6]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 8" class="im4"
+                                    [src]="recommendedMovieDetail[3].providers[7]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FIFTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 9" class="first-im5"
+                                    [src]="recommendedMovieDetail[3].providers[8]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 10" class="im5"
+                                    [src]="recommendedMovieDetail[3].providers[9]">
+                                </ion-img>
+                            </ion-row>
+
+                        </ion-row>
+                    </ion-text>
+                </ion-col>
+            </ion-row>
+
+        </div>
+    </ion-grid>
+
+
+    <!-- FOOTER -->
+    <!-- <br> 
   <br> -->
-  
-  <ion-grid fixed>
-      <!-- FAQ -->
-      <ion-row class="row-space">
-          <ion-col size="9">
-          <p><a class="footer" [routerLink]="['/premium/premium-faq']">How can i use UMOT?</a></p>
-          </ion-col>
-      </ion-row>
-      
-      <!-- PRIVACY POLICY  -->
-      <ion-row class="row-space">
-          <ion-col size="10">
-          <p><a [routerLink]="['/premium/premium-privacy-policy']" class="footer">Privacy and cookies Policy</a></p>
-          </ion-col>
-          
-          <!-- FEEDBACK BUTTON -->
-          <ion-col size="2">
-          <ion-button expand="block" fill="outline" style="color: #979797; --border-color: #979797;">
-              <ion-icon class="feedback-icon" name="chatbubbles-outline"></ion-icon>
-              Feedback
-          </ion-button>
-          </ion-col>
-      </ion-row>
-  
-      <ion-row class="row-space">
-          <!-- COPYRIGHT -->
-          <ion-col size="10">
-              <p class="footer">© UMOT movies</p>
-          </ion-col>
-          <!-- SOCIAL MEDIA LOGOS -->
-          <ion-col size="2">
-              <br>
-              <ion-icon style="margin-left: 6px;" class="social-icons" name="logo-facebook"></ion-icon>
-              <ion-icon class="social-icons" name="logo-instagram"></ion-icon>
-              <ion-icon class="social-icons" name="logo-twitter"></ion-icon>
-              <ion-icon class="social-icons" name="logo-linkedin"></ion-icon>
-          </ion-col>
-      </ion-row>
-  </ion-grid>
-  
-  <br>
-  
-  </ion-content>
+
+    <ion-grid fixed>
+        <!-- FAQ -->
+        <ion-row class="row-space">
+            <ion-col size="9">
+                <p><a class="footer" [routerLink]="['/premium/premium-faq']">How can i use UMOT?</a></p>
+            </ion-col>
+        </ion-row>
+
+        <!-- PRIVACY POLICY  -->
+        <ion-row class="row-space">
+            <ion-col size="10">
+                <p><a [routerLink]="['/premium/premium-privacy-policy']" class="footer">Privacy and cookies Policy</a>
+                </p>
+            </ion-col>
+
+            <!-- FEEDBACK BUTTON -->
+            <ion-col size="2">
+                <ion-button expand="block" fill="outline" style="color: #979797; --border-color: #979797;">
+                    <ion-icon class="feedback-icon" name="chatbubbles-outline"></ion-icon>
+                    Feedback
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="row-space">
+            <!-- COPYRIGHT -->
+            <ion-col size="10">
+                <p class="footer">© UMOT movies</p>
+            </ion-col>
+            <!-- SOCIAL MEDIA LOGOS -->
+            <ion-col size="2">
+                <br>
+                <ion-icon style="margin-left: 6px;" class="social-icons" name="logo-facebook"></ion-icon>
+                <ion-icon class="social-icons" name="logo-instagram"></ion-icon>
+                <ion-icon class="social-icons" name="logo-twitter"></ion-icon>
+                <ion-icon class="social-icons" name="logo-linkedin"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <br>
+
+</ion-content>

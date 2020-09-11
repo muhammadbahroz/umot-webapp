@@ -25,6 +25,8 @@ export class QuestionPageComponent implements OnInit {
   // Values that can be altered to jump quesitons
   questionNumber = 0;
   recommendationCheck = false;
+  noRecommendationCheck: boolean = false;
+
 
   constructor(private SearchService: SearchService, private router: Router) {
     this.questionsResponse = {} as QuestionResponse;
@@ -39,14 +41,15 @@ export class QuestionPageComponent implements OnInit {
   ngOnInit() {
     this.getQuestions();
   }
+
   recommendationReturned = [];
   listOfRecommendations = [];
   temporaryNumber: number = null;
   firsRecommendation: number = null;
-  recommendationIterationIndex: number = 0;
+  recommendationData: string = "";
+
 
   nextQuestionNumber(question: Datum) {
-
     /**
      * This snippet of "if" just repeats until all questions
      * have been gone through.
@@ -56,9 +59,9 @@ export class QuestionPageComponent implements OnInit {
       if (this.questions[this.questionNumber].question_id != 2 && this.questions[this.questionNumber].question_id != 16 &&
         this.questions[this.questionNumber].question_id != 18 && this.questions[this.questionNumber].question_id != 17 &&
         this.questions[this.questionNumber].question_id != 19) {
-          this.questionAnswerResponses.questionAnswersData.push(new QuestionAnswerData(this.questions[this.questionNumber].text,
-            this.questions[this.questionNumber].question_id, this.answerRecorded, this.answerIdRecorded));
-          console.log("Response Recorded: ", JSON.stringify(this.questionAnswerResponses.questionAnswersData));
+        this.questionAnswerResponses.questionAnswersData.push(new QuestionAnswerData(this.questions[this.questionNumber].text,
+          this.questions[this.questionNumber].question_id, this.answerRecorded, this.answerIdRecorded));
+        console.log("Response Recorded: ", JSON.stringify(this.questionAnswerResponses.questionAnswersData));
       }
 
       this.questionNumber += 1;
@@ -71,16 +74,25 @@ export class QuestionPageComponent implements OnInit {
       console.log(this.SearchService.postResponseForRecommendation(this.questionsResponse).subscribe((result: any) => {
         console.log("result from upload: ", result);
 
-      this.SearchService.getRecommendation().subscribe((result: any) => {
-        console.log("GOT RESULT: ", result);
-        this.recommendationReturned = JSON.parse(result.data);
-        this.recommendationCheck = true;
-        this.firsRecommendation = this.recommendationReturned[0];
-        console.log("First Recommendation: ", this.firsRecommendation);
-        console.log("recommendation list: ", this.recommendationReturned);
-        localStorage.setItem("listOfRecommendation", JSON.stringify(this.recommendationReturned));
-      });
-    }));
+        this.SearchService.getRecommendation().subscribe((result: any) => {
+          console.log("GOT RESULT: ", result);
+          this.recommendationData = result.data;
+          if (this.recommendationData.startsWith('"no record found"')) {
+            this.noRecommendationCheck = true;
+            this.recommendationCheck = true;
+            console.log("No RECORD FOUND for the current choice of Selection!!!");
+          } else {
+            this.recommendationReturned = JSON.parse(this.recommendationData);
+            this.noRecommendationCheck = false;
+            this.recommendationCheck = true;
+            this.firsRecommendation = this.recommendationReturned[0];
+            console.log("First Recommendation: ", this.firsRecommendation);
+            console.log("recommendation list: ", this.recommendationReturned);
+            localStorage.setItem("listOfRecommendation", JSON.stringify(this.recommendationReturned));
+          }
+
+        });
+      }));
     }
 
     // console.log("questions of number of question answered: ", this.questionsOfnumberOfQuestionsAnswered);
@@ -137,34 +149,43 @@ export class QuestionPageComponent implements OnInit {
 
   actorNameList: ActorName[];
   dropDownClose: boolean = true;
+  freeTextRecorded: string = null;
   searchFreeText(buttonValue: number) {
     if (this.searchValue != "") {
-      /**
-       * this part handles ACTOR SEARCH, searching api
-       * 'en' id is 18
-       * 'es' id is
-       */
-      if (this.questions[this.questionNumber].question_id === 18) {
-        this.SearchService.getActorName(this.searchValue).subscribe((data: any) => {
-          this.actorNameList = JSON.parse(data.data);
-          this.dropDownClose = false;
-          // console.log("actor name list: ",this.actorNameList);
-        });
-      }
-      /**
-       * this part handles TAG SEARCH, searching api
-       * 'en' id is 16
-       * 'es' id is
-       */
-      if (this.questions[this.questionNumber].question_id === 16) {
-        this.SearchService.getTag(this.searchValue).subscribe((data: any) => {
-          this.actorNameList = JSON.parse(data.data);
-          this.dropDownClose = false;
-          // console.log("actor name list: ",this.actorNameList);
-        })
-      }
+      if (this.searchValue != this.freeTextRecorded) {
 
-      this.buttonValue = buttonValue;
+
+        /**
+         * this part handles ACTOR SEARCH, searching api
+         * 'en' id is 18
+         * 'es' id is
+         */
+        if (this.questions[this.questionNumber].question_id === 18) {
+          this.SearchService.getActorName(this.searchValue.toLowerCase()).subscribe((data: any) => {
+            this.actorNameList = JSON.parse(data.data);
+            // console.log("actor name list: ",this.actorNameList);
+          });
+        }
+        /**
+         * this part handles TAG SEARCH, searching api
+         * 'en' id is 16
+         * 'es' id is
+         */
+        if (this.questions[this.questionNumber].question_id === 16) {
+          this.SearchService.getTag(this.searchValue.toLowerCase()).subscribe((data: any) => {
+            this.actorNameList = JSON.parse(data.data);
+            // console.log("actor name list: ",this.actorNameList);
+          });
+        }
+
+        this.dropDownClose = false;
+        this.buttonValue = buttonValue;
+      }
+      else {
+        this.dropDownClose = true;
+      }
+    } else {
+      this.dropDownClose = true;
     }
   }
 
@@ -175,9 +196,14 @@ export class QuestionPageComponent implements OnInit {
       this.questionsResponse.response[questionNumber].answer_id = null;
       this.questionsResponse.response[questionNumber].extra = actorId.toString();
       this.searchValue = actorName;
+      this.freeTextRecorded = actorName;
 
-      // console.log("recorded response: ",this.questionsResponse.response[questionNumber].extra);
-      // console.log("search value: ",this.searchValue);
+      console.log("drop down close: ", this.dropDownClose);
+      console.log("recorded response: ", this.questionsResponse.response[questionNumber].extra);
+      console.log("search value: ", this.searchValue);
+      console.log("question id: ", this.questions[questionNumber].question_id);
+    } else {
+      this.dropDownClose = true;
     }
   }
 
@@ -191,5 +217,12 @@ export class QuestionPageComponent implements OnInit {
       // console.log("length ",this.questions[3].answers.length);
       console.log("questions: ", this.questions);
     });
+  }
+
+  /**
+   * THIS FUNCTION RELOADS THE WINDOW
+   */
+  reloadWindow() {
+    window.location.reload();
   }
 }

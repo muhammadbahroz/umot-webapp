@@ -168,8 +168,9 @@
       <!-- <div class="search-dropdown-box" *ngIf="searchValue != null"> -->
       <div *ngIf="dropDownClose != true">
         <div class="question-search-dropdown-box">
-          <ion-list *ngFor="let actorName of actorNameList">
-            <ion-item (click)="recordFreeText(questionNumber,actorName.id,actorName.name)">
+          <ion-list (click)="recordFreeText(questionNumber,actorName.id,actorName.name)"
+            *ngFor="let actorName of actorNameList">
+            <ion-item>
               <ion-label style="margin-left: 10px;">{{actorName.name}}</ion-label>
             </ion-item>
           </ion-list>
@@ -237,6 +238,13 @@
         </ion-buttons>
       </div>
 
+      <br>
+      <!-- QUESTION -->
+      <ion-text>
+        <!-- <h1 style="color: #ffff; font-size: 24px; font-weight: 900;" >Who are you with?</h1> -->
+        <h1 style="color: #ffff; font-size: 24px; font-weight: 900;">Time to spend?</h1>
+      </ion-text>
+
       <ion-item class="traansparent">
         <ion-range [value]="minutes" style=" --height: 52px;--knob-size: 30px; font-size: 15px;" min="0" max="182" pin
           color="danger"></ion-range>
@@ -244,6 +252,13 @@
       <ion-text style="top: -20px; position: relative; color: #979797;">
         <p>0 minutes<span style="position: relative; left: 340px;">Infinite</span></p>
       </ion-text>
+
+
+      <!-- SEARCH BAR / INPUT BAR -->
+      <div *ngIf="freeTextRecorded != null">
+        <ion-searchbar [(ngModel)]="searchValue" class="search-bar" placeholder="search" inputmode="text" type="text">
+        </ion-searchbar>
+      </div>
     </div>
 
     <!-- LOADING -->
@@ -256,15 +271,29 @@
     <ion-avatar class="loading-img" *ngIf="recommendationCheck">
       <img style="border-radius: 0%; height: auto;" src="/assets/logo/umot-logo.svg" />
     </ion-avatar>
-    <ion-text *ngIf="recommendationCheck" class="recommendation-text">
-      <h1>We Have <b>
-          <ion-text color="danger">{{recommendationReturned.length}}</ion-text>
-        </b> Recommendations</h1>
-    </ion-text>
-    <ion-button *ngIf="recommendationCheck" class="view-recommendation-button" (click)="viewRecommendations()"
-      expand="block" fill="solid" color="danger">
-      View Recommenadtions
-    </ion-button>
+    <div *ngIf="!noRecommendationCheck;else noRecommendation">
+      <ion-text *ngIf="recommendationCheck" class="recommendation-text">
+        <h1>We Have <b>
+            <ion-text color="danger">{{recommendationReturned.length}}</ion-text>
+          </b> Recommendations</h1>
+      </ion-text>
+      <ion-button *ngIf="recommendationCheck" class="view-recommendation-button" (click)="viewRecommendations()"
+        expand="block" fill="solid" color="danger">
+        View Recommenadtions
+      </ion-button>
+    </div>
+
+    <ng-template #noRecommendation>
+      <ion-text *ngIf="recommendationCheck" class="recommendation-text">
+        <h1>We Have <b>
+            <ion-text color="danger">0</ion-text>
+          </b> Recommendations.<br></h1>
+      </ion-text>
+      <ion-button *ngIf="recommendationCheck" class="view-recommendation-button" (click)="reloadWindow()" expand="block"
+        fill="solid" color="danger">
+        Get New Recommendation
+      </ion-button>
+    </ng-template>
   </div>
 
 

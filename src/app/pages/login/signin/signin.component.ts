@@ -38,8 +38,8 @@ export class SigninComponent implements OnInit {
       console.log( "result from upload: ",result )
       ;if(this.loginFailure === false && this.tryAgain=== false){
         
-        // this.router.navigate(['signup/question-page']);
-        this.router.navigate(['/error']);
+        this.router.navigate(['signup/question-page']);
+        // this.router.navigate(['/error']);
         localStorage.setItem("key",JSON.stringify(result)); // this saves the bearer token into local storage
       };},(error: HttpErrorResponse) => {
         if (error.error instanceof ErrorEvent) {
