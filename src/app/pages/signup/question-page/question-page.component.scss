@@ -678,3 +678,25 @@ ion-spinner {
   }
 
 }
+
+///////////////////////////Infinite-Text-Timeline///////////////////////////
+.infinite-text{
+  position: relative; 
+  
+  @media (min-width: 1360px) {
+    left: 340px;  
+  }       
+
+  @media (min-width: 1440px) {
+    left: 380px;
+  }
+
+  @media (min-width: 1600px) {
+    left: 430px;
+  }
+
+  @media (min-width: 1920px) {
+    left: 460px;
+  }
+
+}

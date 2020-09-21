@@ -184,7 +184,7 @@
           </ion-range>
         </ion-item>
         <ion-text style="color: #ffff;">
-          <p>0 minutes<span style="position: relative; left: 340px;">Infinite minutes</span></p>
+          <p>0 minutes<span class="infinite-text">Infinite minutes</span></p>
         </ion-text>
       </ng-template>
 
@@ -199,7 +199,7 @@
 
     <div class="recommendation-container" *ngIf="questionNumber >= 7">
       <!-- BACK BUTTON -->
-      <ion-button [routerLink]="['/signup']" class="back-btn" fill="clear">
+      <ion-button (click)="reloadWindow()" class="back-btn" fill="clear">
         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
         <ion-label style="margin-left: 10px;">Back</ion-label>
       </ion-button>
@@ -230,19 +230,16 @@
           </h1>
         </ion-text>
 
-        <!-- FIRST BUTTON -->
+        <!-- BUTTON -->
         <ion-buttons slot="start">
           <ion-button class="question-button" expand="block" fill="solid" color="danger">
             {{item.answers}}
           </ion-button>
         </ion-buttons>
       </div>
-
-      <br>
       <!-- QUESTION -->
-      <ion-text>
-        <!-- <h1 style="color: #ffff; font-size: 24px; font-weight: 900;" >Who are you with?</h1> -->
-        <h1 style="color: #ffff; font-size: 24px; font-weight: 900;">Time to spend?</h1>
+      <ion-text class="question-text">
+        <h1 style="color: #ffff; font-size: 16px; font-weight: 900;">Time to Spend?</h1>
       </ion-text>
 
       <ion-item class="traansparent">
@@ -253,6 +250,10 @@
         <p>0 minutes<span style="position: relative; left: 340px;">Infinite</span></p>
       </ion-text>
 
+      <!-- QUESTION -->
+      <ion-text *ngIf="freeTextRecorded != null" class="question-text">
+        <h1 style="color: #ffff; font-size: 16px; font-weight: 900;">{{freeTextQuestion}}</h1>
+      </ion-text>
 
       <!-- SEARCH BAR / INPUT BAR -->
       <div *ngIf="freeTextRecorded != null">

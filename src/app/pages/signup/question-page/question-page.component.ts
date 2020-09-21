@@ -61,7 +61,7 @@ export class QuestionPageComponent implements OnInit {
         this.questions[this.questionNumber].question_id != 19) {
         this.questionAnswerResponses.questionAnswersData.push(new QuestionAnswerData(this.questions[this.questionNumber].text,
           this.questions[this.questionNumber].question_id, this.answerRecorded, this.answerIdRecorded));
-        console.log("Response Recorded: ", JSON.stringify(this.questionAnswerResponses.questionAnswersData));
+        // console.log("Response Recorded: ", JSON.stringify(this.questionAnswerResponses.questionAnswersData));
       }
 
       this.questionNumber += 1;
@@ -71,7 +71,7 @@ export class QuestionPageComponent implements OnInit {
     // THIS PART SENDS THE QUESTIONS RESPONSE TO SERVER
     if (this.questionNumber == 7) {
       console.log("question response: ", this.questionsResponse);
-      console.log(this.SearchService.postResponseForRecommendation(this.questionsResponse).subscribe((result: any) => {
+      this.SearchService.postResponseForRecommendation(this.questionsResponse).subscribe((result: any) => {
         console.log("result from upload: ", result);
 
         this.SearchService.getRecommendation().subscribe((result: any) => {
@@ -86,13 +86,13 @@ export class QuestionPageComponent implements OnInit {
             this.noRecommendationCheck = false;
             this.recommendationCheck = true;
             this.firsRecommendation = this.recommendationReturned[0];
-            console.log("First Recommendation: ", this.firsRecommendation);
+            // console.log("First Recommendation: ", this.firsRecommendation);
             console.log("recommendation list: ", this.recommendationReturned);
             localStorage.setItem("listOfRecommendation", JSON.stringify(this.recommendationReturned));
           }
 
         });
-      }));
+      });
     }
 
     // console.log("questions of number of question answered: ", this.questionsOfnumberOfQuestionsAnswered);
@@ -150,6 +150,7 @@ export class QuestionPageComponent implements OnInit {
   actorNameList: ActorName[];
   dropDownClose: boolean = true;
   freeTextRecorded: string = null;
+  freeTextQuestion: string = null;
   searchFreeText(buttonValue: number) {
     if (this.searchValue != "") {
       if (this.searchValue != this.freeTextRecorded) {
@@ -163,6 +164,7 @@ export class QuestionPageComponent implements OnInit {
         if (this.questions[this.questionNumber].question_id === 18) {
           this.SearchService.getActorName(this.searchValue.toLowerCase()).subscribe((data: any) => {
             this.actorNameList = JSON.parse(data.data);
+            this.freeTextQuestion = this.questions[this.questionNumber].text;
             // console.log("actor name list: ",this.actorNameList);
           });
         }
@@ -174,6 +176,7 @@ export class QuestionPageComponent implements OnInit {
         if (this.questions[this.questionNumber].question_id === 16) {
           this.SearchService.getTag(this.searchValue.toLowerCase()).subscribe((data: any) => {
             this.actorNameList = JSON.parse(data.data);
+            this.freeTextQuestion = this.questions[this.questionNumber].text;
             // console.log("actor name list: ",this.actorNameList);
           });
         }
@@ -198,10 +201,10 @@ export class QuestionPageComponent implements OnInit {
       this.searchValue = actorName;
       this.freeTextRecorded = actorName;
 
-      console.log("drop down close: ", this.dropDownClose);
-      console.log("recorded response: ", this.questionsResponse.response[questionNumber].extra);
-      console.log("search value: ", this.searchValue);
-      console.log("question id: ", this.questions[questionNumber].question_id);
+      // console.log("drop down close: ", this.dropDownClose);
+      // console.log("recorded response: ", this.questionsResponse.response[questionNumber].extra);
+      // console.log("search value: ", this.searchValue);
+      // console.log("question id: ", this.questions[questionNumber].question_id);
     } else {
       this.dropDownClose = true;
     }
