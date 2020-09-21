@@ -700,3 +700,24 @@ ion-spinner {
   }
 
 }
+
+.infinite-text-result{
+  position: relative; 
+  
+  @media (min-width: 1360px) {
+    left: 340px;  
+  }       
+
+  @media (min-width: 1440px) {
+    left: 350px;
+  }
+
+  @media (min-width: 1600px) {
+    left: 350px;
+  }
+
+  @media (min-width: 1920px) {
+    left: 350px;
+  }
+
+}
