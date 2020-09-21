@@ -100,7 +100,7 @@
             <ion-col size="12" style="left: -7.6em;">
                 <div *ngIf="movieDetail" class="large-box">
                     <!-- <ion-img class="img" src="/assets/background/Film-cover_1366x768px.jpg"></ion-img> -->
-                    <ion-img class="img" [src]="movieDetail.background_img"></ion-img>
+                    <ion-img class="img" [src]="movieDetail.data.background_img"></ion-img>
                     <!-- BACK BUTTON -->
                     <ion-button [routerLink]="['/home']" class="back-btn" fill="clear">
                         <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
@@ -112,18 +112,18 @@
                     <!-- Movie Title -->
                     <ion-text>
                         <!-- <h2 class="movie-title">Joker</h2> -->
-                        <h2 class="movie-title">{{movieDetail.title}}</h2>
+                        <h2 class="movie-title">{{movieDetail.data.title}}</h2>
                     </ion-text>
                     <!-- Info Buttons -->
                     <ion-buttons class="info">
                         <ion-button class="info-first" expand="block" fill="outline">
-                            {{movieDetail.runtime}} minutes
+                            {{movieDetail.data.runtime}} minutes
                         </ion-button>
                         <ion-button class="info-second" expand="block" fill="outline">
-                            {{movieDetail.genres[0]}}
+                            {{movieDetail.data.genres[0]}}
                         </ion-button>
                         <ion-button class="info-third" expand="block" fill="outline">
-                            {{movieDetail.genres[1]}}
+                            {{movieDetail.data.genres[1]}}
                         </ion-button>
                     </ion-buttons>
                     <!-- MATCH PERCENTAGE -->
@@ -159,14 +159,89 @@
             <ion-row *ngIf="recommendedMovieDetail">
                 <!-- 1st FILM POSTER  -->
                 <ion-col size="2">
+                    <ion-avatar *ngIf="recommendedMovieDetail[0]">
+                        <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
+                        <img class="film-poster" [src]="recommendedMovieDetail[0].data.poster_img" />
+                    </ion-avatar>
+                    <ion-text *ngIf="recommendedMovieDetail[0]" class="recommended-movie-title" color="light">
+                        <h6>{{recommendedMovieDetail[0].data.title}}</h6>
+                    </ion-text>
+                    <ion-button (click)="openMovieClicked(recommendedMovieDetail[0].movieID)" color="danger"
+                        class="view-details-button" expand="block" fill="solid" shape="round">
+                        <ion-icon slot="start" name="play"></ion-icon>
+                        VIEW DETAILS
+                    </ion-button>
+                </ion-col>
+
+                <!-- PROVIDERS / PLATFORMS -->
+
+                <ion-col size="1.5" class="providers">
+                    <ion-text style="color: #fff;">
+                        <h6>Available on:</h6>
+                        <ion-row *ngIf="recommendedMovieDetail[0]">
+                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 1"
+                                [src]="recommendedMovieDetail[0].data.providers_image_set[0]">
+                            </ion-img>
+
+                            <ion-img class="im" *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 2"
+                                [src]="recommendedMovieDetail[0].data.providers_image_set[1]">
+                            </ion-img>
+
+                            <!-- SECOND ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 3" class="first-im2"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[2]">
+                                </ion-img>
+
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 4" class="im2"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[3]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- THIRD ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 5" class="first-im3"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[4]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 6" class="im3"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[5]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FOURTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 7" class="first-im4"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[6]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 8" class="im4"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[7]">
+                                </ion-img>
+                            </ion-row>
+
+                            <!-- FIFTH ROW OF PROVIDERS -->
+                            <ion-row>
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 9" class="first-im5"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[8]">
+                                </ion-img>
+                                <ion-img *ngIf="recommendedMovieDetail[0].data.providers_image_set.length >= 10" class="im5"
+                                    [src]="recommendedMovieDetail[0].data.providers_image_set[9]">
+                                </ion-img>
+                            </ion-row>
+
+                        </ion-row>
+                    </ion-text>
+                </ion-col>
+
+                <!-- 2nd FILM POSTER  -->
+                <ion-col size="2">
                     <ion-avatar *ngIf="recommendedMovieDetail[1]">
                         <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
-                        <img class="film-poster" [src]="recommendedMovieDetail[1].poster_img" />
+                        <img class="film-poster" [src]="recommendedMovieDetail[1].data.poster_img" />
                     </ion-avatar>
                     <ion-text *ngIf="recommendedMovieDetail[1]" class="recommended-movie-title" color="light">
-                        <h6>{{recommendedMovieDetail[1].title}}</h6>
+                        <h6>{{recommendedMovieDetail[1].data.title}}</h6>
                     </ion-text>
-                    <ion-button (click)="openMovieClicked(listOfRecommendations[1])" color="danger"
+                    <ion-button (click)="openMovieClicked(recommendedMovieDetail[1].movieID)" color="danger"
                         class="view-details-button" expand="block" fill="solid" shape="round">
                         <ion-icon slot="start" name="play"></ion-icon>
                         VIEW DETAILS
@@ -179,52 +254,50 @@
                     <ion-text style="color: #fff;">
                         <h6>Available on:</h6>
                         <ion-row *ngIf="recommendedMovieDetail[1]">
-                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[1].providers.length >= 1"
-                                [src]="recommendedMovieDetail[1].providers[0]">
+                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 1"
+                                [src]="recommendedMovieDetail[1].data.providers_image_set[0]">
                             </ion-img>
-
-                            <ion-img class="im" *ngIf="recommendedMovieDetail[1].providers.length >= 2"
-                                [src]="recommendedMovieDetail[1].providers[1]">
+                            <ion-img class="im" *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 2"
+                                [src]="recommendedMovieDetail[1].data.providers_image_set[1]">
                             </ion-img>
 
                             <!-- SECOND ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 3" class="first-im2"
-                                    [src]="recommendedMovieDetail[1].providers[2]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 3" class="first-im2"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[2]">
                                 </ion-img>
-
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 4" class="im2"
-                                    [src]="recommendedMovieDetail[1].providers[3]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 4" class="im2"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[3]">
                                 </ion-img>
                             </ion-row>
 
                             <!-- THIRD ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 5" class="first-im3"
-                                    [src]="recommendedMovieDetail[1].providers[4]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 5" class="first-im3"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[4]">
                                 </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 6" class="im3"
-                                    [src]="recommendedMovieDetail[1].providers[5]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 6" class="im3"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[5]">
                                 </ion-img>
                             </ion-row>
 
                             <!-- FOURTH ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 7" class="first-im4"
-                                    [src]="recommendedMovieDetail[1].providers[6]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 7" class="first-im4"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[6]">
                                 </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 8" class="im4"
-                                    [src]="recommendedMovieDetail[1].providers[7]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 8" class="im4"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[7]">
                                 </ion-img>
                             </ion-row>
 
                             <!-- FIFTH ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 9" class="first-im5"
-                                    [src]="recommendedMovieDetail[1].providers[8]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 9" class="first-im5"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[8]">
                                 </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[1].providers.length >= 10" class="im5"
-                                    [src]="recommendedMovieDetail[1].providers[9]">
+                                <ion-img *ngIf="recommendedMovieDetail[1].data.providers_image_set.length >= 10" class="im5"
+                                    [src]="recommendedMovieDetail[1].data.providers_image_set[9]">
                                 </ion-img>
                             </ion-row>
 
@@ -232,16 +305,16 @@
                     </ion-text>
                 </ion-col>
 
-                <!-- 2nd FILM POSTER  -->
+                <!-- 3rd FILM POSTER  -->
                 <ion-col size="2">
                     <ion-avatar *ngIf="recommendedMovieDetail[2]">
                         <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
-                        <img class="film-poster" [src]="recommendedMovieDetail[2].poster_img" />
+                        <img class="film-poster" [src]="recommendedMovieDetail[2].data.poster_img" />
                     </ion-avatar>
                     <ion-text *ngIf="recommendedMovieDetail[2]" class="recommended-movie-title" color="light">
-                        <h6>{{recommendedMovieDetail[2].title}}</h6>
+                        <h6>{{recommendedMovieDetail[2].data.title}}</h6>
                     </ion-text>
-                    <ion-button (click)="openMovieClicked(listOfRecommendations[2])" color="danger"
+                    <ion-button (click)="openMovieClicked(recommendedMovieDetail[2].movieID)" color="danger"
                         class="view-details-button" expand="block" fill="solid" shape="round">
                         <ion-icon slot="start" name="play"></ion-icon>
                         VIEW DETAILS
@@ -254,123 +327,50 @@
                     <ion-text style="color: #fff;">
                         <h6>Available on:</h6>
                         <ion-row *ngIf="recommendedMovieDetail[2]">
-                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[2].providers.length >= 1"
-                                [src]="recommendedMovieDetail[2].providers[0]">
+                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 1"
+                                [src]="recommendedMovieDetail[2].data.providers_image_set[0]">
                             </ion-img>
-                            <ion-img class="im" *ngIf="recommendedMovieDetail[2].providers.length >= 2"
-                                [src]="recommendedMovieDetail[2].providers[1]">
+                            <ion-img class="im" *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 2"
+                                [src]="recommendedMovieDetail[2].data.providers_image_set[1]">
                             </ion-img>
 
                             <!-- SECOND ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 3" class="first-im2"
-                                    [src]="recommendedMovieDetail[2].providers[2]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 3" class="first-im2"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[2]">
                                 </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 4" class="im2"
-                                    [src]="recommendedMovieDetail[2].providers[3]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers.length >= 4" class="im2"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[3]">
                                 </ion-img>
                             </ion-row>
 
                             <!-- THIRD ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 5" class="first-im3"
-                                    [src]="recommendedMovieDetail[2].providers[4]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 5" class="first-im3"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[4]">
                                 </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 6" class="im3"
-                                    [src]="recommendedMovieDetail[2].providers[5]">
-                                </ion-img>
-                            </ion-row>
-
-                            <!-- FOURTH ROW OF PROVIDERS -->
-                            <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 7" class="first-im4"
-                                    [src]="recommendedMovieDetail[2].providers[6]">
-                                </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 8" class="im4"
-                                    [src]="recommendedMovieDetail[2].providers[7]">
-                                </ion-img>
-                            </ion-row>
-
-                            <!-- FIFTH ROW OF PROVIDERS -->
-                            <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 9" class="first-im5"
-                                    [src]="recommendedMovieDetail[2].providers[8]">
-                                </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[2].providers.length >= 10" class="im5"
-                                    [src]="recommendedMovieDetail[2].providers[9]">
-                                </ion-img>
-                            </ion-row>
-
-                        </ion-row>
-                    </ion-text>
-                </ion-col>
-
-                <!-- 3rd FILM POSTER  -->
-                <ion-col size="2">
-                    <ion-avatar *ngIf="recommendedMovieDetail[3]">
-                        <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
-                        <img class="film-poster" [src]="recommendedMovieDetail[3].poster_img" />
-                    </ion-avatar>
-                    <ion-text *ngIf="recommendedMovieDetail[3]" class="recommended-movie-title" color="light">
-                        <h6>{{recommendedMovieDetail[3].title}}</h6>
-                    </ion-text>
-                    <ion-button (click)="openMovieClicked(listOfRecommendations[3])" color="danger"
-                        class="view-details-button" expand="block" fill="solid" shape="round">
-                        <ion-icon slot="start" name="play"></ion-icon>
-                        VIEW DETAILS
-                    </ion-button>
-                </ion-col>
-
-                <!-- PROVIDERS / PLATFORMS -->
-
-                <ion-col size="1.5" class="providers">
-                    <ion-text style="color: #fff;">
-                        <h6>Available on:</h6>
-                        <ion-row *ngIf="recommendedMovieDetail[3]">
-                            <ion-img class="first-im" *ngIf="recommendedMovieDetail[3].providers.length >= 1"
-                                [src]="recommendedMovieDetail[3].providers[0]">
-                            </ion-img>
-                            <ion-img class="im" *ngIf="recommendedMovieDetail[3].providers.length >= 2"
-                                [src]="recommendedMovieDetail[3].providers[1]">
-                            </ion-img>
-
-                            <!-- SECOND ROW OF PROVIDERS -->
-                            <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 3" class="first-im2"
-                                    [src]="recommendedMovieDetail[3].providers[2]">
-                                </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 4" class="im2"
-                                    [src]="recommendedMovieDetail[3].providers[3]">
-                                </ion-img>
-                            </ion-row>
-
-                            <!-- THIRD ROW OF PROVIDERS -->
-                            <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 5" class="first-im3"
-                                    [src]="recommendedMovieDetail[3].providers[4]">
-                                </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 6" class="im3"
-                                    [src]="recommendedMovieDetail[3].providers[5]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 6" class="im3"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[5]">
                                 </ion-img>
                             </ion-row>
 
                             <!-- FOURTH ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 7" class="first-im4"
-                                    [src]="recommendedMovieDetail[3].providers[6]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 7" class="first-im4"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[6]">
                                 </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 8" class="im4"
-                                    [src]="recommendedMovieDetail[3].providers[7]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 8" class="im4"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[7]">
                                 </ion-img>
                             </ion-row>
 
                             <!-- FIFTH ROW OF PROVIDERS -->
                             <ion-row>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 9" class="first-im5"
-                                    [src]="recommendedMovieDetail[3].providers[8]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 9" class="first-im5"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[8]">
                                 </ion-img>
-                                <ion-img *ngIf="recommendedMovieDetail[3].providers.length >= 10" class="im5"
-                                    [src]="recommendedMovieDetail[3].providers[9]">
+                                <ion-img *ngIf="recommendedMovieDetail[2].data.providers_image_set.length >= 10" class="im5"
+                                    [src]="recommendedMovieDetail[2].data.providers_image_set[9]">
                                 </ion-img>
                             </ion-row>
 

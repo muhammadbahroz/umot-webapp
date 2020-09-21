@@ -72,7 +72,7 @@
         <ion-col size="12" style="left: -7.6em;">
             <div *ngIf = "movieDetail" class="large-box">
                 <!-- <ion-img class="img" src="/assets/background/Film-cover_1366x768px.jpg"></ion-img> -->
-                <ion-img class="img" [src] = "movieDetail.background_img"></ion-img>
+                <ion-img class="img" [src] = "movieDetail.data.background_img"></ion-img>
                 <!-- BACK BUTTON -->
                 <ion-button [routerLink]="['/home']"class="back-btn" fill="clear">
                     <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
@@ -84,18 +84,18 @@
                 <!-- Movie Title -->
                 <ion-text>
                     <!-- <h2 class="movie-title">Joker</h2> -->
-                    <h2 class="movie-title">{{movieDetail.title}}</h2>
+                    <h2 class="movie-title">{{movieDetail.data.title}}</h2>
                 </ion-text>
                 <!-- Info Buttons -->
                 <ion-buttons  class="info" >
                     <ion-button class="info-first" expand="block" fill="outline">
-                        {{movieDetail.runtime}} minutes
+                        {{movieDetail.data.runtime}} minutes
                     </ion-button>
                     <ion-button class="info-second" expand="block" fill="outline">
-                        {{movieDetail.genres[0]}}
+                        {{movieDetail.data.genres[0]}}
                     </ion-button>
                     <ion-button class="info-third" expand="block" fill="outline">
-                        {{movieDetail.genres[1]}}
+                        {{movieDetail.data.genres[1]}}
                     </ion-button>
                 </ion-buttons>
                 <!-- MATCH PERCENTAGE -->
@@ -114,7 +114,7 @@
             <ion-col size="2">
                 <ion-avatar>
                     <!-- <img class="film-poster" src="/assets/film-posters/film-poster.jpg" /> -->
-                    <img class="film-poster" [src] = "movieDetail.poster_img" />
+                    <img class="film-poster" [src] = "movieDetail.data.poster_img" />
                 </ion-avatar>
                 <ion-button color="danger" class="trailer-button" expand="block" fill="solid" shape="round">
                     <ion-icon slot="start" name="play"></ion-icon>
@@ -131,7 +131,7 @@
                 <ion-text class="synopsis" style="color: #fff;">
                     <h1>Synopsis</h1>
                     <!-- <p>Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him. Isolated, bullied and disregarded by society, Fleck begins a slow descent into madness as he transforms into the criminal mastermind known as the Joker.</p> -->
-                    <p>{{movieDetail.synopsis}}</p>
+                    <p>{{movieDetail.data.synopsis}}</p>
                 </ion-text>
 
                 <!-- CAST -->
@@ -140,7 +140,7 @@
                         <h1>Casting</h1>
                     </ion-text>
 
-                    <ion-avatar class="cast" *ngFor="let person of movieDetail.credits.cast">
+                    <ion-avatar class="cast" *ngFor="let person of castList">
                         <!-- <img src="/assets/actors/casting_1.png" /> -->
                         <img [src] = "person.profile_path" />
                         <!-- <ion-label color="light">Zack Snyder</ion-label> -->
@@ -170,10 +170,10 @@
                 <ion-text class="providers" style="color: #fff;">
                     <h1>Available on:</h1>
                     <ion-row>
-                        <ion-img class="first-im" *ngIf="movieDetail.providers.length >= 1" [src]="movieDetail.providers[0]"></ion-img>
-                        <ion-img class="im" *ngIf="movieDetail.providers.length >= 2" [src]="movieDetail.providers[1]"></ion-img>
-                        <ion-img class="im" *ngIf="movieDetail.providers.length >= 3" [src]="movieDetail.providers[2]"></ion-img>
-                        <ion-img class="im" *ngIf="movieDetail.providers.length >= 4" [src]="movieDetail.providers[3]"></ion-img>
+                        <ion-img class="first-im" *ngIf="movieDetail.data.providers_image_set.length >= 1" [src]="movieDetail.data.providers_image_set[0]"></ion-img>
+                        <ion-img class="im" *ngIf="movieDetail.data.providers_image_set.length >= 2" [src]="movieDetail.data.providers_image_set[1]"></ion-img>
+                        <ion-img class="im" *ngIf="movieDetail.data.providers_image_set.length >= 3" [src]="movieDetail.data.providers_image_set[2]"></ion-img>
+                        <ion-img class="im" *ngIf="movieDetail.data.providers_image_set.length >= 4" [src]="movieDetail.data.providers_image_set[3]"></ion-img>
                         <!-- <ion-thumbnail class="first-im" *ngIf = "movieDetail.providers[0]">
                             <img src="/assets/platforms/HBO.svg" />
                         </ion-thumbnail>
@@ -189,10 +189,10 @@
 
                         <!-- SECOND ROW OF PROVIDERS -->
                         <ion-row>
-                            <ion-img *ngIf="movieDetail.providers.length >= 5" class="first-im2" [src]="movieDetail.providers[4]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 6" class="im2" [src]="movieDetail.providers[5]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 7" class="im2" [src]="movieDetail.providers[6]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 8" class="im2" [src]="movieDetail.providers[7]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 5" class="first-im2" [src]="movieDetail.data.providers_image_set[4]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 6" class="im2" [src]="movieDetail.data.providers_image_set[5]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 7" class="im2" [src]="movieDetail.data.providers_image_set[6]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 8" class="im2" [src]="movieDetail.data.providers_image_set[7]"></ion-img>
                             <!-- <ion-thumbnail class="first-im2">
                                 <img src="/assets/platforms/Movistar+.svg" />
                             </ion-thumbnail>
@@ -206,26 +206,26 @@
 
                         <!-- THIRD ROW OF PROVIDERS -->
                         <ion-row>
-                            <ion-img *ngIf="movieDetail.providers.length >= 9" class="first-im3" [src]="movieDetail.providers[8]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 10" class="im3" [src]="movieDetail.providers[9]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 11" class="im3" [src]="movieDetail.providers[10]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 12" class="im3" [src]="movieDetail.providers[11]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 9" class="first-im3" [src]="movieDetail.data.providers_image_set[8]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 10" class="im3" [src]="movieDetail.data.providers_image_set[9]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 11" class="im3" [src]="movieDetail.data.providers_image_set[10]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 12" class="im3" [src]="movieDetail.data.providers_image_set[11]"></ion-img>
                         </ion-row>
 
                         <!-- FOURTH ROW OF PROVIDERS -->
                         <ion-row>
-                            <ion-img *ngIf="movieDetail.providers.length >= 13" class="first-im4" [src]="movieDetail.providers[12]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 14" class="im4" [src]="movieDetail.providers[13]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 15" class="im4" [src]="movieDetail.providers[14]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 16" class="im4" [src]="movieDetail.providers[15]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 13" class="first-im4" [src]="movieDetail.data.providers_image_set[12]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 14" class="im4" [src]="movieDetail.data.providers_image_set[13]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 15" class="im4" [src]="movieDetail.data.providers_image_set[14]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 16" class="im4" [src]="movieDetail.data.providers_image_set[15]"></ion-img>
                         </ion-row>
 
                         <!-- FIFTH ROW OF PROVIDERS -->
                         <ion-row>
-                            <ion-img *ngIf="movieDetail.providers.length >= 17" class="first-im5" [src]="movieDetail.providers[16]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 18" class="im5" [src]="movieDetail.providers[17]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 19" class="im5" [src]="movieDetail.providers[18]"></ion-img>
-                            <ion-img *ngIf="movieDetail.providers.length >= 20" class="im5" [src]="movieDetail.providers[19]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 17" class="first-im5" [src]="movieDetail.data.providers_image_set[16]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 18" class="im5" [src]="movieDetail.data.providers_image_set[17]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 19" class="im5" [src]="movieDetail.data.providers_image_set[18]"></ion-img>
+                            <ion-img *ngIf="movieDetail.data.providers_image_set.length >= 20" class="im5" [src]="movieDetail.data.providers_image_set[19]"></ion-img>
                         </ion-row>
 
                     </ion-row>

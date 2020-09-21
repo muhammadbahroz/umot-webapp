@@ -62,10 +62,10 @@ export class SearchService {
     return this.httpClient.get('http://18.222.13.116:5000/movie/search', {params});
   }
 
-  movie(query: string){
+  async movie(query: string){
     let val = 'http://18.222.13.116:5000/movie/';
     val = val + query;
-    return this.httpClient.get(val);
+    return  this.httpClient.get(val);
   }
 
   /**
