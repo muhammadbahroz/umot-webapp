@@ -36,7 +36,7 @@ export class SearchService {
       console.error(
         `${error.error.message}, \n`+
         `Backend returned code ${error.status}, \n` +
-        `body was: ${error.error}, \n` +
+        `body was: ${error.error.errors}, \n` +
         `url of resource retrieved: ${error.url}, \n` +
         `response headers: ${error.headers}, \n`+
         `error complete: ${error},\n`+
@@ -44,6 +44,10 @@ export class SearchService {
         `error type: ${error.type}\n`+
         `error ok: ${error.ok}\n`+
         `status text: ${error.statusText}`);
+      for (let key in error.error.errors) {
+        // console.error("key: ", key);
+        console.error(`Key: ${key}: `,error.error.errors[key]);
+      }
     }
     // return an observable with a user-facing error message
     return throwError('Something bad happened;');
@@ -114,7 +118,7 @@ export class SearchService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
   login(item): Observable<Login> {

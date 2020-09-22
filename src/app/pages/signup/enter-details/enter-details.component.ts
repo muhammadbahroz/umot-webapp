@@ -163,7 +163,6 @@ export class EnterDetailsComponent {
       console.log( "result from upload: ",result);
       localStorage.setItem("key",JSON.stringify(result)); // this saves the bearer token into local storage
       this.router.navigate(['signup/question-page']);
-    }
-      ));
+    }));
   }
 }
