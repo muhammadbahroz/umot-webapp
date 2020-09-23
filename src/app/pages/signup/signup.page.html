@@ -23,7 +23,7 @@
                 <ion-item>
                   <!-- <ion-label position="floating">Email
                 </ion-label> -->
-                  <ion-input placeholder="Email" required formControlName="email" type="email"></ion-input>
+                  <ion-input placeholder="Email" required formControlName="email" type="email" (ionChange)="check()"></ion-input>
                 </ion-item>     
             </ion-col>
           </ion-row>
@@ -60,6 +60,26 @@
 
           <ion-row>
             <ion-col size="12">
+              <ion-item class="traansparent" *ngIf="userExists" lines="none">
+                <ion-text color="danger" class="form-error">
+                  User Already Exists. Please Login
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
+              <ion-item class="traansparent" *ngIf="tryAgain" lines="none">
+                <ion-text color="danger" class="form-error">
+                  ERROR Occcured Please Try Again!
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col size="12">
               <ion-button type="submit" expand="block" color="danger" [disabled]="signupForm.invalid" shape="round">
                 Continue
               </ion-button>
@@ -68,13 +88,15 @@
         </form>
       </ion-card-content>
 
-      <ion-row>
-        <ion-col size="12">
-          <ion-buttons>
-            <ion-back-button color="light" defaultHref="login"></ion-back-button>
-          </ion-buttons>
-        </ion-col>
-      </ion-row>
+      <div *ngIf="userExists === false">
+        <ion-row>
+          <ion-col size="12">
+            <ion-buttons>
+              <ion-back-button color="light" defaultHref="login"></ion-back-button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-grid>
   </div>
 </ion-content>

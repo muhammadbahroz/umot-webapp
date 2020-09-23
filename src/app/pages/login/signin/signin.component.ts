@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SearchService } from './../../../services/search.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -24,37 +24,39 @@ export class SigninComponent implements OnInit {
     ])
   });
 
-  constructor(private SearchService: SearchService,private router: Router) { }
+  constructor(private SearchService: SearchService, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  check(){
+  check() {
     console.log("test");
     this.loginFailure = false;
     this.tryAgain = false;
   }
   async onSubmit() {
     console.log(this.SearchService.login(this.loginForm.value).subscribe((result: any) => {
-      console.log( "result from upload: ",result )
-      ;if(this.loginFailure === false && this.tryAgain=== false){
-        
+      console.log("result from upload: ", result);
+      if (this.loginFailure === false && this.tryAgain === false) {
+
         this.router.navigate(['signup/question-page']);
         // this.router.navigate(['/error']);
-        localStorage.setItem("key",JSON.stringify(result)); // this saves the bearer token into local storage
-      };},(error: HttpErrorResponse) => {
-        if (error.error instanceof ErrorEvent) {
-          // A client-side or network error occurred. Handle it accordingly.
-          this.tryAgain = true;
-          console.error('An error occurred:', error.error.message);
-        } else {
-          // The backend returned an unsuccessful response code.
-          // The response body may contain clues as to what went wrong,
-          this.loginFailure = true;
-          console.error(
-            `Backend returned code ${error.status}, ` +
-            `body was: ${error.error}`);
-        }}
-      ));
-      // console.log(this.loginForm.value);
+        localStorage.setItem("key", JSON.stringify(result)); // this saves the bearer token into local storage
+      };
+    }, (error: HttpErrorResponse) => {
+      if (error.error instanceof ErrorEvent) {
+        // A client-side or network error occurred. Handle it accordingly.
+        this.tryAgain = true;
+        console.error('An error occurred:', error.error.message);
+      } else {
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        this.loginFailure = true;
+        console.error(
+          `Backend returned code ${error.status}, ` +
+          `body was: ${error.error}`);
+      }
+    }
+    ));
+    // console.log(this.loginForm.value);
   }
 }

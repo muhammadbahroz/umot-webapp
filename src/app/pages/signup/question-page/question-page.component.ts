@@ -85,7 +85,7 @@ export class QuestionPageComponent implements OnInit {
             this.recommendationReturned = JSON.parse(this.recommendationData);
             this.noRecommendationCheck = false;
             this.recommendationCheck = true;
-            this.firsRecommendation = this.recommendationReturned[0];
+            this.firsRecommendation = this.recommendationReturned[this.recommendationReturned.length - 4];
             // console.log("First Recommendation: ", this.firsRecommendation);
             console.log("recommendation list: ", this.recommendationReturned);
             localStorage.setItem("listOfRecommendation", JSON.stringify(this.recommendationReturned));

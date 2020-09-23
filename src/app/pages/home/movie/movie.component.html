@@ -74,10 +74,13 @@
                 <!-- <ion-img class="img" src="/assets/background/Film-cover_1366x768px.jpg"></ion-img> -->
                 <ion-img class="img" [src] = "movieDetail.data.background_img"></ion-img>
                 <!-- BACK BUTTON -->
-                <ion-button [routerLink]="['/home']"class="back-btn" fill="clear">
+                <ion-buttons class="back-btn">
+                    <ion-back-button defaultHref="/home" fill="clear" text = "BACK"></ion-back-button>
+                </ion-buttons>
+                <!-- <ion-button [routerLink]="['/home']"class="back-btn" fill="clear">
                     <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
                     <ion-label style="margin-left: 10px;">Back</ion-label>
-                </ion-button>
+                </ion-button> -->
                 <ion-text class="text">
                     <h1>We Recommend</h1>
                 </ion-text>

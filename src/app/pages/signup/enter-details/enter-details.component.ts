@@ -1,3 +1,4 @@
+import { UserUpdate } from './../../../classes/user-update';
 import { MediumConfig } from './../../../classes/medium-config';
 import { MediumConfigInterface } from './../../../interface/medium-config-interface';
 import { PlatformConfig } from './../../../classes/platform-config';
@@ -20,7 +21,8 @@ export class EnterDetailsComponent {
   searchValue: string;
   check:boolean = false;
   emailPassword: any;
-  user: User = new UserInfo();
+  // user: User = new UserInfo();
+  user: UserUpdate;
   platform_config: PlatformConfigInterface = new PlatformConfig();
   medium_config: MediumConfigInterface = new MediumConfig();
 
@@ -28,7 +30,7 @@ export class EnterDetailsComponent {
     private route: ActivatedRoute,
     private SearchService: SearchService,
     private datePipe: DatePipe) {
-    this.func();
+    // this.func();
     // console.log("username: ", this.user.email);
     // console.log("password: ", this.user.password);
   }
@@ -135,17 +137,16 @@ export class EnterDetailsComponent {
   }
 
   async onSubmit() {
-    this.user.email = this.emailPassword.email;
-    this.user.password = this.emailPassword.password;
-    this.user.gender = this.signupForm.get("gender").value;
-    this.user.username = this.signupForm.get("fullname").value;
-    this.user.dob = this.datePipe.transform(this.signupForm.get("dob").value, 'yyyy-MM-dd');
-    this.user.dp_url = "null";
-    this.user.postcode = this.signupForm.get("postcode").value;
-    this.user.num_of_children = parseInt( this.signupForm.get("numberOfChildren").value);
-    this.user.country = this.signupForm.get("country").value;
-    this.user.platform_config = JSON.stringify(this.platform_config);
-    this.user.medium_config = JSON.stringify(this.medium_config);
+    this.user = new UserUpdate(
+      this.signupForm.get("gender").value,
+      this.datePipe.transform(this.signupForm.get("dob").value, 'yyyy-MM-dd'),
+      parseInt( this.signupForm.get("numberOfChildren").value),
+      this.signupForm.get("country").value,
+      this.signupForm.get("postcode").value,
+      "/assets/actors/person.png",
+      JSON.stringify(this.platform_config),
+      JSON.stringify(this.medium_config)
+      );
 
     // console.log("gender",this.signupForm.get("gender").value);
     // console.log("fullname",this.signupForm.get("fullname").value);
@@ -158,10 +159,9 @@ export class EnterDetailsComponent {
     // console.log("emailPassword",this.emailPassword);
     console.log("complete user json: ", this.user);
 
-    // THIS IS THE PART THAT CALLS SIGNUP API
-    console.log(this.SearchService.createNewUser(this.user).subscribe((result: any) => {
+    // THIS IS THE PART THAT CALLS USER-UPDATE API
+    console.log(this.SearchService.updateUser(this.user).subscribe((result: any) => {
       console.log( "result from upload: ",result);
-      localStorage.setItem("key",JSON.stringify(result)); // this saves the bearer token into local storage
       this.router.navigate(['signup/question-page']);
     }));
   }

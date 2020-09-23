@@ -24,11 +24,11 @@ export class PremiumRecommendationPageComponent implements OnInit {
     // console.log("fiest recommendation: ", this.listOfRecommendations[0]);
 
     // console.log("Entered getRecommendedMovieDetails with movieID: " + this.listOfRecommendations[1] + " with index: " + 0)
-    this.getRecommendedMovieDetails(this.listOfRecommendations[1], 0);
+    this.getRecommendedMovieDetails(this.listOfRecommendations[this.listOfRecommendations.length - 1], 0);
     // console.log("Entered getRecommendedMovieDetails with movieID: " + this.listOfRecommendations[2] + " with index: " + 1)
-    this.getRecommendedMovieDetails(this.listOfRecommendations[2], 1);
+    this.getRecommendedMovieDetails(this.listOfRecommendations[this.listOfRecommendations.length - 2], 1);
     // console.log("Entered getRecommendedMovieDetails with movieID: " + this.listOfRecommendations[3] + " with index: " + 2)
-    this.getRecommendedMovieDetails(this.listOfRecommendations[3], 2);
+    this.getRecommendedMovieDetails(this.listOfRecommendations[this.listOfRecommendations.length - 3], 2);
   }
 
 

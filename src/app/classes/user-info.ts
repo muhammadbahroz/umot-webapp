@@ -1,3 +1,5 @@
+import { MediumConfig } from './medium-config';
+import { PlatformConfig } from './platform-config';
 import { User } from './../interface/user';
 export class UserInfo implements User {
     email: string;
@@ -12,9 +14,10 @@ export class UserInfo implements User {
     platform_config: string;
     medium_config: string;
 
-    constructor(email: string = null, username: string = null, password: string = null, gender: string = null,
-        dob: string = null, num_of_children: number = 0, country: string = null, postcode: string = null,
-        dp_url: string = null, platform_config: string = null, medium_config: string = null) {
+    constructor(email: string = null, username: string = "username", password: string = null, gender: string = "other",
+        dob: string = "1999-01-01", num_of_children: number = 0, country: string = "AQ", postcode: string = "0000",
+        dp_url: string = "/assets/actors/person.png", platform_config: string = JSON.stringify(new PlatformConfig()),
+        medium_config: string = JSON.stringify(new MediumConfig())) {
         this.email = email;
         this.username = username;
         this.password = password;
