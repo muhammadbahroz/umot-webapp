@@ -2,6 +2,7 @@ import { PlatformConfig } from './platform-config';
 import { MediumConfig } from './medium-config';
 import { UserUpdateInterface } from './../interface/user-update-interface';
 export class UserUpdate implements UserUpdateInterface{
+    username: string;
     gender: string;
     dob: string;
     num_of_children: number;
@@ -13,6 +14,7 @@ export class UserUpdate implements UserUpdateInterface{
 
     /**
      * This maps user update Json and saves all the data over a user that can be sent over to server to update user
+      *@param username string
      * @param gender string
      * @param dob string
      * @param num_of_children number
@@ -22,9 +24,10 @@ export class UserUpdate implements UserUpdateInterface{
      * @param platform_config string
      * @param medium_config string
      */
-    constructor (gender: string = "other", dob: string = "1999-01-01", num_of_children: number = 0,
+    constructor (username: string = "null", gender: string = "other", dob: string = "1999-01-01", num_of_children: number = 0,
     country: string = "AQ", postcode: string = "0000", dp_url: string = "/assets/actors/person.png",
     platform_config: string = JSON.stringify(new PlatformConfig()), medium_config: string = JSON.stringify(new MediumConfig())){
+        this.username = username;
         this.gender = gender;
         this.dob = dob;
         this.num_of_children = num_of_children;

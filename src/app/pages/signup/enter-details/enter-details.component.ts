@@ -138,6 +138,7 @@ export class EnterDetailsComponent {
 
   async onSubmit() {
     this.user = new UserUpdate(
+      this.signupForm.get("fullname").value,
       this.signupForm.get("gender").value,
       this.datePipe.transform(this.signupForm.get("dob").value, 'yyyy-MM-dd'),
       parseInt( this.signupForm.get("numberOfChildren").value),
