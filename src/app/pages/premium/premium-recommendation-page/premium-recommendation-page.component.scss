@@ -569,6 +569,33 @@ ion-footer {
     }
 }
 
+.already-watched-button{
+    width: 150px;
+    position: relative;
+    font-weight: bold;
+    top: 170px;
+    
+    @media (min-width: 1360px) {
+        left: 20px;    
+    }
+
+    @media (min-width: 1440px) {
+        left: -11%;
+    }
+
+    @media (min-width: 1600px) {
+        left: -30%;
+    }
+
+    @media (min-width: 1680px) {
+        left: -50%;
+    }
+
+    @media (min-width: 1920px) {
+        left: -80%;    
+    }
+}
+
 ////////////////////////SHARE BUTTON////////////////////////
 .recommended-movie-title{
     position: absolute;

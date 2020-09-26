@@ -15,7 +15,9 @@ export class PremiumRecommendationPageComponent implements OnInit {
   searchValue: string;
   movieID: string;
   check: boolean = false;
-  listOfRecommendations = [];
+  listOfRecommendations: string;
+  recommendationMovieIndex: number = 1;
+
   constructor(private router: Router, private searchService: SearchService, private route: ActivatedRoute) {
     this.movieID = this.route.snapshot.paramMap.get('id');
     this.movieClick();
@@ -23,21 +25,35 @@ export class PremiumRecommendationPageComponent implements OnInit {
     // console.log("listOfRecommendation: ", this.listOfRecommendations);
     // console.log("fiest recommendation: ", this.listOfRecommendations[0]);
 
-    // console.log("Entered getRecommendedMovieDetails with movieID: " + this.listOfRecommendations[1] + " with index: " + 0)
-    this.getRecommendedMovieDetails(this.listOfRecommendations[this.listOfRecommendations.length - 1], 0);
-    // console.log("Entered getRecommendedMovieDetails with movieID: " + this.listOfRecommendations[2] + " with index: " + 1)
-    this.getRecommendedMovieDetails(this.listOfRecommendations[this.listOfRecommendations.length - 2], 1);
-    // console.log("Entered getRecommendedMovieDetails with movieID: " + this.listOfRecommendations[3] + " with index: " + 2)
-    this.getRecommendedMovieDetails(this.listOfRecommendations[this.listOfRecommendations.length - 3], 2);
+    if (this.listOfRecommendations.length > 1) {
+      this.getRecommendedMovieDetails(this.listOfRecommendations[1], 1);
+      this.recommendationMovieIndex += 1;
+    }
+
+    if (this.listOfRecommendations.length > 2) {
+      this.getRecommendedMovieDetails(this.listOfRecommendations[2], 2);
+      this.recommendationMovieIndex += 1;
+    }
+
+    if (this.listOfRecommendations.length > 3) {
+      this.getRecommendedMovieDetails(this.listOfRecommendations[3], 3);
+      this.recommendationMovieIndex += 1;
+    }
   }
 
 
-  recommendedMovieDetail: Movie[] = [];
+  secondRecommendedMovieDetail: Movie;
+  thirdRecommendedMovieDetail: Movie;
+  fourthRecommendedMovieDetail: Movie;
   /**
    * this function get the given recommended movie details and save it's details
-   * in an array called recommendedMovieDetail
+   * in an three different variables according to their positions
    * @param movieID string, movie id of the movie to look for 
-   * @param id number, position of the movie in the reommended list
+   * @param id number
+   * id = 1 : for the second movie, among poster movies
+   * id = 2 : for the third movie, among poster movies
+   * id = 3 : for the fourth movie, among poster movies
+   * 
    */
   async getRecommendedMovieDetails(movieID: string, id: number) {
     // console.log("get recommendtion started");
@@ -45,13 +61,51 @@ export class PremiumRecommendationPageComponent implements OnInit {
       movie.subscribe((m: any) => {
         // console.log("movie JSON got: ", m);
         console.log("data JSON", JSON.parse(m.data));
-        this.recommendedMovieDetail.push(new Movie(m.statusCode, JSON.parse(m.data), m.message, m.success, movieID));
+        if (id === 1) {
+          this.secondRecommendedMovieDetail = new Movie(m.statusCode, JSON.parse(m.data), m.message, m.success, movieID); 
+          console.log("Second Movie Detail ", this.secondRecommendedMovieDetail);
+        }else if (id === 2) {
+          this.thirdRecommendedMovieDetail = new Movie(m.statusCode, JSON.parse(m.data), m.message, m.success, movieID); 
+          console.log("Third Movie Detail ", this.thirdRecommendedMovieDetail);
+        }else if (id === 3) {
+          this.fourthRecommendedMovieDetail = new Movie(m.statusCode, JSON.parse(m.data), m.message, m.success, movieID); 
+          console.log("Fourth Movie Detail ", this.fourthRecommendedMovieDetail);
+        }
         console.log("movieID: ", movieID);
         console.log("movie Number: ", id);
-        console.log("Movie Detail ", this.recommendedMovieDetail[id]);
       });
     });
-    console.log("all movies details list: ", this.recommendedMovieDetail);
+  }
+
+  /**
+   * this function updates the movie with the next available movie in the listOfRecommendations
+   * @param displayIndex number
+   * displayIndex = 0 : for the first movie, displayed with banner
+   * displayIndex = 1 : for the second movie, among poster movies
+   * displayIndex = 2 : for the third movie, among poster movies
+   * displayIndex = 3 : for the fourth movie, among poster movies
+   */
+  alreadyWatched(displayIndex: number) {
+    if (this.listOfRecommendations.length > this.recommendationMovieIndex) {
+      if (displayIndex === 0) {
+        this.movieID = this.listOfRecommendations[this.recommendationMovieIndex];
+        this.recommendationMovieIndex += 1;
+        console.log("clicked for first");
+        this.movieClick(); 
+      }else if (displayIndex === 1) {
+        console.log("clicked for second");
+        this.getRecommendedMovieDetails(this.listOfRecommendations[this.recommendationMovieIndex],1);
+        this.recommendationMovieIndex += 1;
+      }else if (displayIndex === 2) {
+        console.log("clicked for second");
+        this.getRecommendedMovieDetails(this.listOfRecommendations[this.recommendationMovieIndex],2);
+        this.recommendationMovieIndex += 1;
+      }else if (displayIndex === 3) {
+        console.log("clicked for second");
+        this.getRecommendedMovieDetails(this.listOfRecommendations[this.recommendationMovieIndex],3);
+        this.recommendationMovieIndex += 1;
+      }
+    }
   }
 
 
@@ -177,7 +231,7 @@ export class PremiumRecommendationPageComponent implements OnInit {
   }
 
   movieDetail: Movie;
-  providersArray: string[] = [];
+  // providersArray: string[] = [];
   movieClick() {
     // console.log("get recommendtion started");
     this.searchService.movie(this.movieID).then(async (movie: Observable<MovieInterface>) => {
@@ -255,9 +309,10 @@ export class PremiumRecommendationPageComponent implements OnInit {
     console.log("returned ", this.searchService.addToWishList({ "movie_id": parseInt(movieID) }).subscribe((result: any) => { console.log("wish list post return: ", result) }));
   }
 
-  markWatched(movieID: string) {
+  markWatched(movieID: string, displayIndex: number) {
     // console.log(JSON.stringify({"movie_id": 481992}));
 
-    console.log("returned ", this.searchService.markWatched({ "movie_id": parseInt(movieID) }).subscribe((result: any) => { console.log("wish list post return: ", result) }));
+    console.log("returned ", this.searchService.markWatched({ "movie_id": parseInt(movieID) }).subscribe((result: any) => { console.log("mark watched post return: ", result) }));
+    this.alreadyWatched(displayIndex);
   }
 }
