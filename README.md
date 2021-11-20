@@ -115,7 +115,7 @@
 - [ ] Trailer Video Player on Movie Page
 
 **MOBILE SCREENS**
-- [x] Home Page
+- [ ] Home Page
 - [x] Movie Page
 - [x] Menu-Search Page
 - [x] FAQ Page
